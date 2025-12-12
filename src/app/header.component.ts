@@ -19,6 +19,7 @@ import { RouterLink } from '@angular/router';
       <div class="flex items-center gap-4">
         <nav class="hidden md:flex items-center gap-6 text-sm opacity-90">
           <a routerLink="/home" class="hover:underline">Home</a>
+          <a routerLink="/projects" class="hover:underline">Projects</a>
           <a routerLink="/timeline" class="hover:underline">Experience</a>
         </nav>
         <button (click)="toggleTheme()" class="p-2 rounded-full glass hover:bg-white/10 transition-all duration-300 hover:scale-110">
