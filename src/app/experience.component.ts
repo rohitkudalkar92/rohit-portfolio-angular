@@ -4,7 +4,7 @@ import { HeaderComponent } from './header.component';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-timeline',
+  selector: 'app-experience',
   standalone: true,
   imports: [CommonModule, HeaderComponent, RouterModule],
   template: `
@@ -39,7 +39,7 @@ import { RouterModule } from '@angular/router';
     </div>
   `
 })
-export class TimelineComponent {
+export class ExperienceComponent {
   timeline = [
     {
       title: 'Frontend Module Lead',
