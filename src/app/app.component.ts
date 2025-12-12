@@ -19,7 +19,7 @@ import { HeaderComponent } from './header.component';
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-200 to-yellow-200">Impactful</span>
             Interfaces
           </h1>
-          <p class="mt-4 text-gray-300 max-w-xl">
+          <p class="mt-4 text-dark max-w-xl">
             I'm Rohit — a Senior Software Engineer from Mumbai specializing in front-end development with Angular and React.
             I love building fast, scalable, and user-friendly experiences that blend design and logic.
           </p>
@@ -38,11 +38,11 @@ import { HeaderComponent } from './header.component';
       <!-- Expertise -->
       <section id="services" class="py-8">
         <h2 class="text-2xl font-bold">Expertise</h2>
-        <p class="text-gray-300 mt-2 max-w-2xl">I love translating ideas into functional, maintainable code. Here's what I work with most:</p>
+        <p class="text-dark mt-2 max-w-2xl">I love translating ideas into functional, maintainable code. Here's what I work with most:</p>
         <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           <div *ngFor="let skill of skills" class="p-5 rounded-xl glass">
             <h3 class="font-semibold">{{ skill.title }}</h3>
-            <p class="text-gray-300 text-sm mt-2">{{ skill.description }}</p>
+            <p class="text-dark text-sm mt-2">{{ skill.description }}</p>
           </div>
         </div>
       </section>
@@ -52,20 +52,20 @@ import { HeaderComponent } from './header.component';
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
           <div class="md:col-span-2">
             <h2 class="text-2xl font-bold">About Me</h2>
-            <p class="text-gray-300 mt-3">I'm a curious engineer passionate about crafting intuitive interfaces and scalable systems.
+            <p class="text-dark mt-3">I'm a curious engineer passionate about crafting intuitive interfaces and scalable systems.
               When I'm not coding, I explore new frameworks, travel, and brainstorm product ideas like <b>Mano Smṛti</b> —
               a cognitive training app I'm building.</p>
             <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div *ngFor="let trait of traits" class="p-4 rounded-lg glass">
                 <h4 class="font-semibold">{{ trait.title }}</h4>
-                <p class="text-gray-300 text-sm mt-1">{{ trait.description }}</p>
+                <p class="text-dark text-sm mt-1">{{ trait.description }}</p>
               </div>
             </div>
           </div>
 
           <aside class="p-6 rounded-xl glass">
             <h3 class="font-semibold">Quick Info</h3>
-            <div class="mt-4 text-sm text-gray-300 space-y-2">
+            <div class="mt-4 text-sm text-dark space-y-2">
               <div>📍 Mumbai, India</div>
               <div>💻 Senior Software Engineer</div>
               <div>⚙️ Angular • React • TypeScript</div>
@@ -80,15 +80,15 @@ import { HeaderComponent } from './header.component';
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
           <div class="p-6 rounded-xl glass">
             <h3 class="font-semibold text-lg">Let's Connect</h3>
-            <p class="text-gray-300 text-sm mt-2">Want to collaborate or just say hi? Drop a quick message below.</p>
-            <div class="mt-6 text-sm text-gray-300">
+            <p class="text-dark text-sm mt-2">Want to collaborate or just say hi? Drop a quick message below.</p>
+            <div class="mt-6 text-sm text-dark">
               <p>Feel free to reach out through any of the platforms listed on the right, or send me an email directly.</p>
             </div>
           </div>
 
           <div class="p-6 rounded-xl glass">
             <h3 class="font-semibold text-lg">Find Me</h3>
-            <div class="mt-4 text-sm text-gray-300 space-y-2">
+            <div class="mt-4 text-sm text-dark space-y-2">
               <div *ngFor="let contact of contacts">
                 {{ contact.label }}: <a [href]="contact.url" target="_blank" class="text-blue-400 hover:underline">{{ contact.display }}</a>
               </div>
@@ -97,7 +97,7 @@ import { HeaderComponent } from './header.component';
         </div>
       </section>
 
-      <footer class="py-8 text-center text-gray-400 text-sm">© 2025 Rohit.dev — Built with ❤️ in Mumbai</footer>
+      <footer class="py-8 text-center text-dark text-sm">© 2025 Rohit.dev — Built with ❤️ in Mumbai</footer>
     </div>
   `
 })

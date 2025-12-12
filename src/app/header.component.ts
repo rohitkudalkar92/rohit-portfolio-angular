@@ -21,8 +21,10 @@ import { Component, OnInit } from '@angular/core';
           <a href="#about" class="hover:underline">About</a>
           <a href="#contact" class="hover:underline">Contact</a>
         </nav>
-        <button (click)="toggleTheme()" class="p-2 rounded-full glass hover:bg-white/10 transition-colors">
-          {{ isDark ? '☀️' : '🌙' }}
+        <button (click)="toggleTheme()" class="p-2 rounded-full glass hover:bg-white/10 transition-all duration-300 hover:scale-110">
+          <span class="inline-block transition-transform duration-300" [class.rotate-180]="isDark">
+            {{ isDark ? '☀️' : '🌙' }}
+          </span>
         </button>
       </div>
     </header>
