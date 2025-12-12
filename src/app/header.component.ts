@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
+  imports: [RouterLink],
   template: `
     <header class="flex items-center justify-between py-4">
       <div class="flex items-center gap-3">
@@ -16,11 +18,8 @@ import { Component, OnInit } from '@angular/core';
       </div>
       <div class="flex items-center gap-4">
         <nav class="hidden md:flex items-center gap-6 text-sm opacity-90">
-          <a href="#home" class="hover:underline">Home</a>
-          <a href="#services" class="hover:underline">Expertise</a>
-          <a href="#about" class="hover:underline">About</a>
-          <a href="timeline" class="hover:underline">Experience</a>
-          <a href="#contact" class="hover:underline">Contact</a>
+          <a routerLink="/home" class="hover:underline">Home</a>
+          <a routerLink="/timeline" class="hover:underline">Experience</a>
         </nav>
         <button (click)="toggleTheme()" class="p-2 rounded-full glass hover:bg-white/10 transition-all duration-300 hover:scale-110">
           <span class="inline-block transition-transform duration-300" [class.rotate-180]="isDark">
