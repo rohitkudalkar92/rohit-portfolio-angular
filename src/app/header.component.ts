@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -14,13 +14,36 @@ import { Component } from '@angular/core';
           <div class="text-xs opacity-70">Frontend Engineer • Creator</div>
         </div>
       </div>
-      <nav class="hidden md:flex items-center gap-6 text-sm opacity-90">
-        <a href="#home" class="hover:underline">Home</a>
-        <a href="#services" class="hover:underline">Expertise</a>
-        <a href="#about" class="hover:underline">About</a>
-        <a href="#contact" class="hover:underline">Contact</a>
-      </nav>
+      <div class="flex items-center gap-4">
+        <nav class="hidden md:flex items-center gap-6 text-sm opacity-90">
+          <a href="#home" class="hover:underline">Home</a>
+          <a href="#services" class="hover:underline">Expertise</a>
+          <a href="#about" class="hover:underline">About</a>
+          <a href="#contact" class="hover:underline">Contact</a>
+        </nav>
+        <button (click)="toggleTheme()" class="p-2 rounded-full glass hover:bg-white/10 transition-colors">
+          {{ isDark ? '☀️' : '🌙' }}
+        </button>
+      </div>
     </header>
   `
 })
-export class HeaderComponent {}
+export class HeaderComponent implements OnInit {
+  isDark = false;
+
+  ngOnInit() {
+    const savedTheme = sessionStorage.getItem('rohit-dev-theme');
+    this.isDark = savedTheme ? savedTheme === 'dark' : false;
+    this.applyTheme();
+  }
+
+  toggleTheme() {
+    this.isDark = !this.isDark;
+    this.applyTheme();
+    sessionStorage.setItem('rohit-dev-theme', this.isDark ? 'dark' : 'light');
+  }
+
+  private applyTheme() {
+    document.documentElement.classList.toggle('dark', this.isDark);
+  }
+}
