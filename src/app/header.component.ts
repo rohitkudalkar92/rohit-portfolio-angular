@@ -35,7 +35,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     const savedTheme = sessionStorage.getItem('rohit-dev-theme');
-    this.isDark = savedTheme ? savedTheme === 'dark' : false;
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    this.isDark = savedTheme ? savedTheme === 'dark' : systemPrefersDark;
     this.applyTheme();
   }
 

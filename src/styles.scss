@@ -4,7 +4,7 @@
   --accent: #d4f99c;
 }
 
-:root.dark {
+[data-theme='dark'], :root.dark {
   --bg-primary: #0f1724;
   --bg-secondary: #1f2937;
   --text-primary: #ffffff;
@@ -18,7 +18,7 @@
   --grad-2: #1f2937;
 }
 
-:root:not(.dark) {
+[data-theme='light'], :root:not(.dark) {
   --bg-primary: #ffffff;
   --bg-secondary: #f9fafb;
   --text-primary: #1f2937;

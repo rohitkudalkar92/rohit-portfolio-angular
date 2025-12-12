@@ -65,10 +65,35 @@ import { HeaderComponent } from './header.component';
 
           <aside class="p-6 rounded-xl glass">
             <h3 class="font-semibold">Quick Info</h3>
-            <div class="mt-4 text-sm text-dark space-y-2">
-              <div>📍 Mumbai, India</div>
-              <div>💻 Senior Software Engineer</div>
-              <div>⚙️ Angular • React • TypeScript</div>
+            <div class="mt-4 text-sm text-dark space-y-3">
+              <div class="flex items-center gap-2">
+                <span>📍</span>
+                <span>Mumbai, India (GMT+5:30)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span>💼</span>
+                <span>Senior Software Engineer</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span>⚙️</span>
+                <span>Angular • React • TypeScript</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span>🎯</span>
+                <span>10+ Years Experience</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                <span>Available for Projects</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span>🏆</span>
+                <span>Frontend Architecture</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span>📚</span>
+                <span>Continuous Learner</span>
+              </div>
             </div>
           </aside>
         </div>
