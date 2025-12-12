@@ -19,7 +19,7 @@ import { Component, OnInit } from '@angular/core';
           <a href="#home" class="hover:underline">Home</a>
           <a href="#services" class="hover:underline">Expertise</a>
           <a href="#about" class="hover:underline">About</a>
-          <a href="#timeline" class="hover:underline">Timeline</a>
+          <a href="timeline" class="hover:underline">Experience</a>
           <a href="#contact" class="hover:underline">Contact</a>
         </nav>
         <button (click)="toggleTheme()" class="p-2 rounded-full glass hover:bg-white/10 transition-all duration-300 hover:scale-110">

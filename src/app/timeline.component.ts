@@ -1,0 +1,99 @@
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HeaderComponent } from './header.component';
+import { RouterModule } from '@angular/router';
+
+@Component({
+  selector: 'app-timeline',
+  standalone: true,
+  imports: [CommonModule, HeaderComponent, RouterModule],
+  template: `
+    <div class="max-w-6xl mx-auto px-6 py-8">
+      <app-header></app-header>
+      <h1 class="text-3xl font-bold mb-8">Work Experience</h1>
+      
+      <div class="relative">
+        <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-400 to-purple-600"></div>
+        <div class="space-y-8">
+          <div *ngFor="let job of timeline" class="relative flex items-start gap-6">
+            <div class="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-indigo-400 to-purple-600 rounded-full flex items-center justify-center relative z-10">
+              <div class="w-3 h-3 bg-white rounded-full"></div>
+            </div>
+            <div class="flex-1 glass p-6 rounded-xl">
+              <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                <h3 class="font-semibold text-lg">{{ job.title }}</h3>
+                <span class="text-sm text-black px-3 py-1 rounded-full mt-2 md:mt-0" style="background-color: var(--accent)">{{ job.period }}</span>
+              </div>
+              <h4 class="font-medium text-indigo-400 mb-2">{{ job.company }}</h4>
+              <p class="text-dark text-sm mb-3">{{ job.description }}</p>
+              <div class="flex flex-wrap gap-2">
+                <span *ngFor="let tech of job.technologies" class="flex items-center gap-1 text-xs px-2 py-1 bg-glass-bg border border-glass-border rounded-md">
+                  <img [src]="getTechIcon(tech)" [alt]="tech" class="w-4 h-4">
+                  <span>{{ tech }}</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `
+})
+export class TimelineComponent {
+  timeline = [
+    {
+      title: 'Frontend Module Lead',
+      company: 'Fluid.live',
+      period: 'Nov 2021 - Present',
+      description: 'Leading frontend architecture and mentoring junior developers. Built scalable Angular applications serving 100K+ users. Implemented micro-frontend architecture reducing deployment time by 60%. Established coding standards and best practices across multiple development teams. Spearheaded migration from legacy systems to modern Angular 17 with improved performance metrics.',
+      technologies: ['Angular 17', 'TypeScript', 'RxJS', 'NgRx', 'Tailwind CSS', 'Material-UI', 'React', 'Node.js', 'MySQL', 'WordPress', 'HTML5', 'SCSS', 'ES6', 'Git', 'Metabase']
+    },
+    {
+      title: 'Full Stack Developer',
+      company: 'procedure.tech',
+      period: 'June 2019 - Nov 2021',
+      description: 'Developed responsive web applications and improved performance by 40%. Built complete applications from scratch with both frontend and backend development in an agile environment. Collaborated with cross-functional teams to deliver 15+ client projects on time and within budget. Implemented automated testing strategies resulting in 90% bug reduction in production. Optimized database queries and API endpoints improving overall system efficiency by 35%.',
+      technologies: ['React', 'JavaScript', 'ES6', 'Redux', 'Material-UI', 'Jest', 'Angular', 'Node.js', 'MongoDB', 'Express', 'Bootstrap', 'Git']
+    },
+    {
+      title: 'Junior Developer',
+      company: 'Coense Solutions Pvt. Ltd.',
+      period: 'Dec 2016 - June 2019',
+      description: 'Started career developing websites and learning modern web technologies. Gained experience in responsive design, API integration, and database management. Built custom WordPress themes and worked on e-commerce solutions using CodeIgniter framework. Developed 20+ responsive websites with cross-browser compatibility and mobile-first approach. Created RESTful APIs for client-server communication and integrated third-party payment gateways. Maintained and optimized MySQL databases ensuring data integrity and improved query performance.',
+      technologies: ['HTML5', 'CSS3', 'JavaScript', 'ES6', 'jQuery', 'PHP', 'MySQL', 'WordPress', 'React', 'Node.js', 'CodeIgniter', 'Bootstrap', 'Git']
+    }
+  ];
+
+  private techIcons: { [key: string]: string } = {
+    'Angular 17': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg',
+    'Angular': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg',
+    'TypeScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+    'RxJS': 'https://rxjs.dev/generated/images/marketing/home/Rx_Logo-512-512.png',
+    'NgRx': 'https://ngrx.io/assets/images/badge.svg',
+    'Tailwind CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
+    'React': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+    'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+    'Redux': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg',
+    'Material-UI': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg',
+    'Node.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+    'MongoDB': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+    'Express': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
+    'Bootstrap': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
+    'Jest': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg',
+    'HTML5': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+    'CSS3': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+    'jQuery': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg',
+    'PHP': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
+    'MySQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+    'WordPress': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg',
+    'CodeIgniter': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg',
+    'SCSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg',
+    'ES6': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+    'Git': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
+    'Metabase': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg'
+  };
+
+  getTechIcon(tech: string): string {
+    return this.techIcons[tech] || 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg';
+  }
+}
