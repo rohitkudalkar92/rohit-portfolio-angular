@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HeaderComponent } from './header.component';
+import { TitleService } from './title.service';
 
 @Component({
   selector: 'app-project-detail',
@@ -150,12 +151,19 @@ export class ProjectDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private titleService: TitleService
   ) {}
 
   ngOnInit() {
     const projectId = this.route.snapshot.paramMap.get('id');
     this.project = this.projects.find(p => p.id === projectId);
+    
+    if (this.project) {
+      this.titleService.setTitle(this.project.title);
+    } else {
+      this.titleService.setTitle('Project Not Found');
+    }
   }
 
   getTechIcon(tech: string): string {

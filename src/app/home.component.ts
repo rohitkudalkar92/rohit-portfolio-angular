@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
 import { RouterModule } from '@angular/router';
+import { TitleService } from './title.service';
 
 @Component({
   selector: 'app-home',
@@ -129,7 +130,12 @@ import { RouterModule } from '@angular/router';
     </div>
   `
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  constructor(private titleService: TitleService) {}
+
+  ngOnInit(): void {
+    this.titleService.setTitle();
+  }
   skills = [
     {
       title: 'Angular & React',

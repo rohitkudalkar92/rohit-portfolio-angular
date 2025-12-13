@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { HeaderComponent } from './header.component';
+import { TitleService } from './title.service';
 
 @Component({
   selector: 'app-projects',
@@ -38,7 +39,12 @@ import { HeaderComponent } from './header.component';
     </div>
   `
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit {
+  constructor(private titleService: TitleService) {}
+
+  ngOnInit(): void {
+    this.titleService.setTitle('Projects');
+  }
   projects = [
     {
       id: 'house-medicine',

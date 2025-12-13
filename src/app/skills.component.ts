@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
 import { RouterModule } from '@angular/router';
+import { TitleService } from './title.service';
 
 @Component({
   selector: 'app-skills',
@@ -66,7 +67,12 @@ import { RouterModule } from '@angular/router';
     </div>
   `
 })
-export class SkillsComponent {
+export class SkillsComponent implements OnInit {
+  constructor(private titleService: TitleService) {}
+
+  ngOnInit(): void {
+    this.titleService.setTitle('Skills');
+  }
   skillCategories = [
     {
       title: 'Frontend Development',
