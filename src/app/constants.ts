@@ -23,6 +23,7 @@ export const CONSTANTS = {
     HOME: 'Home',
     SKILLS: 'Skills',
     PROJECTS: 'Projects',
+    DSA: 'DSA',
     EXPERIENCE: 'Experience'
   },
   
@@ -255,6 +256,7 @@ export const CONSTANTS = {
     HOME: '/home',
     SKILLS: '/skills',
     PROJECTS: '/projects',
+    DSA: '/dsa',
     TIMELINE: '/timeline'
   },
   
