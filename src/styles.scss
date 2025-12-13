@@ -2,6 +2,16 @@
   --grad-1: #0f1724;
   --grad-2: #1f2937;
   --accent: #d4f99c;
+  /* Dark theme as default */
+  --bg-primary: #0f1724;
+  --bg-secondary: #1f2937;
+  --text-primary: #ffffff;
+  --text-secondary: #d1d5db;
+  --text-muted: #9ca3af;
+  --border-color: #374151;
+  --link-color: #60a5fa;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.04);
 }
 
 [data-theme='dark'], :root.dark {
@@ -18,7 +28,7 @@
   --grad-2: #1f2937;
 }
 
-[data-theme='light'], :root:not(.dark) {
+[data-theme='light'] {
   --bg-primary: #ffffff;
   --bg-secondary: #f9fafb;
   --text-primary: #1f2937;
