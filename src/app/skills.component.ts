@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
 import { RouterModule } from '@angular/router';
 import { TitleService } from './title.service';
+import { CONSTANTS } from './constants';
 
 @Component({
   selector: 'app-skills',
@@ -11,7 +12,7 @@ import { TitleService } from './title.service';
   template: `
     <div class="max-w-6xl mx-auto px-6 py-8">
       <app-header></app-header>
-      <h1 class="text-3xl font-bold mb-8">Technical Skills</h1>
+      <h1 class="text-3xl font-bold mb-8">{{ pageTitle }}</h1>
       
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div *ngFor="let category of skillCategories" class="glass p-6 rounded-xl">
@@ -50,7 +51,7 @@ import { TitleService } from './title.service';
 
       <!-- Additional Skills -->
       <div class="mt-12">
-        <h2 class="text-2xl font-bold mb-6">Additional Expertise</h2>
+        <h2 class="text-2xl font-bold mb-6">{{ additionalTitle }}</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div *ngFor="let area of additionalSkills" class="glass p-6 rounded-xl text-center">
             <div class="text-3xl mb-3">{{ area.icon }}</div>
@@ -68,16 +69,19 @@ import { TitleService } from './title.service';
   `
 })
 export class SkillsComponent implements OnInit {
+  pageTitle = CONSTANTS.SKILLS.TITLE;
+  additionalTitle = CONSTANTS.SKILLS.ADDITIONAL_TITLE;
+
   constructor(private titleService: TitleService) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle('Skills');
+    this.titleService.setTitle(CONSTANTS.PAGE_TITLES.SKILLS);
   }
   skillCategories = [
     {
-      title: 'Frontend Development',
-      description: 'Modern web technologies and frameworks',
-      icon: '🎨',
+      title: CONSTANTS.SKILLS_DATA.CATEGORIES[0].title,
+      description: CONSTANTS.SKILLS_DATA.CATEGORIES[0].description,
+      icon: CONSTANTS.SKILLS_DATA.CATEGORIES[0].icon,
       skills: [
         { name: 'Angular', proficiency: 95, experience: '5+ years' },
         { name: 'React', proficiency: 90, experience: '4+ years' },
@@ -90,9 +94,9 @@ export class SkillsComponent implements OnInit {
       ]
     },
     {
-      title: 'Backend & Database',
-      description: 'Server-side technologies and data management',
-      icon: '⚙️',
+      title: CONSTANTS.SKILLS_DATA.CATEGORIES[1].title,
+      description: CONSTANTS.SKILLS_DATA.CATEGORIES[1].description,
+      icon: CONSTANTS.SKILLS_DATA.CATEGORIES[1].icon,
       skills: [
         { name: 'Node.js', proficiency: 85, experience: '4+ years' },
         { name: 'Express', proficiency: 82, experience: '3+ years' },
@@ -105,9 +109,9 @@ export class SkillsComponent implements OnInit {
       ]
     },
     {
-      title: 'State Management & Tools',
-      description: 'Application state and development tools',
-      icon: '🔧',
+      title: CONSTANTS.SKILLS_DATA.CATEGORIES[2].title,
+      description: CONSTANTS.SKILLS_DATA.CATEGORIES[2].description,
+      icon: CONSTANTS.SKILLS_DATA.CATEGORIES[2].icon,
       skills: [
         { name: 'NgRx', proficiency: 88, experience: '3+ years' },
         { name: 'Redux', proficiency: 85, experience: '3+ years' },
@@ -120,9 +124,9 @@ export class SkillsComponent implements OnInit {
       ]
     },
     {
-      title: 'UI/UX & Design',
-      description: 'Design systems and user experience',
-      icon: '🎯',
+      title: CONSTANTS.SKILLS_DATA.CATEGORIES[3].title,
+      description: CONSTANTS.SKILLS_DATA.CATEGORIES[3].description,
+      icon: CONSTANTS.SKILLS_DATA.CATEGORIES[3].icon,
       skills: [
         { name: 'Material-UI', proficiency: 90, experience: '4+ years' },
         { name: 'Bootstrap', proficiency: 92, experience: '6+ years' },
@@ -138,61 +142,28 @@ export class SkillsComponent implements OnInit {
 
   additionalSkills = [
     {
-      title: 'Development Practices',
-      description: 'Methodologies and best practices',
-      icon: '📋',
+      title: CONSTANTS.SKILLS_DATA.ADDITIONAL[0].title,
+      description: CONSTANTS.SKILLS_DATA.ADDITIONAL[0].description,
+      icon: CONSTANTS.SKILLS_DATA.ADDITIONAL[0].icon,
       tools: ['Agile/Scrum', 'Code Reviews', 'CI/CD', 'TDD', 'Clean Code', 'SOLID Principles']
     },
     {
-      title: 'Leadership & Mentoring',
-      description: 'Team management and knowledge sharing',
-      icon: '👥',
+      title: CONSTANTS.SKILLS_DATA.ADDITIONAL[1].title,
+      description: CONSTANTS.SKILLS_DATA.ADDITIONAL[1].description,
+      icon: CONSTANTS.SKILLS_DATA.ADDITIONAL[1].icon,
       tools: ['Team Leadership', 'Technical Mentoring', 'Code Standards', 'Architecture Design', 'Technical Interviews']
     },
     {
-      title: 'Performance & Analytics',
-      description: 'Optimization and monitoring tools',
-      icon: '📊',
+      title: CONSTANTS.SKILLS_DATA.ADDITIONAL[2].title,
+      description: CONSTANTS.SKILLS_DATA.ADDITIONAL[2].description,
+      icon: CONSTANTS.SKILLS_DATA.ADDITIONAL[2].icon,
       tools: ['Google Analytics', 'Lighthouse', 'Web Vitals', 'Sentry', 'Performance Monitoring', 'SEO Optimization']
     }
   ];
 
-  private techIcons: { [key: string]: string } = {
-    'Angular': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg',
-    'React': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-    'TypeScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-    'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-    'HTML5': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
-    'CSS3': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-    'Tailwind CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
-    'SCSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg',
-    'Node.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-    'Express': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
-    'PHP': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
-    'MySQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
-    'MongoDB': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
-    'REST APIs': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg',
-    'GraphQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg',
-    'WordPress': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg',
-    'NgRx': 'https://ngrx.io/assets/images/badge.svg',
-    'Redux': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg',
-    'RxJS': 'https://rxjs.dev/generated/images/marketing/home/Rx_Logo-512-512.png',
-    'Git': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
-    'Webpack': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg',
-    'Jest': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg',
-    'Cypress': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg',
-    'Docker': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
-    'Material-UI': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg',
-    'Bootstrap': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
-    'Figma': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
-    'Responsive Design': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg',
-    'Accessibility': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg',
-    'Performance Optimization': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg',
-    'Cross-browser Testing': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg',
-    'Mobile-first Design': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg'
-  };
+  private techIcons = CONSTANTS.TECH_ICONS;
 
   getTechIcon(tech: string): string {
-    return this.techIcons[tech] || 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg';
+    return (this.techIcons as any)[tech] || CONSTANTS.DEFAULT_TECH_ICON;
   }
 }

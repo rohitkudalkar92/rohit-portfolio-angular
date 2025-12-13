@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { CONSTANTS } from './constants';
 
 @Component({
   selector: 'app-header',
@@ -12,16 +13,16 @@ import { RouterLink } from '@angular/router';
           R
         </div>
         <div>
-          <div class="text-lg font-semibold">Rohit.dev</div>
-          <div class="text-xs opacity-70">Frontend Engineer • Creator</div>
+          <div class="text-lg font-semibold">{{ brandName }}</div>
+          <div class="text-xs opacity-70">{{ brandSubtitle }}</div>
         </div>
       </div>
       <div class="flex items-center gap-4">
         <nav class="hidden md:flex items-center gap-6 text-sm opacity-90">
-          <a routerLink="/home" class="hover:underline">Home</a>
-          <a routerLink="/skills" class="hover:underline">Skills</a>
-          <a routerLink="/projects" class="hover:underline">Projects</a>
-          <a routerLink="/timeline" class="hover:underline">Experience</a>
+          <a [routerLink]="routes.HOME" class="hover:underline">{{ nav.HOME }}</a>
+          <a [routerLink]="routes.SKILLS" class="hover:underline">{{ nav.SKILLS }}</a>
+          <a [routerLink]="routes.PROJECTS" class="hover:underline">{{ nav.PROJECTS }}</a>
+          <a [routerLink]="routes.TIMELINE" class="hover:underline">{{ nav.EXPERIENCE }}</a>
         </nav>
         <button (click)="toggleTheme()" class="p-2 rounded-full glass hover:bg-white/10 transition-all duration-300 hover:scale-110">
           <span class="inline-block transition-transform duration-300" [class.rotate-180]="isDark">
@@ -34,9 +35,13 @@ import { RouterLink } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   isDark = false;
+  brandName = CONSTANTS.BRAND_NAME;
+  brandSubtitle = CONSTANTS.BRAND_SUBTITLE;
+  nav = CONSTANTS.NAV;
+  routes = CONSTANTS.ROUTES;
 
   ngOnInit() {
-    const savedTheme = sessionStorage.getItem('rohit-dev-theme');
+    const savedTheme = sessionStorage.getItem(CONSTANTS.THEME_STORAGE_KEY);
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     this.isDark = savedTheme ? savedTheme === 'dark' : systemPrefersDark;
     this.applyTheme();
@@ -45,7 +50,7 @@ export class HeaderComponent implements OnInit {
   toggleTheme() {
     this.isDark = !this.isDark;
     this.applyTheme();
-    sessionStorage.setItem('rohit-dev-theme', this.isDark ? 'dark' : 'light');
+    sessionStorage.setItem(CONSTANTS.THEME_STORAGE_KEY, this.isDark ? 'dark' : 'light');
   }
 
   private applyTheme() {

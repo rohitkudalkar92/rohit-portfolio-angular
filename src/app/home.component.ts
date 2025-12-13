@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
 import { RouterModule } from '@angular/router';
 import { TitleService } from './title.service';
+import { CONSTANTS } from './constants';
 
 @Component({
   selector: 'app-home',
@@ -16,17 +17,16 @@ import { TitleService } from './title.service';
       <section id="home" class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center py-24">
         <div class="md:col-span-7">
           <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
-            Crafting <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-pink-400">Clean</span>
-            &
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-200 to-yellow-200">Impactful</span>
-            Interfaces
+            {{ heroTitle.part1 }} <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-pink-400">{{ heroTitle.clean }}</span>
+            {{ heroTitle.and }}
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-200 to-yellow-200">{{ heroTitle.impactful }}</span>
+            {{ heroTitle.part2 }}
           </h1>
           <p class="mt-4 text-dark max-w-xl">
-            I'm Rohit — a Senior Software Engineer from Mumbai specializing in front-end development with Angular and React.
-            I love building fast, scalable, and user-friendly experiences that blend design and logic.
+            {{ heroDescription }}
           </p>
           <div class="mt-6 flex gap-3">
-            <a href="#services" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-black font-semibold btn-accent">Explore Skills →</a>
+            <a href="#services" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-black font-semibold btn-accent">{{ exploreSkillsBtn }}</a>
           </div>
         </div>
         <div class="md:col-span-5 flex justify-center md:justify-end">
@@ -39,8 +39,8 @@ import { TitleService } from './title.service';
 
       <!-- Expertise -->
       <section id="services" class="py-8">
-        <h2 class="text-2xl font-bold">Expertise</h2>
-        <p class="text-dark mt-2 max-w-2xl">I love translating ideas into functional, maintainable code. Here's what I work with most:</p>
+        <h2 class="text-2xl font-bold">{{ expertiseTitle }}</h2>
+        <p class="text-dark mt-2 max-w-2xl">{{ expertiseDescription }}</p>
         <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           <div *ngFor="let skill of skills" class="p-5 rounded-xl glass">
             <h3 class="font-semibold">{{ skill.title }}</h3>
@@ -53,10 +53,8 @@ import { TitleService } from './title.service';
       <section id="about" class="py-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
           <div class="md:col-span-2">
-            <h2 class="text-2xl font-bold">About Me</h2>
-            <p class="text-dark mt-3">I'm a curious engineer passionate about crafting intuitive interfaces and scalable systems.
-              When I'm not coding, I explore new frameworks, travel, and brainstorm product ideas like <b>Mano Smṛti</b> —
-              a cognitive training app I'm building.</p>
+            <h2 class="text-2xl font-bold">{{ aboutTitle }}</h2>
+            <p class="text-dark mt-3" [innerHTML]="aboutDescription"></p>
             <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div *ngFor="let trait of traits" class="p-4 rounded-lg glass">
                 <h4 class="font-semibold">{{ trait.title }}</h4>
@@ -66,35 +64,35 @@ import { TitleService } from './title.service';
           </div>
 
           <aside class="p-6 rounded-xl glass">
-            <h3 class="font-semibold">Quick Info</h3>
+            <h3 class="font-semibold">{{ quickInfoTitle }}</h3>
             <div class="mt-4 text-sm text-dark space-y-3">
               <div class="flex items-center gap-2">
-                <span>📍</span>
-                <span>Mumbai, India (GMT+5:30)</span>
+                <span>{{ icons.location }}</span>
+                <span>{{ quickInfo.location }}</span>
               </div>
               <div class="flex items-center gap-2">
-                <span>💼</span>
-                <span>Frontend Module Lead</span>
+                <span>{{ icons.work }}</span>
+                <span>{{ quickInfo.role }}</span>
               </div>
               <div class="flex items-center gap-2">
-                <span>⚙️</span>
-                <span>Angular • React • TypeScript</span>
+                <span>{{ icons.tech }}</span>
+                <span>{{ quickInfo.techStack }}</span>
               </div>
               <div class="flex items-center gap-2">
-                <span>🎯</span>
-                <span>10+ Years Experience</span>
+                <span>{{ icons.target }}</span>
+                <span>{{ quickInfo.experience }}</span>
               </div>
               <div class="flex items-center gap-2">
-                <span>🚀</span>
-                <span>Available for Projects</span>
+                <span>{{ icons.rocket }}</span>
+                <span>{{ quickInfo.availability }}</span>
               </div>
               <div class="flex items-center gap-2">
-                <span>🏆</span>
-                <span>Frontend Architecture</span>
+                <span>{{ icons.trophy }}</span>
+                <span>{{ quickInfo.specialty }}</span>
               </div>
               <div class="flex items-center gap-2">
-                <span>📚</span>
-                <span>Continuous Learner</span>
+                <span>{{ icons.books }}</span>
+                <span>{{ quickInfo.learning }}</span>
               </div>
             </div>
           </aside>
@@ -105,18 +103,18 @@ import { TitleService } from './title.service';
 
       <!-- Contact -->
       <section id="contact" class="py-8">
-        <h2 class="text-2xl font-bold mb-4">Contact</h2>
+        <h2 class="text-2xl font-bold mb-4">{{ contactTitle }}</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
           <div class="p-6 rounded-xl glass">
-            <h3 class="font-semibold text-lg">Let's Connect</h3>
-            <p class="text-dark text-sm mt-2">Want to collaborate or just say hi? Drop a quick message below.</p>
+            <h3 class="font-semibold text-lg">{{ contactConnectTitle }}</h3>
+            <p class="text-dark text-sm mt-2">{{ contactConnectDescription }}</p>
             <div class="mt-6 text-sm text-dark">
-              <p>Feel free to reach out through any of the platforms listed on the right, or send me an email directly.</p>
+              <p>{{ contactConnectText }}</p>
             </div>
           </div>
 
           <div class="p-6 rounded-xl glass">
-            <h3 class="font-semibold text-lg">Find Me</h3>
+            <h3 class="font-semibold text-lg">{{ contactFindTitle }}</h3>
             <div class="mt-4 text-sm text-dark space-y-2">
               <div *ngFor="let contact of contacts">
                 {{ contact.label }}: <a [href]="contact.url" target="_blank" class="text-blue-400 hover:underline">{{ contact.display }}</a>
@@ -126,57 +124,75 @@ import { TitleService } from './title.service';
         </div>
       </section>
 
-      <footer class="py-8 text-center text-dark text-sm">© 2025 Rohit.dev — Built with ❤️ in Mumbai</footer>
+      <footer class="py-8 text-center text-dark text-sm">© {{ copyrightYear }} {{ brandName }} — Built with ❤️ in {{ location }}</footer>
     </div>
   `
 })
 export class HomeComponent implements OnInit {
+  // Brand constants
+  brandName = CONSTANTS.BRAND_NAME;
+  copyrightYear = CONSTANTS.COPYRIGHT_YEAR;
+  location = CONSTANTS.LOCATION;
+  
+  // Hero section
+  heroTitle = {
+    part1: CONSTANTS.HOME.HERO_TITLE_PART1,
+    clean: CONSTANTS.HOME.HERO_TITLE_CLEAN,
+    and: CONSTANTS.HOME.HERO_TITLE_AND,
+    impactful: CONSTANTS.HOME.HERO_TITLE_IMPACTFUL,
+    part2: CONSTANTS.HOME.HERO_TITLE_PART2
+  };
+  heroDescription = CONSTANTS.HOME.HERO_DESCRIPTION;
+  exploreSkillsBtn = CONSTANTS.HOME.EXPLORE_SKILLS_BTN;
+  
+  // Expertise section
+  expertiseTitle = CONSTANTS.HOME.EXPERTISE_TITLE;
+  expertiseDescription = CONSTANTS.HOME.EXPERTISE_DESCRIPTION;
+  
+  // About section
+  aboutTitle = CONSTANTS.HOME.ABOUT_TITLE;
+  aboutDescription = CONSTANTS.HOME.ABOUT_DESCRIPTION.replace('Mano Smṛti', '<b>Mano Smṛti</b>');
+  
+  // Quick info section
+  quickInfoTitle = CONSTANTS.HOME.QUICK_INFO_TITLE;
+  quickInfo = {
+    location: CONSTANTS.HOME.QUICK_INFO.LOCATION,
+    role: CONSTANTS.HOME.QUICK_INFO.ROLE,
+    techStack: CONSTANTS.HOME.QUICK_INFO.TECH_STACK,
+    experience: CONSTANTS.HOME.QUICK_INFO.EXPERIENCE,
+    availability: CONSTANTS.HOME.QUICK_INFO.AVAILABILITY,
+    specialty: CONSTANTS.HOME.QUICK_INFO.SPECIALTY,
+    learning: CONSTANTS.HOME.QUICK_INFO.LEARNING
+  };
+  icons = {
+    location: CONSTANTS.ICONS.LOCATION,
+    work: CONSTANTS.ICONS.WORK,
+    tech: CONSTANTS.ICONS.TECH,
+    target: CONSTANTS.ICONS.TARGET,
+    rocket: CONSTANTS.ICONS.ROCKET,
+    trophy: CONSTANTS.ICONS.TROPHY,
+    books: CONSTANTS.ICONS.BOOKS
+  };
+  
+  // Contact section
+  contactTitle = CONSTANTS.HOME.CONTACT_TITLE;
+  contactConnectTitle = CONSTANTS.HOME.CONTACT_CONNECT_TITLE;
+  contactConnectDescription = CONSTANTS.HOME.CONTACT_CONNECT_DESCRIPTION;
+  contactConnectText = CONSTANTS.HOME.CONTACT_CONNECT_TEXT;
+  contactFindTitle = CONSTANTS.HOME.CONTACT_FIND_TITLE;
+  
+  // Data arrays
+  skills = CONSTANTS.HOME_SKILLS;
+  traits = CONSTANTS.HOME_TRAITS;
+  contacts = [
+    { label: CONSTANTS.CONTACT_LABELS.EMAIL, url: `mailto:${CONSTANTS.CONTACT_INFO.EMAIL}`, display: CONSTANTS.CONTACT_INFO.EMAIL },
+    { label: CONSTANTS.CONTACT_LABELS.GITHUB, url: CONSTANTS.CONTACT_INFO.GITHUB_URL, display: CONSTANTS.CONTACT_INFO.GITHUB_DISPLAY },
+    { label: CONSTANTS.CONTACT_LABELS.LINKEDIN, url: CONSTANTS.CONTACT_INFO.LINKEDIN_URL, display: CONSTANTS.CONTACT_INFO.LINKEDIN_DISPLAY }
+  ];
+
   constructor(private titleService: TitleService) {}
 
   ngOnInit(): void {
     this.titleService.setTitle();
   }
-  skills = [
-    {
-      title: 'Angular & React',
-      description: 'Scalable architecture, modular code, and reusable components.'
-    },
-    {
-      title: 'TypeScript & Clean Code',
-      description: 'Strong typing, readability, and consistent structure.'
-    },
-    {
-      title: 'UI / UX Focus',
-      description: 'Bridging design with logic for seamless user experience.'
-    },
-    {
-      title: 'Performance & Optimization',
-      description: 'Lazy loading, code splitting, and data-driven performance tweaks.'
-    }
-  ];
-
-  traits = [
-    {
-      title: 'Curiosity-Driven',
-      description: 'Always exploring tech that simplifies human experience.'
-    },
-    {
-      title: 'Frontend Architect',
-      description: 'Balancing beauty and maintainability in every component.'
-    },
-    {
-      title: 'Team Leader',
-      description: 'Empowering teams with clarity, empathy, and code discipline.'
-    },
-    {
-      title: 'Builder at Heart',
-      description: 'I love bringing side projects to life from scratch.'
-    }
-  ];
-
-  contacts = [
-    { label: 'Email', url: 'mailto:rohitkudalkar92@gmail.com', display: 'rohitkudalkar92@gmail.com' },
-    { label: 'GitHub', url: 'https://github.com/rohitkudalkar92', display: 'https://github.com/rohitkudalkar92' },
-    { label: 'LinkedIn', url: 'https://www.linkedin.com/in/rohit-kudalkar-225841129', display: 'https://www.linkedin.com/in/rohit-kudalkar-225841129/' },
-  ];
 }

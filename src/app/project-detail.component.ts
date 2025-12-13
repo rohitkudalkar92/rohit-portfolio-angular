@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HeaderComponent } from './header.component';
 import { TitleService } from './title.service';
+import { CONSTANTS } from './constants';
 
 @Component({
   selector: 'app-project-detail',
@@ -14,7 +15,7 @@ import { TitleService } from './title.service';
       
       <div *ngIf="project" class="mt-8">
         <button (click)="goBack()" class="mb-6 flex items-center gap-2 text-sm opacity-80 hover:opacity-100 transition-opacity">
-          ← Back to Projects
+          {{ backToProjectsText }}
         </button>
         
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -30,7 +31,7 @@ import { TitleService } from './title.service';
             <p class="text-lg opacity-90 mb-6">{{ project.description }}</p>
             
             <div class="mb-6">
-              <h3 class="text-xl font-semibold mb-3">Technologies Used</h3>
+              <h3 class="text-xl font-semibold mb-3">{{ technologiesTitle }}</h3>
               <div class="flex flex-wrap gap-2">
                 <span *ngFor="let tech of project.technologies" class="flex items-center gap-1 text-sm px-3 py-2 bg-glass-bg border border-glass-border rounded-lg">
                   <img [src]="getTechIcon(tech)" [alt]="tech" class="w-4 h-4">
@@ -40,10 +41,10 @@ import { TitleService } from './title.service';
             </div>
             
             <div class="mb-6">
-              <h3 class="text-xl font-semibold mb-3">Key Features</h3>
+              <h3 class="text-xl font-semibold mb-3">{{ keyFeaturesTitle }}</h3>
               <ul class="space-y-2">
                 <li *ngFor="let feature of project.features" class="flex items-start gap-2">
-                  <span class="text-green-400 mt-1">✓</span>
+                  <span class="text-green-400 mt-1">{{ checkMark }}</span>
                   <span>{{ feature }}</span>
                 </li>
               </ul>
@@ -51,17 +52,17 @@ import { TitleService } from './title.service';
             
             <div class="flex gap-4">
               <a [href]="project.liveUrl" target="_blank" class="flex-1 text-center py-3 px-6 bg-gradient-to-r from-indigo-400 to-purple-600 text-white rounded-lg hover:opacity-90 transition-opacity">
-                View Live Site
+                {{ viewLiveBtn }}
               </a>
               <a [href]="project.githubUrl" target="_blank" class="flex-1 text-center py-3 px-6 border border-glass-border rounded-lg hover:bg-glass-bg transition-colors">
-                View Code
+                {{ viewCodeBtn }}
               </a>
             </div>
           </div>
         </div>
         
         <div class="mt-12">
-          <h3 class="text-2xl font-semibold mb-6">Project Details</h3>
+          <h3 class="text-2xl font-semibold mb-6">{{ projectDetailsTitle }}</h3>
           <div class="glass p-6 rounded-xl">
             <p class="text-lg leading-relaxed">{{ project.longDescription }}</p>
           </div>
@@ -69,8 +70,8 @@ import { TitleService } from './title.service';
       </div>
       
       <div *ngIf="!project" class="text-center py-12">
-        <h2 class="text-2xl font-semibold mb-4">Project Not Found</h2>
-        <button (click)="goBack()" class="text-indigo-400 hover:underline">← Back to Projects</button>
+        <h2 class="text-2xl font-semibold mb-4">{{ notFoundTitle }}</h2>
+        <button (click)="goBack()" class="text-indigo-400 hover:underline">{{ backToProjectsText }}</button>
       </div>
     </div>
   `
@@ -78,76 +79,19 @@ import { TitleService } from './title.service';
 export class ProjectDetailComponent implements OnInit {
   project: any = null;
   
-  private projects = [
-    {
-      id: 'house-medicine',
-      title: 'House Medicine',
-      description: 'Healthcare platform providing online medical consultations, prescription management, and health monitoring services.',
-      longDescription: 'House Medicine is a comprehensive healthcare platform that revolutionizes the way patients access medical care. The platform features a user-friendly interface for booking appointments, managing prescriptions, and accessing health records. Built with React and Redux for robust state management in a monorepo architecture, it integrates with Node.js backend services and MySQL database for reliable data management. The platform includes features like real-time chat with doctors, prescription tracking, health monitoring dashboards, and secure patient data management.',
-      image: 'assets/house-medicin/house-medicin-2.png',
-      gallery: [
-        'assets/house-medicin/house-medicin-1.png',
-        'assets/house-medicin/house-medicin-2.png',
-        'assets/house-medicin/house-medicin-3.png',
-        'assets/house-medicin/house-medicin-4.png',
-        'assets/house-medicin/house-medicin-5.png',
-        'assets/house-medicin/house-medicin-6.png'
-      ],
-      technologies: ['React', 'Redux', 'TypeScript', 'Monorepo', 'Node.js', 'MySQL', 'WordPress'],
-      features: [
-        'Online medical consultations',
-        'Prescription management system',
-        'Patient health records',
-        'Real-time chat with doctors',
-        'Appointment booking system',
-        'Health monitoring dashboard',
-        'Secure data encryption'
-      ],
-      liveUrl: 'https://housemedicine.com/',
-      githubUrl: 'https://github.com/rohit'
-    },
-    {
-      id: 'miso3-platform',
-      title: 'MiSO3',
-      description: 'MiSO3 is an evolutionary shift in how organizations manage vendor commitments. More than just software, MiSO3 is your automated team with unlimited capacity and relentless focus.',
-      longDescription: 'MiSO3 is an evolutionary shift in how organizations manage vendor commitments. More than just software, MiSO3 is your automated team with unlimited capacity and relentless focus. MiSO3 works quietly in the background, handling the time-consuming tasks you can\'t — and the costly ones you shouldn\'t ignore. Built with modern web technologies for enterprise-grade performance and reliability.',
-      image: 'assets/miso3/miso1.png',
-      gallery: [
-        'assets/miso3/miso2.png',
-        'assets/miso3/miso3.png',
-        'assets/miso3/miso4.png',
-        'assets/miso3/miso5.png',
-        'assets/miso3/miso6.png',
-        'assets/miso3/miso7.png'
-      ],
-      technologies: ['React', 'Angular', 'Redux', 'TypeScript', 'Node.js', 'MongoDB', 'Express'],
-      features: [
-        'Product catalog management',
-        'User authentication & authorization',
-        'Shopping cart & checkout',
-        'Payment gateway integration',
-        'Order tracking system',
-        'Admin dashboard',
-        'Responsive design'
-      ],
-      liveUrl: 'https://miso3.com/',
-      githubUrl: 'https://github.com/rohit'
-    }
-  ];
+  // Text constants
+  backToProjectsText = CONSTANTS.PROJECTS.BACK_TO_PROJECTS;
+  technologiesTitle = CONSTANTS.PROJECTS.TECHNOLOGIES_TITLE;
+  keyFeaturesTitle = CONSTANTS.PROJECTS.KEY_FEATURES_TITLE;
+  projectDetailsTitle = CONSTANTS.PROJECTS.PROJECT_DETAILS_TITLE;
+  viewLiveBtn = CONSTANTS.PROJECTS.VIEW_LIVE_BTN;
+  viewCodeBtn = CONSTANTS.PROJECTS.VIEW_CODE_BTN;
+  notFoundTitle = CONSTANTS.PROJECTS.NOT_FOUND_TITLE;
+  checkMark = CONSTANTS.SYMBOLS.CHECK_MARK;
+  
+  private projects = JSON.parse(JSON.stringify(CONSTANTS.PROJECTS_DATA));
 
-  private techIcons: { [key: string]: string } = {
-    'React': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-    'Redux': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg',
-    'Angular': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg',
-    'TypeScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-    'Node.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-    'MySQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
-    'Bootstrap': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
-    'MongoDB': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
-    'Express': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
-    'Monorepo': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg',
-    'WordPress': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg'
-  };
+  private techIcons = CONSTANTS.TECH_ICONS;
 
   constructor(
     private route: ActivatedRoute,
@@ -157,21 +101,21 @@ export class ProjectDetailComponent implements OnInit {
 
   ngOnInit() {
     const projectId = this.route.snapshot.paramMap.get('id');
-    this.project = this.projects.find(p => p.id === projectId);
+    this.project = this.projects.find((p: any) => p.id === projectId);
     
     if (this.project) {
       this.titleService.setTitle(this.project.title);
     } else {
-      this.titleService.setTitle('Project Not Found');
+      this.titleService.setTitle(CONSTANTS.PAGE_TITLES.PROJECT_NOT_FOUND);
     }
   }
 
   getTechIcon(tech: string): string {
-    return this.techIcons[tech] || 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg';
+    return (this.techIcons as any)[tech] || CONSTANTS.DEFAULT_TECH_ICON;
   }
 
   goBack() {
-    this.router.navigate(['/projects']);
+    this.router.navigate([CONSTANTS.ROUTES.PROJECTS]);
   }
 
   setMainImage(imageSrc: string) {

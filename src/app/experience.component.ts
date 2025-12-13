@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
 import { RouterModule } from '@angular/router';
 import { TitleService } from './title.service';
+import { CONSTANTS } from './constants';
 
 @Component({
   selector: 'app-experience',
@@ -11,7 +12,7 @@ import { TitleService } from './title.service';
   template: `
     <div class="max-w-6xl mx-auto px-6 py-8">
       <app-header></app-header>
-      <h1 class="text-3xl font-bold mb-8">Work Experience</h1>
+      <h1 class="text-3xl font-bold mb-8">{{ pageTitle }}</h1>
       
       <div class="relative">
         <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-400 to-purple-600"></div>
@@ -28,10 +29,10 @@ import { TitleService } from './title.service';
               <h4 class="font-medium text-indigo-400 mb-2">{{ job.company }}</h4>
               <p class="text-dark text-sm mb-3">{{ job.description }}</p>
               <div *ngIf="job.keyPoints" class="mb-4">
-                <h5 class="font-semibold text-sm mb-2">Key Achievements:</h5>
+                <h5 class="font-semibold text-sm mb-2">{{ keyAchievementsTitle }}</h5>
                 <ul class="text-dark text-xs space-y-1 ml-4">
                   <li *ngFor="let point of job.keyPoints" class="flex items-start gap-2">
-                    <span class="text-indigo-400 mt-1">•</span>
+                    <span class="text-indigo-400 mt-1">{{ bullet }}</span>
                     <span>{{ point }}</span>
                   </li>
                 </ul>
@@ -50,10 +51,14 @@ import { TitleService } from './title.service';
   `
 })
 export class ExperienceComponent implements OnInit {
+  pageTitle = CONSTANTS.EXPERIENCE.TITLE;
+  keyAchievementsTitle = CONSTANTS.EXPERIENCE.KEY_ACHIEVEMENTS;
+  bullet = CONSTANTS.SYMBOLS.BULLET;
+
   constructor(private titleService: TitleService) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle('Experience');
+    this.titleService.setTitle(CONSTANTS.PAGE_TITLES.EXPERIENCE);
   }
   timeline: Array<{
     title: string;
@@ -117,36 +122,9 @@ export class ExperienceComponent implements OnInit {
     }
   ];
 
-  private techIcons: { [key: string]: string } = {
-    'Angular 17': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg',
-    'Angular': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg',
-    'TypeScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-    'RxJS': 'https://rxjs.dev/generated/images/marketing/home/Rx_Logo-512-512.png',
-    'NgRx': 'https://ngrx.io/assets/images/badge.svg',
-    'Tailwind CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
-    'React': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-    'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-    'Redux': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg',
-    'Material-UI': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg',
-    'Node.js': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
-    'MongoDB': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
-    'Express': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
-    'Bootstrap': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
-    'Jest': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg',
-    'HTML5': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
-    'CSS3': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-    'jQuery': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg',
-    'PHP': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
-    'MySQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
-    'WordPress': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg',
-    'CodeIgniter': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg',
-    'SCSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg',
-    'ES6': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-    'Git': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
-    'Metabase': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg'
-  };
+  private techIcons = CONSTANTS.TECH_ICONS;
 
   getTechIcon(tech: string): string {
-    return this.techIcons[tech] || 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg';
+    return (this.techIcons as any)[tech] || CONSTANTS.DEFAULT_TECH_ICON;
   }
 }

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { CONSTANTS } from './constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TitleService {
-  private readonly baseTitle = 'Rohit.dev - Frontend Engineer';
+  private readonly baseTitle = CONSTANTS.BRAND_FULL_TITLE;
 
   constructor(private title: Title) {}
 
