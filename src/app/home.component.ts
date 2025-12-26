@@ -26,7 +26,7 @@ import { CONSTANTS } from './constants';
             {{ heroDescription }}
           </p>
           <div class="mt-6 flex gap-3">
-            <a href="#services" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-black font-semibold btn-accent">{{ exploreSkillsBtn }}</a>
+            <a routerLink="/skills" class="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-black font-semibold btn-accent">{{ exploreSkillsBtn }}</a>
           </div>
         </div>
         <div class="md:col-span-5 flex justify-center md:justify-end">

@@ -35,14 +35,14 @@ export const CONSTANTS = {
     HERO_TITLE_AND: '&',
     HERO_TITLE_IMPACTFUL: 'Impactful',
     HERO_TITLE_PART2: 'Interfaces',
-    HERO_DESCRIPTION: "I'm Rohit — a Senior Frontend Architect from Mumbai specializing in scalable frontend systems with Angular and React. I design and build robust, maintainable architectures that power user experiences for thousands of users.",
+    HERO_DESCRIPTION: "I'm Rohit — a skilled and hardworking Senior Frontend Architect from Mumbai, driven by clear goals and a passion for excellence. I believe in neat and clean design principles, specializing in scalable frontend systems with Angular and React that deliver exceptional user experiences for thousands of users.",
     EXPLORE_SKILLS_BTN: 'Explore Skills →',
     
     EXPERTISE_TITLE: 'Expertise',
     EXPERTISE_DESCRIPTION: "I architect scalable frontend systems that balance performance, maintainability, and developer experience. Here's my technical foundation:",
     
     ABOUT_TITLE: 'About Me',
-    ABOUT_DESCRIPTION: "I'm a frontend architect passionate about designing scalable systems and leading technical excellence. I specialize in creating robust architectures that enable teams to build maintainable, high-performance applications. When I'm not architecting solutions, I mentor developers and explore emerging technologies like the cognitive training app Mano Smṛti I'm building.",
+    ABOUT_DESCRIPTION: "I'm a skilled frontend architect with a hardworking mindset and goal-oriented approach to building exceptional digital experiences. I believe in neat and clean design principles that create intuitive, maintainable solutions. My passion lies in designing scalable systems and leading technical excellence through dedication and continuous learning. I specialize in creating robust architectures that enable teams to build maintainable, high-performance applications. When I'm not architecting solutions, I mentor developers and explore emerging technologies.",
     
     QUICK_INFO_TITLE: 'Quick Info',
     QUICK_INFO: {
@@ -178,20 +178,20 @@ export const CONSTANTS = {
   // Home Page Traits
   HOME_TRAITS: [
     {
-      title: 'Architecture-First',
-      description: 'Designing systems that scale with business needs and team growth.'
+      title: 'Clean Design Advocate',
+      description: 'Passionate about neat, clean design principles that create intuitive and maintainable solutions.'
     },
     {
-      title: 'Technical Leader',
-      description: 'Empowering teams through mentorship, standards, and architectural guidance.'
+      title: 'Skilled Professional',
+      description: 'Deep expertise in modern web technologies with continuous skill enhancement and mastery.'
     },
     {
-      title: 'Performance Advocate',
-      description: 'Obsessed with creating fast, efficient, and delightful user experiences.'
+      title: 'Hardworking Mindset',
+      description: 'Dedicated to delivering excellence through persistent effort and unwavering commitment.'
     },
     {
-      title: 'Innovation Driver',
-      description: 'Exploring cutting-edge technologies and building the future of web applications.'
+      title: 'Goal-Oriented',
+      description: 'Focused on achieving measurable results and driving projects to successful completion.'
     }
   ],
   
