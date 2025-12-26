@@ -7,7 +7,7 @@ import { HeaderComponent } from './header.component';
   standalone: true,
   imports: [CommonModule, HeaderComponent],
   template: `
-    <div class="max-w-6xl mx-auto px-6 py-8">
+    <div class="w-[80%] mx-auto px-6 py-8">
       <app-header></app-header>
       <h1 class="text-3xl font-bold mb-8">Data Structures & Algorithms</h1>
       
@@ -92,13 +92,69 @@ export class DSAComponent {
       description: 'Fundamental algorithms for organizing and finding data efficiently.',
       proficiency: 87,
       concepts: ['Quick Sort', 'Merge Sort', 'Binary Search', 'Heap Sort']
+    },
+    {
+      title: 'Stacks & Queues',
+      icon: '📚',
+      description: 'LIFO and FIFO data structures for managing elements in specific order.',
+      proficiency: 88,
+      concepts: ['Stack Operations', 'Queue Operations', 'Deque', 'Priority Queue']
+    },
+    {
+      title: 'Heaps',
+      icon: '⛰️',
+      description: 'Complete binary trees maintaining heap property for priority-based operations.',
+      proficiency: 83,
+      concepts: ['Min Heap', 'Max Heap', 'Heap Sort', 'Priority Queue']
+    },
+    {
+      title: 'Greedy Algorithms',
+      icon: '🎯',
+      description: 'Optimization approach making locally optimal choices at each step.',
+      proficiency: 78,
+      concepts: ['Activity Selection', 'Huffman Coding', 'Fractional Knapsack', 'MST']
+    },
+    {
+      title: 'Backtracking',
+      icon: '🔄',
+      description: 'Algorithmic approach for finding solutions by exploring possibilities and undoing choices.',
+      proficiency: 75,
+      concepts: ['N-Queens', 'Sudoku Solver', 'Permutations', 'Combinations']
+    },
+    {
+      title: 'Bit Manipulation',
+      icon: '🔢',
+      description: 'Operations on binary representations of numbers for efficient computations.',
+      proficiency: 72,
+      concepts: ['XOR', 'Bit Masks', 'Power of 2', 'Single Number']
+    },
+    {
+      title: 'Trie',
+      icon: '🌲',
+      description: 'Tree-like data structure for efficient string storage and prefix-based operations.',
+      proficiency: 80,
+      concepts: ['Prefix Tree', 'Auto-complete', 'Word Search', 'Dictionary']
+    },
+    {
+      title: 'Union Find',
+      icon: '🔗',
+      description: 'Disjoint set data structure for tracking connected components efficiently.',
+      proficiency: 76,
+      concepts: ['Path Compression', 'Union by Rank', 'Connected Components', 'Cycle Detection']
+    },
+    {
+      title: 'Segment Tree',
+      icon: '🌿',
+      description: 'Tree data structure for efficient range queries and updates on arrays.',
+      proficiency: 70,
+      concepts: ['Range Sum', 'Range Min/Max', 'Lazy Propagation', 'Point Updates']
     }
   ];
 
   problemStats = [
     { count: '500+', label: 'Problems Solved' },
-    { count: '15+', label: 'Algorithms Mastered' },
-    { count: '8+', label: 'Data Structures' },
+    { count: '20+', label: 'Algorithms Mastered' },
+    { count: '14+', label: 'Data Structures' },
     { count: '95%', label: 'Success Rate' }
   ];
 }

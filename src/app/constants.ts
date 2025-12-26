@@ -15,6 +15,7 @@ export const CONSTANTS = {
     SKILLS: 'Skills',
     EXPERIENCE: 'Experience',
     PROJECTS: 'Projects',
+    DSA: 'DSA',
     PROJECT_NOT_FOUND: 'Project Not Found'
   },
   
