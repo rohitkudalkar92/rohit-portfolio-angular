@@ -15,7 +15,7 @@ import { CONSTANTS } from './constants';
 
       <!-- Hero -->
       <section id="home" class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center py-24">
-        <div class="md:col-span-7">
+        <div class="md:col-span-7 mb-10 md:mb-0">
           <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
             {{ heroTitle.part1 }} <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-pink-400">{{ heroTitle.clean }}</span>
             {{ heroTitle.and }}

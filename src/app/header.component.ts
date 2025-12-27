@@ -23,11 +23,11 @@ import { CONSTANTS } from './constants';
         <div class="flex items-center gap-2 md:gap-4">
           <!-- Desktop Navigation -->
           <nav class="hidden md:flex items-center gap-6 text-sm opacity-90">
-            <a [routerLink]="routes.HOME" class="hover:underline transition-all">{{ nav.HOME }}</a>
-            <a [routerLink]="routes.SKILLS" class="hover:underline transition-all">{{ nav.SKILLS }}</a>
-            <a [routerLink]="routes.PROJECTS" class="hover:underline transition-all">{{ nav.PROJECTS }}</a>
-            <a [routerLink]="routes.DSA" class="hover:underline transition-all">{{ nav.DSA }}</a>
-            <a [routerLink]="routes.TIMELINE" class="hover:underline transition-all">{{ nav.EXPERIENCE }}</a>
+            <a routerLink="/" class="hover:underline transition-all">{{ nav.HOME }}</a>
+            <a routerLink="/skills" class="hover:underline transition-all">{{ nav.SKILLS }}</a>
+            <a routerLink="/projects" class="hover:underline transition-all">{{ nav.PROJECTS }}</a>
+            <a routerLink="/dsa" class="hover:underline transition-all">{{ nav.DSA }}</a>
+            <a routerLink="/timeline" class="hover:underline transition-all">{{ nav.EXPERIENCE }}</a>
           </nav>
           
           <!-- Theme Toggle -->
@@ -50,11 +50,11 @@ import { CONSTANTS } from './constants';
       <!-- Mobile Navigation -->
       <div class="md:hidden" [class.hidden]="!isMobileMenuOpen">
         <nav class="px-4 py-2 space-y-2 border-t border-glass-border bg-glass-bg">
-          <a [routerLink]="routes.HOME" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg hover:bg-white/5 transition-all text-sm">{{ nav.HOME }}</a>
-          <a [routerLink]="routes.SKILLS" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg hover:bg-white/5 transition-all text-sm">{{ nav.SKILLS }}</a>
-          <a [routerLink]="routes.PROJECTS" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg hover:bg-white/5 transition-all text-sm">{{ nav.PROJECTS }}</a>
-          <a [routerLink]="routes.DSA" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg hover:bg-white/5 transition-all text-sm">{{ nav.DSA }}</a>
-          <a [routerLink]="routes.TIMELINE" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg hover:bg-white/5 transition-all text-sm">{{ nav.EXPERIENCE }}</a>
+          <a routerLink="/" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg hover:bg-white/5 transition-all text-sm">{{ nav.HOME }}</a>
+          <a routerLink="/skills" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg hover:bg-white/5 transition-all text-sm">{{ nav.SKILLS }}</a>
+          <a routerLink="/projects" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg hover:bg-white/5 transition-all text-sm">{{ nav.PROJECTS }}</a>
+          <a routerLink="/dsa" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg hover:bg-white/5 transition-all text-sm">{{ nav.DSA }}</a>
+          <a routerLink="/timeline" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg hover:bg-white/5 transition-all text-sm">{{ nav.EXPERIENCE }}</a>
         </nav>
       </div>
     </header>
