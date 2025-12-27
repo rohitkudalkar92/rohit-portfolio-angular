@@ -143,6 +143,21 @@ export class SkillsComponent implements OnInit {
       description: CONSTANTS.SKILLS_DATA.CATEGORIES[4].description,
       icon: CONSTANTS.SKILLS_DATA.CATEGORIES[4].icon,
       skills: [
+        { name: 'Python', proficiency: 88, experience: '4+ years' },
+        { name: 'TensorFlow', proficiency: 82, experience: '3+ years' },
+        { name: 'PyTorch', proficiency: 78, experience: '2+ years' },
+        { name: 'Pandas', proficiency: 85, experience: '3+ years' },
+        { name: 'NumPy', proficiency: 83, experience: '3+ years' },
+        { name: 'Scikit-learn', proficiency: 80, experience: '2+ years' },
+        { name: 'Jupyter', proficiency: 90, experience: '4+ years' },
+        { name: 'Git', proficiency: 95, experience: '8+ years' }
+      ]
+    },
+    {
+      title: CONSTANTS.SKILLS_DATA.CATEGORIES[5].title,
+      description: CONSTANTS.SKILLS_DATA.CATEGORIES[5].description,
+      icon: CONSTANTS.SKILLS_DATA.CATEGORIES[5].icon,
+      skills: [
         { name: 'Responsive Design', proficiency: 95, experience: '7+ years' },
         { name: 'Cross-browser Testing', proficiency: 90, experience: '6+ years' },
         { name: 'Mobile-first Design', proficiency: 92, experience: '5+ years' },

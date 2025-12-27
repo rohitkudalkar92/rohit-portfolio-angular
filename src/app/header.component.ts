@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Subject } from 'rxjs';
+import { takeUntil, filter } from 'rxjs/operators';
 import { CONSTANTS } from './constants';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, RouterLinkActive, CommonModule],
   template: `
     <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-glass-border">
       <div class="flex items-center justify-between p-4">
@@ -25,12 +27,13 @@ import { CONSTANTS } from './constants';
         <div class="flex items-center gap-2 md:gap-4">
           <!-- Desktop Navigation -->
           <nav class="hidden md:flex items-center gap-6 text-sm opacity-90">
-            <a routerLink="/" class="hover:underline transition-all">{{ nav.HOME }}</a>
-            <a routerLink="/skills" class="hover:underline transition-all">{{ nav.SKILLS }}</a>
-            <a routerLink="/projects" class="hover:underline transition-all">{{ nav.PROJECTS }}</a>
-            <a routerLink="/diagram" class="hover:underline transition-all">Diagram</a>
-            <a routerLink="/dsa" class="hover:underline transition-all">{{ nav.DSA }}</a>
-            <a routerLink="/timeline" class="hover:underline transition-all">{{ nav.EXPERIENCE }}</a>
+            <a *ngFor="let item of navItems" 
+               [routerLink]="item.path" 
+               routerLinkActive="text-primary font-semibold" 
+               [routerLinkActiveOptions]="item.exact ? {exact: true} : {exact: false}" 
+               class="hover:underline transition-all">
+              {{ item.label }}
+            </a>
           </nav>
           
           <!-- Theme Toggle -->
@@ -41,57 +44,103 @@ import { CONSTANTS } from './constants';
           </button>
           
           <!-- Mobile Menu Button -->
-          <button (click)="toggleMobileMenu()" class="md:hidden p-3 text-white" style="background: rgba(255,255,255,0.1); border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); min-width: 44px; min-height: 44px;">
-            <span *ngIf="!isMobileMenuOpen" style="font-size: 18px;">☰</span>
-            <span *ngIf="isMobileMenuOpen" style="font-size: 18px;">✕</span>
+          <button (click)="toggleMobileMenu()" 
+                  class="md:hidden p-3 text-white glass rounded-lg hover:bg-white/10 transition-all" 
+                  [attr.aria-label]="isMobileMenuOpen ? 'Close menu' : 'Open menu'"
+                  [attr.aria-expanded]="isMobileMenuOpen">
+            <span class="text-lg" [innerHTML]="isMobileMenuOpen ? '✕' : '☰'"></span>
           </button>
         </div>
       </div>
       
       <!-- Mobile Navigation -->
-      <div class="md:hidden" [class.hidden]="!isMobileMenuOpen" style="background: rgba(0,0,0,0.9); border-top: 1px solid rgba(255,255,255,0.1);">
+      <div class="md:hidden mobile-nav" [class.hidden]="!isMobileMenuOpen">
         <nav class="px-4 py-2 space-y-2">
-          <a routerLink="/" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg text-sm text-white" style="background: rgba(255,255,255,0.05); margin-bottom: 8px;">{{ nav.HOME }}</a>
-          <a routerLink="/skills" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg text-sm text-white" style="background: rgba(255,255,255,0.05); margin-bottom: 8px;">{{ nav.SKILLS }}</a>
-          <a routerLink="/projects" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg text-sm text-white" style="background: rgba(255,255,255,0.05); margin-bottom: 8px;">{{ nav.PROJECTS }}</a>
-          <a routerLink="/diagram" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg text-sm text-white" style="background: rgba(255,255,255,0.05); margin-bottom: 8px;">Diagram</a>
-          <a routerLink="/dsa" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg text-sm text-white" style="background: rgba(255,255,255,0.05); margin-bottom: 8px;">{{ nav.DSA }}</a>
-          <a routerLink="/timeline" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg text-sm text-white" style="background: rgba(255,255,255,0.05);">{{ nav.EXPERIENCE }}</a>
+          <a *ngFor="let item of navItems" 
+             [routerLink]="item.path" 
+             routerLinkActive="bg-primary/20 text-primary" 
+             [routerLinkActiveOptions]="item.exact ? {exact: true} : {exact: false}"
+             (click)="closeMobileMenu()" 
+             class="block py-3 px-4 rounded-lg text-sm text-white hover:bg-white/10 transition-all mobile-nav-item">
+            {{ item.label }}
+          </a>
         </nav>
       </div>
     </header>
   `
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
+  private destroy$ = new Subject<void>();
+  
   isDark = false;
   isMobileMenuOpen = false;
-  brandName = CONSTANTS.BRAND_NAME;
-  brandSubtitle = CONSTANTS.BRAND_SUBTITLE;
-  nav = CONSTANTS.NAV;
-  routes = CONSTANTS.ROUTES;
+  
+  readonly brandName = CONSTANTS.BRAND_NAME;
+  readonly brandSubtitle = CONSTANTS.BRAND_SUBTITLE;
+  readonly nav = CONSTANTS.NAV;
+  
+  readonly navItems = [
+    { path: '/', label: this.nav.HOME, exact: true },
+    { path: '/skills', label: this.nav.SKILLS },
+    { path: '/projects', label: this.nav.PROJECTS },
+    { path: '/diagram', label: 'Diagram' },
+    { path: '/dsa', label: this.nav.DSA },
+    { path: '/timeline', label: this.nav.EXPERIENCE }
+  ];
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
+    this.initializeTheme();
+    this.setupRouterSubscription();
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  private initializeTheme() {
     const savedTheme = sessionStorage.getItem(CONSTANTS.THEME_STORAGE_KEY);
     this.isDark = savedTheme ? savedTheme === 'dark' : true;
     this.applyTheme();
   }
 
+  private setupRouterSubscription() {
+    this.router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd),
+        takeUntil(this.destroy$)
+      )
+      .subscribe(() => {
+        this.closeMobileMenu();
+      });
+  }
+
   toggleTheme() {
-    // Create smooth fade effect
-    document.body.style.opacity = '0.8';
-    document.body.style.transform = 'scale(0.98)';
-    
-    setTimeout(() => {
+    this.animateThemeTransition(() => {
       this.isDark = !this.isDark;
       this.applyTheme();
-      sessionStorage.setItem(CONSTANTS.THEME_STORAGE_KEY, this.isDark ? 'dark' : 'light');
-      
-      // Fade back in
+      this.saveThemePreference();
+    });
+  }
+
+  private animateThemeTransition(callback: () => void) {
+    const body = document.body;
+    body.style.opacity = '0.8';
+    body.style.transform = 'scale(0.98)';
+    
+    setTimeout(() => {
+      callback();
       setTimeout(() => {
-        document.body.style.opacity = '1';
-        document.body.style.transform = 'scale(1)';
+        body.style.opacity = '1';
+        body.style.transform = 'scale(1)';
       }, 100);
     }, 150);
+  }
+
+  private saveThemePreference() {
+    sessionStorage.setItem(CONSTANTS.THEME_STORAGE_KEY, this.isDark ? 'dark' : 'light');
   }
 
   private applyTheme() {
