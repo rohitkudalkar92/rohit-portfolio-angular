@@ -121,3 +121,19 @@ a {
 .link-theme:hover {
   opacity: 0.8;
 }
+
+/* Mobile Menu Styles */
+.bg-glass-bg {
+  background: var(--glass-bg);
+}
+
+.border-glass-border {
+  border-color: var(--glass-border);
+}
+
+/* Ensure mobile menu button is visible */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block !important;
+  }
+}
