@@ -38,23 +38,21 @@ import { CONSTANTS } from './constants';
           </button>
           
           <!-- Mobile Menu Button -->
-          <button (click)="toggleMobileMenu()" class="md:hidden p-2 rounded-lg glass hover:bg-white/10 transition-all mobile-menu-btn">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path *ngIf="!isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-              <path *ngIf="isMobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
+          <button (click)="toggleMobileMenu()" class="md:hidden p-3 text-white" style="background: rgba(255,255,255,0.1); border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); min-width: 44px; min-height: 44px;">
+            <span *ngIf="!isMobileMenuOpen" style="font-size: 18px;">☰</span>
+            <span *ngIf="isMobileMenuOpen" style="font-size: 18px;">✕</span>
           </button>
         </div>
       </div>
       
       <!-- Mobile Navigation -->
-      <div class="md:hidden" [class.hidden]="!isMobileMenuOpen">
-        <nav class="px-4 py-2 space-y-2 border-t border-glass-border bg-glass-bg">
-          <a routerLink="/" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg hover:bg-white/5 transition-all text-sm">{{ nav.HOME }}</a>
-          <a routerLink="/skills" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg hover:bg-white/5 transition-all text-sm">{{ nav.SKILLS }}</a>
-          <a routerLink="/projects" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg hover:bg-white/5 transition-all text-sm">{{ nav.PROJECTS }}</a>
-          <a routerLink="/dsa" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg hover:bg-white/5 transition-all text-sm">{{ nav.DSA }}</a>
-          <a routerLink="/timeline" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg hover:bg-white/5 transition-all text-sm">{{ nav.EXPERIENCE }}</a>
+      <div class="md:hidden" [class.hidden]="!isMobileMenuOpen" style="background: rgba(0,0,0,0.9); border-top: 1px solid rgba(255,255,255,0.1);">
+        <nav class="px-4 py-2 space-y-2">
+          <a routerLink="/" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg text-sm text-white" style="background: rgba(255,255,255,0.05); margin-bottom: 8px;">{{ nav.HOME }}</a>
+          <a routerLink="/skills" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg text-sm text-white" style="background: rgba(255,255,255,0.05); margin-bottom: 8px;">{{ nav.SKILLS }}</a>
+          <a routerLink="/projects" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg text-sm text-white" style="background: rgba(255,255,255,0.05); margin-bottom: 8px;">{{ nav.PROJECTS }}</a>
+          <a routerLink="/dsa" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg text-sm text-white" style="background: rgba(255,255,255,0.05); margin-bottom: 8px;">{{ nav.DSA }}</a>
+          <a routerLink="/timeline" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg text-sm text-white" style="background: rgba(255,255,255,0.05);">{{ nav.EXPERIENCE }}</a>
         </nav>
       </div>
     </header>
