@@ -3,6 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 import { BackToTopComponent } from './back-to-top.component';
 import { filter } from 'rxjs/operators';
+import { AnalyticsService, VisitorTrackingService } from './shared/services';
 
 @Component({
   selector: 'app-root',
@@ -16,13 +17,22 @@ import { filter } from 'rxjs/operators';
   `
 })
 export class AppComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private analytics: AnalyticsService,
+    private visitorTracking: VisitorTrackingService
+  ) {}
 
   ngOnInit() {
+    // Initialize analytics
+    this.analytics.initGoogleAnalytics('G-2F67HQZRPF');
+    this.visitorTracking.trackVisitor();
+
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => {
+      .subscribe((event) => {
         window.scrollTo(0, 0);
+        this.analytics.trackPageView((event as NavigationEnd).urlAfterRedirects);
       });
   }
 }

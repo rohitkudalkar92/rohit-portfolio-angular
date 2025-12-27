@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Subject } from 'rxjs';
@@ -9,6 +9,7 @@ import { CONSTANTS } from './constants';
   selector: 'app-header',
   standalone: true,
   imports: [RouterLink, RouterLinkActive, CommonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-glass-border">
       <div class="flex items-center justify-between p-4">
@@ -26,12 +27,13 @@ import { CONSTANTS } from './constants';
         
         <div class="flex items-center gap-2 md:gap-4">
           <!-- Desktop Navigation -->
-          <nav class="hidden md:flex items-center gap-6 text-sm opacity-90">
-            <a *ngFor="let item of navItems" 
+          <nav class="hidden md:flex items-center gap-6 text-sm opacity-90" role="navigation" aria-label="Main navigation">
+            <a *ngFor="let item of navItems; trackBy: trackByNavItem" 
                [routerLink]="item.path" 
                routerLinkActive="text-primary font-semibold" 
                [routerLinkActiveOptions]="item.exact ? {exact: true} : {exact: false}" 
-               class="hover:underline transition-all">
+               class="hover:underline transition-all"
+               [attr.aria-current]="item.path === currentRoute ? 'page' : null">
               {{ item.label }}
             </a>
           </nav>
@@ -55,13 +57,14 @@ import { CONSTANTS } from './constants';
       
       <!-- Mobile Navigation -->
       <div class="md:hidden mobile-nav" [class.hidden]="!isMobileMenuOpen">
-        <nav class="px-4 py-2 space-y-2">
-          <a *ngFor="let item of navItems" 
+        <nav class="px-4 py-2 space-y-2" role="navigation" aria-label="Mobile navigation">
+          <a *ngFor="let item of navItems; trackBy: trackByNavItem" 
              [routerLink]="item.path" 
              routerLinkActive="bg-primary/20 text-primary" 
              [routerLinkActiveOptions]="item.exact ? {exact: true} : {exact: false}"
              (click)="closeMobileMenu()" 
-             class="block py-3 px-4 rounded-lg text-sm text-white hover:bg-white/10 transition-all mobile-nav-item">
+             class="block py-3 px-4 rounded-lg text-sm text-white hover:bg-white/10 transition-all mobile-nav-item"
+             [attr.aria-current]="item.path === currentRoute ? 'page' : null">
             {{ item.label }}
           </a>
         </nav>
@@ -74,6 +77,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   
   isDark = false;
   isMobileMenuOpen = false;
+  currentRoute = '';
   
   readonly brandName = CONSTANTS.BRAND_NAME;
   readonly brandSubtitle = CONSTANTS.BRAND_SUBTITLE;
@@ -87,6 +91,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     { path: '/dsa', label: this.nav.DSA },
     { path: '/timeline', label: this.nav.EXPERIENCE }
   ];
+
+  trackByNavItem(index: number, item: any): string {
+    return item.label;
+  }
 
   constructor(private router: Router) {}
 
@@ -112,7 +120,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
         filter(event => event instanceof NavigationEnd),
         takeUntil(this.destroy$)
       )
-      .subscribe(() => {
+      .subscribe((event) => {
+        this.currentRoute = (event as NavigationEnd).urlAfterRedirects;
         this.closeMobileMenu();
       });
   }
