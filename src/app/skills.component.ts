@@ -52,7 +52,7 @@ import { CONSTANTS } from './constants';
       <!-- Additional Skills -->
       <div class="mt-12">
         <h2 class="text-2xl font-bold mb-6">{{ additionalTitle }}</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div *ngFor="let area of additionalSkills" class="glass p-6 rounded-xl text-center">
             <div class="text-3xl mb-3">{{ area.icon }}</div>
             <h3 class="font-semibold mb-2">{{ area.title }}</h3>
@@ -137,6 +137,21 @@ export class SkillsComponent implements OnInit {
         { name: 'Cross-browser Testing', proficiency: 90, experience: '6+ years' },
         { name: 'Mobile-first Design', proficiency: 92, experience: '5+ years' }
       ]
+    },
+    {
+      title: CONSTANTS.SKILLS_DATA.CATEGORIES[4].title,
+      description: CONSTANTS.SKILLS_DATA.CATEGORIES[4].description,
+      icon: CONSTANTS.SKILLS_DATA.CATEGORIES[4].icon,
+      skills: [
+        { name: 'Responsive Design', proficiency: 95, experience: '7+ years' },
+        { name: 'Cross-browser Testing', proficiency: 90, experience: '6+ years' },
+        { name: 'Mobile-first Design', proficiency: 92, experience: '5+ years' },
+        { name: 'Component Reusability', proficiency: 94, experience: '6+ years' },
+        { name: 'Browser Compatibility', proficiency: 88, experience: '7+ years' },
+        { name: 'Progressive Web Apps', proficiency: 85, experience: '4+ years' },
+        { name: 'Accessibility Standards', proficiency: 82, experience: '4+ years' },
+        { name: 'Design System Creation', proficiency: 90, experience: '5+ years' }
+      ]
     }
   ];
 
@@ -158,6 +173,12 @@ export class SkillsComponent implements OnInit {
       description: CONSTANTS.SKILLS_DATA.ADDITIONAL[2].description,
       icon: CONSTANTS.SKILLS_DATA.ADDITIONAL[2].icon,
       tools: ['Google Analytics', 'Lighthouse', 'Web Vitals', 'Sentry', 'Performance Monitoring', 'SEO Optimization']
+    },
+    {
+      title: CONSTANTS.SKILLS_DATA.ADDITIONAL[3].title,
+      description: CONSTANTS.SKILLS_DATA.ADDITIONAL[3].description,
+      icon: CONSTANTS.SKILLS_DATA.ADDITIONAL[3].icon,
+      tools: ['Debugging Expertise', 'Root Cause Analysis', 'Critical Thinking', 'Attention to Detail', 'Issue Resolution', 'Code Optimization']
     }
   ];
 

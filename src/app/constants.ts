@@ -134,6 +134,11 @@ export const CONSTANTS = {
         title: 'UI/UX & Design',
         description: 'Design systems and user experience',
         icon: '🎯'
+      },
+      {
+        title: 'Quality & Compatibility',
+        description: 'Cross-browser support and responsive design',
+        icon: '🔍'
       }
     ],
     ADDITIONAL: [
@@ -151,6 +156,11 @@ export const CONSTANTS = {
         title: 'Performance & Analytics',
         description: 'Optimization and monitoring tools',
         icon: '📊'
+      },
+      {
+        title: 'Problem Solving',
+        description: 'Debugging and analytical thinking',
+        icon: '🧩'
       }
     ]
   },

@@ -11,13 +11,15 @@ import { CONSTANTS } from './constants';
     <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-glass-border">
       <div class="flex items-center justify-between p-4">
         <div class="flex items-center gap-3">
-          <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-gradient-to-br from-indigo-400 to-purple-600 flex items-center justify-center font-bold text-black text-sm md:text-base">
-            R
-          </div>
-          <div>
-            <div class="text-base md:text-lg font-semibold">{{ brandName }}</div>
-            <div class="text-xs opacity-70 hidden sm:block">{{ brandSubtitle }}</div>
-          </div>
+          <a routerLink="/" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-gradient-to-br from-indigo-400 to-purple-600 flex items-center justify-center font-bold text-black text-sm md:text-base">
+              R
+            </div>
+            <div>
+              <div class="text-base md:text-lg font-semibold">{{ brandName }}</div>
+              <div class="text-xs opacity-70 hidden sm:block">{{ brandSubtitle }}</div>
+            </div>
+          </a>
         </div>
         
         <div class="flex items-center gap-2 md:gap-4">
@@ -26,6 +28,7 @@ import { CONSTANTS } from './constants';
             <a routerLink="/" class="hover:underline transition-all">{{ nav.HOME }}</a>
             <a routerLink="/skills" class="hover:underline transition-all">{{ nav.SKILLS }}</a>
             <a routerLink="/projects" class="hover:underline transition-all">{{ nav.PROJECTS }}</a>
+            <a routerLink="/diagram" class="hover:underline transition-all">Diagram</a>
             <a routerLink="/dsa" class="hover:underline transition-all">{{ nav.DSA }}</a>
             <a routerLink="/timeline" class="hover:underline transition-all">{{ nav.EXPERIENCE }}</a>
           </nav>
@@ -51,6 +54,7 @@ import { CONSTANTS } from './constants';
           <a routerLink="/" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg text-sm text-white" style="background: rgba(255,255,255,0.05); margin-bottom: 8px;">{{ nav.HOME }}</a>
           <a routerLink="/skills" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg text-sm text-white" style="background: rgba(255,255,255,0.05); margin-bottom: 8px;">{{ nav.SKILLS }}</a>
           <a routerLink="/projects" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg text-sm text-white" style="background: rgba(255,255,255,0.05); margin-bottom: 8px;">{{ nav.PROJECTS }}</a>
+          <a routerLink="/diagram" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg text-sm text-white" style="background: rgba(255,255,255,0.05); margin-bottom: 8px;">Diagram</a>
           <a routerLink="/dsa" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg text-sm text-white" style="background: rgba(255,255,255,0.05); margin-bottom: 8px;">{{ nav.DSA }}</a>
           <a routerLink="/timeline" (click)="closeMobileMenu()" class="block py-3 px-4 rounded-lg text-sm text-white" style="background: rgba(255,255,255,0.05);">{{ nav.EXPERIENCE }}</a>
         </nav>
