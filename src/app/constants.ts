@@ -26,7 +26,7 @@ export const CONSTANTS = {
   BRAND_SUBTITLE: 'Frontend Architect • Creator',
   THEME_STORAGE_KEY: 'rohitkudalkar-dev-theme',
   PORTFOLIO_URL: 'https://rohitkudalkar.dev',
-  COPYRIGHT_YEAR: '2025',
+  COPYRIGHT_YEAR: '2026',
   LOCATION: 'Mumbai',
   
   // Page Titles
@@ -297,11 +297,11 @@ export const CONSTANTS = {
   
   // Route Paths
   ROUTES: {
-    HOME: '/home',
+    HOME: '/',
     SKILLS: '/skills',
     PROJECTS: '/projects',
     DSA: '/dsa',
-    TIMELINE: '/timeline'
+    EXPERIENCE: '/experience'
   },
   
   // UI Symbols
@@ -400,7 +400,7 @@ export const CONSTANTS = {
       liveUrl: 'https://example.com',
       githubUrl: 'https://github.com/rohit'
     },
-    {
+    { 
       id: 'portfolio-website',
       title: 'Portfolio Website',
       description: 'Modern portfolio website built with Angular 17, featuring dark/light theme toggle, responsive design, and smooth animations. Showcases work experience and projects.',

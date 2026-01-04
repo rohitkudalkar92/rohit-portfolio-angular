@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header.component';
+import { LayoutComponent } from './layout.component';
 import { RouterModule } from '@angular/router';
 import { TitleService } from './title.service';
 import { CONSTANTS } from './constants';
@@ -8,11 +8,9 @@ import { CONSTANTS } from './constants';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, RouterModule],
+  imports: [CommonModule, LayoutComponent, RouterModule],
   template: `
-    <div class="max-w-6xl mx-auto px-6 py-8">
-      <app-header></app-header>
-
+    <app-layout>
       <!-- Hero -->
       <section id="home" class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center py-24 fade-in">
         <div class="md:col-span-7 mb-10 md:mb-0 slide-in">
@@ -125,7 +123,7 @@ import { CONSTANTS } from './constants';
       </section>
 
       <footer class="py-8 text-center text-dark text-sm">© {{ copyrightYear }} {{ brandName }} — Built with ❤️ in {{ location }}</footer>
-    </div>
+    </app-layout>
   `
 })
 export class HomeComponent implements OnInit {

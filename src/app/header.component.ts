@@ -1,28 +1,17 @@
-import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
-import { RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Subject } from 'rxjs';
-import { takeUntil, filter } from 'rxjs/operators';
+import { RouterLink } from '@angular/router';
 import { CONSTANTS } from './constants';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, CommonModule],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [RouterLink, CommonModule],
   template: `
-    <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-glass-border">
-      <div class="flex items-center justify-between p-4">
-        <div class="flex items-center gap-3">
-          <a routerLink="/" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-gradient-to-br from-indigo-400 to-purple-600 flex items-center justify-center font-bold text-black text-sm md:text-base">
-              R
-            </div>
-            <div>
-              <div class="text-base md:text-lg font-semibold">{{ brandName }}</div>
-              <div class="text-xs opacity-70 hidden sm:block">{{ brandSubtitle }}</div>
-            </div>
-          </a>
+    <header [class]="getHeaderClasses()" class="w-full sticky top-0 z-50 backdrop-blur-md flex items-center justify-between px-6 py-4 rounded-xl shadow-lg transition-all duration-300">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-400 to-purple-600 flex items-center justify-center font-bold text-black">
+          R
         </div>
         
         <div class="flex items-center gap-2 md:gap-4">
@@ -54,20 +43,19 @@ import { CONSTANTS } from './constants';
           </button>
         </div>
       </div>
-      
-      <!-- Mobile Navigation -->
-      <div class="md:hidden mobile-nav" [class.hidden]="!isMobileMenuOpen">
-        <nav class="px-4 py-2 space-y-2" role="navigation" aria-label="Mobile navigation">
-          <a *ngFor="let item of navItems; trackBy: trackByNavItem" 
-             [routerLink]="item.path" 
-             routerLinkActive="bg-primary/20 text-primary" 
-             [routerLinkActiveOptions]="item.exact ? {exact: true} : {exact: false}"
-             (click)="closeMobileMenu()" 
-             class="block py-3 px-4 rounded-lg text-sm text-white hover:bg-white/10 transition-all mobile-nav-item"
-             [attr.aria-current]="item.path === currentRoute ? 'page' : null">
-            {{ item.label }}
-          </a>
+      <div class="flex items-center gap-4">
+        <nav class="hidden md:flex items-center gap-6 text-sm opacity-90">
+          <a [routerLink]="routes.HOME" class="hover:underline transition-all duration-200">{{ nav.HOME }}</a>
+          <a [routerLink]="routes.SKILLS" class="hover:underline transition-all duration-200">{{ nav.SKILLS }}</a>
+          <a [routerLink]="routes.PROJECTS" class="hover:underline transition-all duration-200">{{ nav.PROJECTS }}</a>
+          <a [routerLink]="routes.DSA" class="hover:underline transition-all duration-200">{{ nav.DSA }}</a>
+          <a [routerLink]="routes.EXPERIENCE" class="hover:underline transition-all duration-200">{{ nav.EXPERIENCE }}</a>
         </nav>
+        <button (click)="toggleTheme()" [class]="getButtonClasses()" class="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-110">
+          <span class="inline-block transition-transform duration-300" [class.rotate-180]="isDark">
+            {{ isDark ? '☀️' : '🌙' }}
+          </span>
+        </button>
       </div>
     </header>
   `
@@ -156,11 +144,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
     document.documentElement.classList.toggle('dark', this.isDark);
   }
 
-  toggleMobileMenu() {
-    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  getButtonClasses(): string {
+    return this.isDark 
+      ? 'border border-black/20' 
+      : 'border border-white/20';
   }
 
-  closeMobileMenu() {
-    this.isMobileMenuOpen = false;
+  getHeaderClasses(): string {
+    return this.isDark 
+      ? 'bg-white/90 text-gray-900 border border-black/10' 
+      : 'bg-gray-800/90 text-white border border-white/10';
   }
 }
