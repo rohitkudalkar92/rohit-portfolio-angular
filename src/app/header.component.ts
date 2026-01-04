@@ -24,7 +24,7 @@ import { CONSTANTS } from './constants';
           <a [routerLink]="routes.SKILLS" class="hover:underline transition-all duration-200">{{ nav.SKILLS }}</a>
           <a [routerLink]="routes.PROJECTS" class="hover:underline transition-all duration-200">{{ nav.PROJECTS }}</a>
           <a [routerLink]="routes.DSA" class="hover:underline transition-all duration-200">{{ nav.DSA }}</a>
-          <a [routerLink]="routes.TIMELINE" class="hover:underline transition-all duration-200">{{ nav.EXPERIENCE }}</a>
+          <a [routerLink]="routes.EXPERIENCE" class="hover:underline transition-all duration-200">{{ nav.EXPERIENCE }}</a>
         </nav>
         <button (click)="toggleTheme()" [class]="getButtonClasses()" class="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-110">
           <span class="inline-block transition-transform duration-300" [class.rotate-180]="isDark">
