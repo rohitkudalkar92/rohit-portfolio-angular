@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header.component';
+import { LayoutComponent } from './layout.component';
 import { RouterModule } from '@angular/router';
 import { TitleService } from './title.service';
 import { CONSTANTS } from './constants';
@@ -8,10 +8,9 @@ import { CONSTANTS } from './constants';
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, RouterModule],
+  imports: [CommonModule, LayoutComponent, RouterModule],
   template: `
-    <div class="max-w-6xl mx-auto px-6 py-8">
-      <app-header></app-header>
+    <app-layout>
       <h1 class="text-3xl font-bold mb-8">{{ pageTitle }}</h1>
       
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -65,7 +64,7 @@ import { CONSTANTS } from './constants';
           </div>
         </div>
       </div>
-    </div>
+    </app-layout>
   `
 })
 export class SkillsComponent implements OnInit {

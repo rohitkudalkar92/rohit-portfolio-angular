@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { HeaderComponent } from './header.component';
+import { LayoutComponent } from './layout.component';
 import { TitleService } from './title.service';
 import { CONSTANTS } from './constants';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, RouterLink],
+  imports: [CommonModule, LayoutComponent, RouterLink],
   template: `
-    <div class="max-w-6xl mx-auto px-6 py-8">
-      <app-header></app-header>
+    <app-layout>
       <h1 class="text-3xl font-bold mb-8">{{ pageTitle }}</h1>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -37,7 +36,7 @@ import { CONSTANTS } from './constants';
           </div>
         </div>
       </div>
-    </div>
+    </app-layout>
   `
 })
 export class ProjectsComponent implements OnInit {

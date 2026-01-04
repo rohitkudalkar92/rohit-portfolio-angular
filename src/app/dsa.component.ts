@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header.component';
+import { LayoutComponent } from './layout.component';
 
 @Component({
   selector: 'app-dsa',
   standalone: true,
-  imports: [CommonModule, HeaderComponent],
+  imports: [CommonModule, LayoutComponent],
   template: `
-    <div class="max-w-6xl mx-auto px-6 py-8">
-      <app-header></app-header>
+    <app-layout>
       <h1 class="text-3xl font-bold mb-8">Data Structures & Algorithms</h1>
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -46,7 +45,7 @@ import { HeaderComponent } from './header.component';
           </div>
         </div>
       </div>
-    </div>
+    </app-layout>
   `
 })
 export class DSAComponent {
