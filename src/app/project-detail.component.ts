@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HeaderComponent } from './header.component';
+import { LayoutComponent } from './layout.component';
 import { TitleService } from './title.service';
 import { CONSTANTS } from './constants';
 
 @Component({
   selector: 'app-project-detail',
   standalone: true,
-  imports: [CommonModule, HeaderComponent],
+  imports: [CommonModule, LayoutComponent],
   template: `
-    <div class="max-w-6xl mx-auto px-6 py-8">
-      <app-header></app-header>
-      
+    <app-layout>
       <div *ngIf="project" class="mt-8">
         <button (click)="goBack()" class="mb-6 flex items-center gap-2 text-sm opacity-80 hover:opacity-100 transition-opacity">
           {{ backToProjectsText }}
@@ -73,7 +71,7 @@ import { CONSTANTS } from './constants';
         <h2 class="text-2xl font-semibold mb-4">{{ notFoundTitle }}</h2>
         <button (click)="goBack()" class="text-indigo-400 hover:underline">{{ backToProjectsText }}</button>
       </div>
-    </div>
+    </app-layout>
   `
 })
 export class ProjectDetailComponent implements OnInit {
