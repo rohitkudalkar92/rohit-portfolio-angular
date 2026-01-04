@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CONSTANTS } from '../constants';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, RouterLinkActive, CommonModule],
   template: `
     <header [class]="getHeaderClasses()" class="w-full sticky top-0 z-50 backdrop-blur-md flex items-center justify-between px-6 py-4 rounded-xl shadow-lg transition-all duration-300">
       <div class="flex items-center gap-3">
@@ -20,11 +20,7 @@ import { CONSTANTS } from '../constants';
       </div>
       <div class="flex items-center gap-4">
         <nav class="hidden md:flex items-center gap-6 text-sm opacity-90">
-          <a [routerLink]="routes.HOME" class="hover:underline transition-all duration-200">{{ nav.HOME }}</a>
-          <a [routerLink]="routes.SKILLS" class="hover:underline transition-all duration-200">{{ nav.SKILLS }}</a>
-          <a [routerLink]="routes.PROJECTS" class="hover:underline transition-all duration-200">{{ nav.PROJECTS }}</a>
-          <a [routerLink]="routes.DSA" class="hover:underline transition-all duration-200">{{ nav.DSA }}</a>
-          <a [routerLink]="routes.TIMELINE" class="hover:underline transition-all duration-200">{{ nav.EXPERIENCE }}</a>
+          <a *ngFor="let item of navItems" [routerLink]="item.route" routerLinkActive="text-indigo-400 font-semibold" [routerLinkActiveOptions]="{exact: item.exact}" class="hover:underline transition-all duration-200">{{ item.label }}</a>
         </nav>
         <button (click)="toggleTheme()" [class]="getButtonClasses()" class="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-110">
           <span class="inline-block transition-transform duration-300" [class.rotate-180]="isDark">
@@ -41,6 +37,14 @@ export class HeaderComponent implements OnInit {
   brandSubtitle = CONSTANTS.BRAND_SUBTITLE;
   nav = CONSTANTS.NAV;
   routes = CONSTANTS.ROUTES;
+
+  navItems = [
+    { route: this.routes.HOME, label: this.nav.HOME, exact: true },
+    { route: this.routes.SKILLS, label: this.nav.SKILLS, exact: false },
+    { route: this.routes.PROJECTS, label: this.nav.PROJECTS, exact: false },
+    { route: this.routes.DSA, label: this.nav.DSA, exact: false },
+    { route: this.routes.TIMELINE, label: this.nav.EXPERIENCE, exact: false }
+  ];
 
   ngOnInit() {
     const savedTheme = sessionStorage.getItem(CONSTANTS.THEME_STORAGE_KEY);
