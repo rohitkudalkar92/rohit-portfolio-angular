@@ -1,4 +1,24 @@
 export const CONSTANTS = {
+  // Color System
+  COLORS: {
+    PRIMARY: {
+      50: '#f0f9ff',
+      100: '#e0f2fe', 
+      200: '#bae6fd',
+      300: '#7dd3fc',
+      400: '#38bdf8', // Main primary
+      500: '#0ea5e9',
+      600: '#0284c7',
+      700: '#0369a1',
+      800: '#075985',
+      900: '#0c4a6e'
+    },
+    ACCENT: '#d4f99c',
+    SUCCESS: '#10b981',
+    WARNING: '#f59e0b',
+    ERROR: '#ef4444'
+  },
+  
   // Brand & Identity
   BRAND_NAME: 'RohitKudalkar.dev',
   BRAND_TAGLINE: 'Frontend Architect',
@@ -6,7 +26,7 @@ export const CONSTANTS = {
   BRAND_SUBTITLE: 'Frontend Architect • Creator',
   THEME_STORAGE_KEY: 'rohitkudalkar-dev-theme',
   PORTFOLIO_URL: 'https://rohitkudalkar.dev',
-  COPYRIGHT_YEAR: '2025',
+  COPYRIGHT_YEAR: '2026',
   LOCATION: 'Mumbai',
   
   // Page Titles
@@ -134,6 +154,16 @@ export const CONSTANTS = {
         title: 'UI/UX & Design',
         description: 'Design systems and user experience',
         icon: '🎯'
+      },
+      {
+        title: 'AI & Machine Learning',
+        description: 'Artificial Intelligence and ML technologies',
+        icon: '🤖'
+      },
+      {
+        title: 'Quality & Compatibility',
+        description: 'Cross-browser support and responsive design',
+        icon: '🔍'
       }
     ],
     ADDITIONAL: [
@@ -151,6 +181,11 @@ export const CONSTANTS = {
         title: 'Performance & Analytics',
         description: 'Optimization and monitoring tools',
         icon: '📊'
+      },
+      {
+        title: 'Problem Solving',
+        description: 'Debugging and analytical thinking',
+        icon: '🧩'
       }
     ]
   },
@@ -229,6 +264,12 @@ export const CONSTANTS = {
     'RxJS': 'https://rxjs.dev/generated/images/marketing/home/Rx_Logo-512-512.png',
     'NgRx': 'https://ngrx.io/generated/images/marketing/home/Rx_Logo-512-512.png',
     'Python': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+    'TensorFlow': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg',
+    'PyTorch': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg',
+    'Pandas': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg',
+    'NumPy': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg',
+    'Scikit-learn': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg',
+    'Jupyter': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg',
     'SQLite': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg',
     'Django': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg',
     'Jest': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg',
@@ -246,7 +287,6 @@ export const CONSTANTS = {
     'PHP': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
     'CodeIgniter': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg',
     'ES6': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-    'Git': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
     'Webpack': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg',
     'Metabase': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg',
     'GraphQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg'
@@ -257,7 +297,7 @@ export const CONSTANTS = {
   
   // Route Paths
   ROUTES: {
-    HOME: '/home',
+    HOME: '/',
     SKILLS: '/skills',
     PROJECTS: '/projects',
     DSA: '/dsa',
@@ -360,7 +400,7 @@ export const CONSTANTS = {
       liveUrl: 'https://example.com',
       githubUrl: 'https://github.com/rohit'
     },
-    {
+    { 
       id: 'portfolio-website',
       title: 'Portfolio Website',
       description: 'Modern portfolio website built with Angular 17, featuring dark/light theme toggle, responsive design, and smooth animations. Showcases work experience and projects.',
