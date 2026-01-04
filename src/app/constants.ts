@@ -26,7 +26,7 @@ export const CONSTANTS = {
   BRAND_SUBTITLE: 'Frontend Architect • Creator',
   THEME_STORAGE_KEY: 'rohitkudalkar-dev-theme',
   PORTFOLIO_URL: 'https://rohitkudalkar.dev',
-  COPYRIGHT_YEAR: '2025',
+  COPYRIGHT_YEAR: '2026',
   LOCATION: 'Mumbai',
   
   // Page Titles
