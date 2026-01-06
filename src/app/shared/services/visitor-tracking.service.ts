@@ -47,14 +47,4 @@ export class VisitorTrackingService {
       console.warn('Failed to store visitor data:', error);
     }
   }
-
-  getLocalVisitorCount(): number {
-    try {
-      const visitors = JSON.parse(localStorage.getItem('visitors') || '[]') as VisitorData[];
-      return visitors.length;
-    } catch (error) {
-      console.warn('Failed to read visitor data:', error);
-      return 0;
-    }
-  }
 }
