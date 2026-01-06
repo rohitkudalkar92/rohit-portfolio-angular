@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     // Initialize analytics
     this.analytics.initGoogleAnalytics('G-2F67HQZRPF');
-    this.visitorTracking.trackVisitor();
+    // this.visitorTracking.trackVisitor(); // Disabled for GitHub Pages
 
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
