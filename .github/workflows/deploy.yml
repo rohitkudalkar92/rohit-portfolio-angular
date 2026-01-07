@@ -18,7 +18,10 @@ jobs:
     - name: Install dependencies
       run: npm install --legacy-peer-deps
       
+    - name: Build
+      run: npm run build -- --configuration production
+      
     - name: Deploy to GitHub Pages
-      run: npm run deploy
+      run: npx angular-cli-ghpages --dir=dist/portfolio
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
