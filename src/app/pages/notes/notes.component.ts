@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LayoutComponent } from '../common/layout.component';
-import { TitleService } from '../title.service';
-import { CONSTANTS } from '../constants';
+import { LayoutComponent } from '../../common/layout.component';
+import { TitleService } from '../../title.service';
+import { CONSTANTS } from '../../constants';
 
 interface Note {
   id: string;
