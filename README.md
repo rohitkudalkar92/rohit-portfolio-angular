@@ -23,3 +23,5 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 - Responsive design
 - TypeScript support
 - Component-based architecture
+- Mobile navigation
+- Active route highlighting
