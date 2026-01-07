@@ -5,6 +5,15 @@ node_modules/
 dist/
 .angular/
 
+# Build artifacts (should not be in repo)
+*.js
+*.css
+*.html
+!src/**/*.html
+!src/**/*.js
+!src/**/*.css
+3rdpartylicenses.txt
+
 # Environment files
 .env
 .env.local
