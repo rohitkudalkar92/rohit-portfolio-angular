@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from '../common/layout.component';
+import { TitleService } from '../title.service';
+import { CONSTANTS } from '../constants';
 
 @Component({
   selector: 'app-dsa',
@@ -48,7 +50,12 @@ import { LayoutComponent } from '../common/layout.component';
     </app-layout>
   `
 })
-export class DSAComponent {
+export class DSAComponent implements OnInit {
+  constructor(private titleService: TitleService) {}
+
+  ngOnInit(): void {
+    this.titleService.setTitle(CONSTANTS.PAGE_TITLES.DSA);
+  }
   dsaTopics = [
     {
       title: 'Arrays & Strings',
