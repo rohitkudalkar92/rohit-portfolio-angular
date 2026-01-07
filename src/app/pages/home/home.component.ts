@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LayoutComponent } from '../../common/layout.component';
+import { LayoutComponent } from '../../common/layout/layout.component';
 import { RouterModule } from '@angular/router';
 import { TitleService } from '../../title.service';
 import { CONSTANTS } from '../../constants';
@@ -13,8 +13,6 @@ import { HeroTitle, QuickInfo, Icons, Contact} from './home.interface';
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
-  
-  
   // Hero section
   heroTitle: HeroTitle = {
     part1: CONSTANTS.HOME.HERO_TITLE_PART1,

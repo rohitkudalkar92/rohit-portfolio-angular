@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { BreadcrumbService, Breadcrumb } from '../services/breadcrumb.service';
+import { BreadcrumbService, Breadcrumb } from './breadcrumb.service';
 
 @Component({
   selector: 'app-breadcrumb',

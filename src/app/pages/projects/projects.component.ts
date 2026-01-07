@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { LayoutComponent } from '../../common/layout.component';
+import { LayoutComponent } from '../../common/layout/layout.component';
 import { TitleService } from '../../title.service';
 import { CONSTANTS } from '../../constants';
 

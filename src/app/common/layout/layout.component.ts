@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header.component';
-import { BreadcrumbComponent } from './breadcrumb.component';
-import { CONSTANTS } from '../constants';
+import { HeaderComponent } from '../header/header.component';
+import { BreadcrumbComponent } from '../breadcrumb/breadcrumb.component';
+import { CONSTANTS } from '../../constants';
 
 @Component({
   selector: 'app-layout',

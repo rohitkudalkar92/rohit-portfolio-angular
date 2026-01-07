@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LayoutComponent } from '../../common/layout.component';
+import { LayoutComponent } from '../../common/layout/layout.component';
 
 @Component({
   selector: 'app-diagram',

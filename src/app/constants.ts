@@ -49,7 +49,7 @@ export const CONSTANTS = {
     EXPERTISE_DESCRIPTION: "I architect scalable frontend systems that balance performance, maintainability, and developer experience. Here's my technical foundation:",
     
     ABOUT_TITLE: 'About Me',
-    ABOUT_DESCRIPTION: "I'm a skilled frontend architect with a hardworking mindset and goal-oriented approach to building exceptional digital experiences. I believe in neat and clean design principles that create intuitive, maintainable solutions. My passion lies in designing scalable systems and leading technical excellence through dedication and continuous learning. I specialize in creating robust architectures that enable teams to build maintainable, high-performance applications. When I'm not architecting solutions, I mentor developers and explore emerging technologies.",
+    ABOUT_DESCRIPTION: "I'm a rational and skilled frontend architect with a hardworking mindset and goal-oriented approach to building exceptional digital experiences. I believe in neat and clean design principles that create intuitive, maintainable solutions. My passion lies in designing scalable systems and leading technical excellence through dedication and continuous learning. I specialize in creating robust architectures that enable teams to build maintainable, high-performance applications. When I'm not architecting solutions, I mentor developers and explore emerging technologies.",
     
     QUICK_INFO_TITLE: 'Quick Info',
     QUICK_INFO: {
