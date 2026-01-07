@@ -1,23 +1,8 @@
 export const CONSTANTS = {
-  // Color System
-  COLORS: {
-    PRIMARY: {
-      50: '#f0f9ff',
-      100: '#e0f2fe', 
-      200: '#bae6fd',
-      300: '#7dd3fc',
-      400: '#38bdf8', // Main primary
-      500: '#0ea5e9',
-      600: '#0284c7',
-      700: '#0369a1',
-      800: '#075985',
-      900: '#0c4a6e'
-    },
-    ACCENT: '#d4f99c',
-    SUCCESS: '#10b981',
-    WARNING: '#f59e0b',
-    ERROR: '#ef4444'
-  },
+  // Colors are defined in src/styles.scss as CSS variables
+  // Use: var(--primary-400), var(--accent), var(--success), etc.
+  // Primary: --primary-50 to --primary-900
+  // Theme: --accent, --success, --warning, --error
   
   // Brand & Identity
   BRAND_NAME: 'RohitKudalkar.dev',
