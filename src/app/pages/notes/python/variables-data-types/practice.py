@@ -104,12 +104,55 @@ print(f"Cleaned email: {clean_email}")
 # 7. Variable Naming Rules
 print("\n7. VARIABLE NAMING RULES")
 print("-" * 20)
-user_name = "Alice"
-age2 = 25
-_private_var = "hidden"
-PI = 3.14159
 
-print(f"Valid names: {user_name}, {age2}, {_private_var}, {PI}")
+# RULES FOR VARIABLE NAMES:
+print("RULES FOR VARIABLE NAMES:")
+print("1. Must start with letter (a-z, A-Z) or underscore (_)")
+print("2. Can contain letters, numbers, and underscores")
+print("3. Case-sensitive (age and Age are different)")
+print("4. Cannot use Python keywords (if, for, while, etc.)")
+print("5. Cannot contain spaces or special characters")
+print("6. Should be descriptive and meaningful")
+print("7. Use snake_case for variables and functions")
+print("8. Use UPPER_CASE for constants")
+print("9. Use _leading_underscore for internal use")
+print("10. Avoid single letters except for loops (i, j, k)")
+print()
+
+# VALID EXAMPLES:
+print("VALID EXAMPLES:")
+user_name = "Alice"        # snake_case
+age2 = 25                  # numbers allowed
+_private_var = "hidden"    # leading underscore
+PI = 3.14159              # constant
+first_name_alt = "John"    # alternative naming
+my_list = [1, 2, 3]       # descriptive
+
+print(f"user_name: {user_name}")
+print(f"age2: {age2}")
+print(f"_private_var: {_private_var}")
+print(f"PI: {PI}")
+print(f"firstName: {firstName}")
+print(f"my_list: {my_list}")
+print()
+
+# INVALID EXAMPLES (commented out):
+print("INVALID EXAMPLES (would cause errors):")
+print("# 2name = 'John'        # Cannot start with number")
+print("# user-name = 'Alice'   # Cannot contain hyphen")
+print("# user name = 'Bob'     # Cannot contain space")
+print("# if = 25               # Cannot use keywords")
+print("# @email = 'test'       # Cannot use special chars")
+print("# class = 'Python'      # Cannot use reserved words")
+print()
+
+# NAMING CONVENTIONS:
+print("NAMING CONVENTIONS:")
+print("Variables & Functions: snake_case")
+print("Constants: UPPER_CASE")
+print("Classes: PascalCase")
+print("Private: _leading_underscore")
+print("Very Private: __double_underscore")
 
 # 8. User Input Simulation
 print("\n8. USER INPUT & FORMATTING")
