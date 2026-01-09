@@ -10,6 +10,7 @@ import { NotesComponent } from './pages/notes/notes.component';
 import { PythonDetailsComponent } from './pages/notes/python/python-details.component';
 import { VariablesDataTypesNotesComponent } from './pages/notes/python/variables-data-types/notes.component';
 import { OperatorsNotesComponent } from './pages/notes/python/operators/notes.component';
+import { TypeConversionNotesComponent } from './pages/notes/python/type-conversion/notes.component';
 import { NotFoundComponent } from './common/not-found.component';
 
 export const routes: Routes = [
@@ -23,6 +24,7 @@ export const routes: Routes = [
   { path: 'notes/python', component: PythonDetailsComponent },
   { path: 'notes/python/variables-data-types', component: VariablesDataTypesNotesComponent },
   { path: 'notes/python/operators', component: OperatorsNotesComponent },
+  { path: 'notes/python/type-conversion', component: TypeConversionNotesComponent },
   { path: 'project/:id', component: ProjectDetailComponent },
   { path: '**', component: NotFoundComponent }
 ];

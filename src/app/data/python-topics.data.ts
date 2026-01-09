@@ -18,6 +18,12 @@ export const PYTHON_TOPICS: PythonTopic[] = [
     title: 'Python Operators',
     description: 'Learn about arithmetic, comparison, logical, and other operators in Python.',
     order: 2
+  },
+  {
+    id: 'type-conversion',
+    title: 'Type Conversion',
+    description: 'Learn how to convert between different data types in Python - strings, numbers, booleans, and more.',
+    order: 3
   }
 ];
 

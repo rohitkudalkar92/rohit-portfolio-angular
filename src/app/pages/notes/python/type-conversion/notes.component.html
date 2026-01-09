@@ -1,0 +1,93 @@
+<!-- 
+  NOTES COMPONENT CREATION RULES:
+  1. Use ONLY reusable components - no hardcoded HTML
+  2. All code examples in TypeScript as template literals
+  3. HTML contains only semantic component tags with comments
+  4. Use HTML entities for special characters (&#64; &#123;&#125;)
+  5. Follow established component architecture patterns
+-->
+
+<app-layout>
+  <!-- Navigation -->
+  <app-back-nav backLink="/notes/python" backText="Back to Python Topics"></app-back-nav>
+  
+  <!-- Page Header -->
+  <app-topic-header 
+    title="Type Conversion" 
+    description="Learn how to convert between different data types in Python - strings, numbers, booleans, and more.">
+  </app-topic-header>
+
+  <!-- Content Sections -->
+  <div>
+    <!-- Key Rules -->
+    <app-content-section title="Key Rules" description="Important rules to remember when working with type conversion.">
+      <app-info-box type="info" title="📋 Type Conversion Rules">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>Explicit conversion:</strong> Use int(), float(), str(), bool() functions</li>
+          <li><strong>Error handling:</strong> Invalid conversions raise ValueError</li>
+          <li><strong>Implicit conversion:</strong> Python auto-converts in mixed operations</li>
+          <li><strong>Boolean rules:</strong> 0, empty containers, None are False; everything else is True</li>
+          <li><strong>String formatting:</strong> Use str() or f-strings for number-to-string conversion</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+    <!-- Conversion Methods Overview -->
+    <app-content-section title="Conversion Methods" description="Python provides built-in functions to convert between data types.">
+      <app-data-types-grid [items]="conversionMethods"></app-data-types-grid>
+    </app-content-section>
+
+    <!-- String to Number Conversion -->
+    <app-content-section title="String to Number" description="Convert string representations to numeric values.">
+      <app-code-block [code]="stringToNumberCode" [output]="stringToNumberOutput" language="Python"></app-code-block>
+      
+      <app-info-box type="warning" title="⚠️ Common Errors">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>ValueError:</strong> Occurs when string cannot be converted (e.g., int("hello"))</li>
+          <li><strong>Invalid format:</strong> int("3.14") fails - use float() first, then int()</li>
+          <li><strong>Empty strings:</strong> int("") raises ValueError</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Number to String Conversion -->
+    <app-content-section title="Number to String" description="Convert numeric values to string representations.">
+      <app-code-block [code]="numberToStringCode" [output]="numberToStringOutput" language="Python"></app-code-block>
+    </app-content-section>
+
+    <!-- Boolean Conversion -->
+    <app-content-section title="Boolean Conversion" description="Convert various data types to True or False values.">
+      <app-code-block [code]="booleanConversionCode" [output]="booleanConversionOutput" language="Python"></app-code-block>
+      
+      <app-info-box type="info" title="📋 Truthy and Falsy Values">
+        <ul class="text-secondary text-sm space-y-1">
+          <li><strong>Falsy values:</strong> <code class="text-red-400">False, 0, 0.0, "", [], &#123;&#125;, None</code></li>
+          <li><strong>Truthy values:</strong> <code class="text-green-400">Everything else (non-zero numbers, non-empty strings, etc.)</code></li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Implicit Conversion -->
+    <app-content-section title="Implicit Conversion" description="Python automatically converts types in certain operations.">
+      <app-code-block [code]="implicitConversionCode" [output]="implicitConversionOutput" language="Python"></app-code-block>
+      
+      <app-info-box type="purple" title="✨ Type Promotion Rules">
+        <ul class="text-secondary text-sm space-y-1">
+          <li><strong>int + float:</strong> Result is float</li>
+          <li><strong>bool + int:</strong> bool treated as 0 or 1</li>
+          <li><strong>string + string:</strong> Concatenation</li>
+          <li><strong>string + number:</strong> Error - must convert explicitly</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Practice Exercise -->
+    <app-content-section title="Practice" description="Practice converting between different data types.">
+      <app-practice-exercise 
+        title="💡 Practice Exercise"
+        description="Convert user input strings to appropriate data types and perform calculations."
+        [code]="practiceCode"
+        [output]="practiceOutput">
+      </app-practice-exercise>
+    </app-content-section>
+  </div>
+</app-layout>
