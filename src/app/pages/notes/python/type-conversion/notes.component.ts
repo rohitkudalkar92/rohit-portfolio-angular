@@ -99,6 +99,47 @@ True + 5 = 6 (type: int)
 String concat: Hello World
 Mixed: Number: 42`;
 
+  safeConversionCode = `# Safe type conversion with error handling
+def safe_int_conversion(value):
+    try:
+        return int(value)
+    except ValueError:
+        print(f"Cannot convert '{value}' to integer")
+        return None
+
+def safe_float_conversion(value):
+    try:
+        return float(value)
+    except ValueError:
+        print(f"Cannot convert '{value}' to float")
+        return 0.0
+
+# Test safe conversions
+values = ["123", "45.67", "hello", "", "3.14"]
+
+for value in values:
+    int_result = safe_int_conversion(value)
+    float_result = safe_float_conversion(value)
+    print(f"'{value}' -> int: {int_result}, float: {float_result}")
+    print("---")`;
+
+  safeConversionOutput = `'123' -> int: 123, float: 123.0
+---
+Cannot convert '45.67' to integer
+'45.67' -> int: None, float: 45.67
+---
+Cannot convert 'hello' to integer
+Cannot convert 'hello' to float
+'hello' -> int: None, float: 0.0
+---
+Cannot convert '' to integer
+Cannot convert '' to float
+'' -> int: None, float: 0.0
+---
+Cannot convert '3.14' to integer
+'3.14' -> int: None, float: 3.14
+---`;
+
   practiceCode = `# Type Conversion Practice
 # Convert and display different data types
 

@@ -1,12 +1,3 @@
-<!-- 
-  NOTES COMPONENT CREATION RULES:
-  1. Use ONLY reusable components - no hardcoded HTML
-  2. All code examples in TypeScript as template literals
-  3. HTML contains only semantic component tags with comments
-  4. Use HTML entities for special characters (&#64; &#123;&#125;)
-  5. Follow established component architecture patterns
--->
-
 <app-layout>
   <!-- Navigation -->
   <app-back-nav backLink="/notes/python" backText="Back to Python Topics"></app-back-nav>
@@ -76,6 +67,20 @@
           <li><strong>bool + int:</strong> bool treated as 0 or 1</li>
           <li><strong>string + string:</strong> Concatenation</li>
           <li><strong>string + number:</strong> Error - must convert explicitly</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Safe Type Conversion -->
+    <app-content-section title="Safe Type Conversion" description="Handle conversion errors gracefully using try/except blocks.">
+      <app-code-block [code]="safeConversionCode" [output]="safeConversionOutput" language="Python"></app-code-block>
+      
+      <app-info-box type="success" title="✅ Best Practices">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>Always validate:</strong> Check if conversion is possible before converting</li>
+          <li><strong>Use try/except:</strong> Handle ValueError exceptions gracefully</li>
+          <li><strong>Provide defaults:</strong> Return sensible default values on conversion failure</li>
+          <li><strong>User feedback:</strong> Inform users about invalid input formats</li>
         </ul>
       </app-info-box>
     </app-content-section>
