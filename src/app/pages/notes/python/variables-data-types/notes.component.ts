@@ -17,6 +17,5 @@ export class VariablesDataTypesNotesComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle('Variables and Data Types - My Notes');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

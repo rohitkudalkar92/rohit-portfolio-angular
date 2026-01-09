@@ -17,6 +17,5 @@ export class OperatorsNotesComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle('Python Operators - My Notes');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
