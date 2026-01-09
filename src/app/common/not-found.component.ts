@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 
 @Component({
@@ -26,12 +27,18 @@ import { HeaderComponent } from './header/header.component';
           <a routerLink="/" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-black font-semibold btn-accent hover:opacity-90 transition-opacity">
             ← Back to Home
           </a>
-          <a routerLink="/projects" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg glass hover:opacity-90 transition-opacity">
-            View Projects
-          </a>
+          <button (click)="goBack()" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg glass hover:opacity-90 transition-opacity">
+            ← Go to Previous Page
+          </button>
         </div>
       </div>
     </div>
   `
 })
-export class NotFoundComponent {}
+export class NotFoundComponent {
+  constructor(private location: Location) {}
+  
+  goBack(): void {
+    this.location.back();
+  }
+}
