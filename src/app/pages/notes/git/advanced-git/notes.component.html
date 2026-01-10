@@ -2,6 +2,19 @@
   <app-back-nav backLink="/notes/git" backText="Back to Git Topics"></app-back-nav>
   <app-topic-header title="Advanced Git" description="Advanced Git features like rebasing, cherry-picking, stashing, and repository maintenance."></app-topic-header>
   <div>
+    <!-- Use Cases -->
+    <app-content-section title="When to Use Advanced Git Features" description="Understand when and why to use advanced Git commands.">
+      <app-info-box type="info" title="🎯 Advanced Git Use Cases">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>Rebase:</strong> Clean up commit history before merging, maintain linear history</li>
+          <li><strong>Cherry-pick:</strong> Apply specific commits to different branches, hotfixes</li>
+          <li><strong>Stash:</strong> Temporarily save work when switching branches quickly</li>
+          <li><strong>Reset:</strong> Undo commits, move branch pointer, fix mistakes</li>
+          <li><strong>Reflog:</strong> Recover lost commits, find deleted branches</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
     <app-content-section title="Advanced Commands" description="Powerful Git commands for advanced workflows.">
       <app-code-block [code]="advancedCode" language="bash"></app-code-block>
     </app-content-section>

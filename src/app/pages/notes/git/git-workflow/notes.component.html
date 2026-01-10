@@ -2,8 +2,55 @@
   <app-back-nav backLink="/notes/git" backText="Back to Git Topics"></app-back-nav>
   <app-topic-header title="Git Workflow" description="Learn popular Git workflows like GitFlow, GitHub Flow, and best practices for team collaboration."></app-topic-header>
   <div>
-    <app-content-section title="GitFlow Workflow" description="A branching model for managing releases and features.">
+    <!-- Use Cases -->
+    <app-content-section title="When to Use Git Workflows" description="Choose the right workflow based on your project and team needs.">
+      <app-info-box type="info" title="🎯 Workflow Use Cases">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>GitFlow:</strong> Enterprise projects, scheduled releases, multiple environments</li>
+          <li><strong>GitHub Flow:</strong> Web applications, continuous deployment, agile teams</li>
+          <li><strong>Feature Branch:</strong> Small teams, simple projects, minimal overhead</li>
+          <li><strong>Forking:</strong> Open source projects, external contributors</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+    <app-content-section title="GitFlow Workflow" description="A branching model for managing releases and features with dedicated branches.">
       <app-code-block [code]="gitFlowCode" language="bash"></app-code-block>
+      
+      <app-info-box type="info" title="🌿 GitFlow Branches">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>main:</strong> Production-ready code</li>
+          <li><strong>develop:</strong> Integration branch for features</li>
+          <li><strong>feature/*:</strong> New features (branch from develop)</li>
+          <li><strong>release/*:</strong> Release preparation (branch from develop)</li>
+          <li><strong>hotfix/*:</strong> Critical fixes (branch from main)</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- GitHub Flow -->
+    <app-content-section title="GitHub Flow" description="Simpler workflow for continuous deployment and faster iteration.">
+      <app-code-block [code]="githubFlowCode" language="bash"></app-code-block>
+      
+      <app-info-box type="success" title="✅ GitHub Flow Benefits">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>Simple:</strong> Only main branch + feature branches</li>
+          <li><strong>Fast:</strong> Quick deployment cycle</li>
+          <li><strong>Collaborative:</strong> Pull request-based reviews</li>
+          <li><strong>Continuous:</strong> Deploy main branch frequently</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Best Practices -->
+    <app-content-section title="Workflow Best Practices" description="Guidelines for choosing and implementing Git workflows effectively.">
+      <app-info-box type="purple" title="🎯 Choosing a Workflow">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>GitFlow:</strong> Large teams, scheduled releases, complex projects</li>
+          <li><strong>GitHub Flow:</strong> Small teams, continuous deployment, web apps</li>
+          <li><strong>Team size:</strong> Simpler workflows for smaller teams</li>
+          <li><strong>Release cycle:</strong> Match workflow to deployment frequency</li>
+        </ul>
+      </app-info-box>
     </app-content-section>
   </div>
 </app-layout>

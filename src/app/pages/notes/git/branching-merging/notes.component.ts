@@ -21,9 +21,11 @@ git branch -a  # Include remote branches
 git checkout main
 git checkout feature-login
 
-# Delete branch
-git branch -d feature-login  # Safe delete
-git branch -D feature-login  # Force delete`;
+# Delete branch (safe - prevents deletion if unmerged changes)
+git branch -d feature-login  
+
+# Force delete branch (dangerous - deletes even with unmerged changes)
+git branch -D feature-login`;
 
   mergingCode = `# Merge branch into current branch
 git checkout main

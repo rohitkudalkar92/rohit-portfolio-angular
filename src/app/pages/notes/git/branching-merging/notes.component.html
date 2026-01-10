@@ -25,6 +25,15 @@
     <!-- Branching Commands -->
     <app-content-section title="Branching Commands" description="Create, switch, and manage branches effectively.">
       <app-code-block [code]="branchingCode" language="bash"></app-code-block>
+      
+      <app-info-box type="warning" title="⚠️ Branch Deletion">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>-d (safe delete):</strong> Only deletes if branch is fully merged</li>
+          <li><strong>-D (force delete):</strong> Deletes branch even with unmerged changes</li>
+          <li><strong>Best practice:</strong> Always use -d first to avoid losing work</li>
+          <li><strong>Recovery:</strong> Force-deleted branches can be recovered using reflog</li>
+        </ul>
+      </app-info-box>
     </app-content-section>
 
     <!-- Merging Strategies -->
@@ -33,9 +42,9 @@
       
       <app-info-box type="purple" title="🔀 Merge Types">
         <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
-          <li><strong>Fast-forward:</strong> Linear history, no merge commit</li>
-          <li><strong>Three-way merge:</strong> Creates merge commit</li>
-          <li><strong>Squash merge:</strong> Combines all commits into one</li>
+          <li><strong>Fast-forward:</strong> Linear history, no merge commit (recommended for simple features)</li>
+          <li><strong>Three-way merge:</strong> Creates merge commit (recommended for collaborative work)</li>
+          <li><strong>Squash merge:</strong> Combines all commits into one (recommended for cleanup)</li>
         </ul>
       </app-info-box>
     </app-content-section>
