@@ -2,193 +2,167 @@ export interface PythonTopic {
   id: string;
   title: string;
   description: string;
-  order: number;
   content?: string; // For future detailed content
 }
 
 export const PYTHON_TOPICS: PythonTopic[] = [
   // Beginner Level Topics
   {
+    id: 'print-console',
+    title: 'Print and Console Output',
+    description: 'Learn how to display output, print variables, format text, and debug your Python programs.'
+  },
+  {
     id: 'variables-data-types',
     title: 'Variables and Data Types',
-    description: 'Learn about Python variables, strings, numbers, booleans, and basic data types.',
-    order: 1
+    description: 'Learn about Python variables, strings, numbers, booleans, and basic data types.'
   },
   {
     id: 'operators',
     title: 'Python Operators',
-    description: 'Learn about arithmetic, comparison, logical, and other operators in Python.',
-    order: 2
+    description: 'Learn about arithmetic, comparison, logical, and other operators in Python.'
   },
   {
     id: 'type-conversion',
     title: 'Type Conversion',
-    description: 'Learn how to convert between different data types in Python - strings, numbers, booleans, and more.',
-    order: 3
+    description: 'Learn how to convert between different data types in Python - strings, numbers, booleans, and more.'
   },
   {
     id: 'input-output',
     title: 'Input and Output',
-    description: 'Learn how to get user input and display output using input() and print() functions.',
-    order: 4
+    description: 'Learn how to get user input and display output using input() and print() functions.'
   },
   {
     id: 'conditional-statements',
     title: 'Conditional Statements',
-    description: 'Learn about if, elif, else statements and how to make decisions in your code.',
-    order: 5
+    description: 'Learn about if, elif, else statements and how to make decisions in your code.'
   },
   {
     id: 'loops',
     title: 'Loops',
-    description: 'Learn about for loops, while loops, and loop control statements like break and continue.',
-    order: 6
+    description: 'Learn about for loops, while loops, and loop control statements like break and continue.'
   },
   {
     id: 'strings',
     title: 'String Manipulation',
-    description: 'Learn about string methods, formatting, slicing, and working with text data.',
-    order: 7
+    description: 'Learn about string methods, formatting, slicing, and working with text data.'
   },
   {
     id: 'lists',
     title: 'Lists',
-    description: 'Learn about Python lists, list methods, indexing, slicing, and list comprehensions.',
-    order: 8
+    description: 'Learn about Python lists, list methods, indexing, slicing, and list comprehensions.'
   },
   {
     id: 'tuples',
     title: 'Tuples',
-    description: 'Learn about tuples, their properties, methods, and when to use them over lists.',
-    order: 9
+    description: 'Learn about tuples, their properties, methods, and when to use them over lists.'
   },
   {
     id: 'dictionaries',
     title: 'Dictionaries',
-    description: 'Learn about Python dictionaries, key-value pairs, and dictionary methods.',
-    order: 10
+    description: 'Learn about Python dictionaries, key-value pairs, and dictionary methods.'
   },
   {
     id: 'sets',
     title: 'Sets',
-    description: 'Learn about Python sets, set operations, and when to use sets for unique collections.',
-    order: 11
+    description: 'Learn about Python sets, set operations, and when to use sets for unique collections.'
   },
   {
     id: 'functions',
     title: 'Functions',
-    description: 'Learn how to define functions, parameters, return values, and function scope.',
-    order: 12
+    description: 'Learn how to define functions, parameters, return values, and function scope.'
   },
   {
     id: 'error-handling',
     title: 'Error Handling',
-    description: 'Learn about try, except, finally blocks and how to handle exceptions gracefully.',
-    order: 13
+    description: 'Learn about try, except, finally blocks and how to handle exceptions gracefully.'
   },
   {
     id: 'file-handling',
     title: 'File Handling',
-    description: 'Learn how to read from and write to files, work with different file modes.',
-    order: 14
+    description: 'Learn how to read from and write to files, work with different file modes.'
   },
   {
     id: 'modules-packages',
     title: 'Modules and Packages',
-    description: 'Learn how to import modules, create your own modules, and work with packages.',
-    order: 15
+    description: 'Learn how to import modules, create your own modules, and work with packages.'
   },
   
   // Medium Level Topics
   {
     id: 'oop-basics',
     title: 'Object-Oriented Programming Basics',
-    description: 'Learn about classes, objects, attributes, and methods in Python.',
-    order: 16
+    description: 'Learn about classes, objects, attributes, and methods in Python.'
   },
   {
     id: 'inheritance',
     title: 'Inheritance',
-    description: 'Learn about class inheritance, method overriding, and super() function.',
-    order: 17
+    description: 'Learn about class inheritance, method overriding, and super() function.'
   },
   {
     id: 'polymorphism',
     title: 'Polymorphism',
-    description: 'Learn about polymorphism, method overloading, and duck typing in Python.',
-    order: 18
+    description: 'Learn about polymorphism, method overloading, and duck typing in Python.'
   },
   {
     id: 'encapsulation',
     title: 'Encapsulation',
-    description: 'Learn about private/protected attributes, getters, setters, and data hiding.',
-    order: 19
+    description: 'Learn about private/protected attributes, getters, setters, and data hiding.'
   },
   {
     id: 'lambda-functions',
     title: 'Lambda Functions',
-    description: 'Learn about anonymous functions, lambda expressions, and functional programming concepts.',
-    order: 20
+    description: 'Learn about anonymous functions, lambda expressions, and functional programming concepts.'
   },
   {
     id: 'map-filter-reduce',
     title: 'Map, Filter, and Reduce',
-    description: 'Learn about functional programming tools for data transformation and processing.',
-    order: 21
+    description: 'Learn about functional programming tools for data transformation and processing.'
   },
   {
     id: 'list-comprehensions',
     title: 'List Comprehensions',
-    description: 'Learn advanced list comprehensions, nested comprehensions, and generator expressions.',
-    order: 22
+    description: 'Learn advanced list comprehensions, nested comprehensions, and generator expressions.'
   },
   {
     id: 'decorators',
     title: 'Decorators',
-    description: 'Learn about function decorators, class decorators, and built-in decorators.',
-    order: 23
+    description: 'Learn about function decorators, class decorators, and built-in decorators.'
   },
   {
     id: 'generators',
     title: 'Generators',
-    description: 'Learn about generator functions, yield keyword, and memory-efficient iteration.',
-    order: 24
+    description: 'Learn about generator functions, yield keyword, and memory-efficient iteration.'
   },
   {
     id: 'context-managers',
     title: 'Context Managers',
-    description: 'Learn about with statements, context managers, and resource management.',
-    order: 25
+    description: 'Learn about with statements, context managers, and resource management.'
   },
   {
     id: 'regular-expressions',
     title: 'Regular Expressions',
-    description: 'Learn about pattern matching, regex syntax, and text processing with re module.',
-    order: 26
+    description: 'Learn about pattern matching, regex syntax, and text processing with re module.'
   },
   {
     id: 'datetime',
     title: 'Date and Time',
-    description: 'Learn about datetime module, date formatting, time zones, and date arithmetic.',
-    order: 27
+    description: 'Learn about datetime module, date formatting, time zones, and date arithmetic.'
   },
   {
     id: 'json-handling',
     title: 'JSON Handling',
-    description: 'Learn how to work with JSON data, parsing, and serialization in Python.',
-    order: 28
+    description: 'Learn how to work with JSON data, parsing, and serialization in Python.'
   },
   {
     id: 'apis-requests',
     title: 'APIs and Requests',
-    description: 'Learn how to make HTTP requests, work with APIs, and handle responses.',
-    order: 29
+    description: 'Learn how to make HTTP requests, work with APIs, and handle responses.'
   },
   {
     id: 'database-basics',
     title: 'Database Basics',
-    description: 'Learn about SQLite, database connections, and basic database operations.',
-    order: 30
+    description: 'Learn about SQLite, database connections, and basic database operations.'
   }
 ];
 

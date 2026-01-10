@@ -1,0 +1,99 @@
+<app-layout>
+  <!-- Navigation -->
+  <app-back-nav backLink="/notes/python" backText="Back to Python Topics"></app-back-nav>
+  
+  <!-- Page Header -->
+  <app-topic-header 
+    title="Print and Console Output" 
+    description="Learn how to display output, print variables, format text, and debug your Python programs.">
+  </app-topic-header>
+
+  <!-- Content Sections -->
+  <div>
+    <!-- Key Rules -->
+    <app-content-section title="Key Rules" description="Important rules to remember when working with print statements.">
+      <app-info-box type="info" title="📋 Print Function Rules">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>Basic syntax:</strong> print("Hello World")</li>
+          <li><strong>Multiple values:</strong> Separate with commas</li>
+          <li><strong>Variables:</strong> Print variable values directly</li>
+          <li><strong>Formatting:</strong> Use f-strings for modern formatting</li>
+          <li><strong>Debugging:</strong> Use print() to track program flow</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Basic Print -->
+    <app-content-section title="Basic Print Statements" description="Learn the fundamentals of displaying output in Python.">
+      <app-code-block [code]="basicPrintCode" [output]="basicPrintOutput" language="Python"></app-code-block>
+    </app-content-section>
+
+    <!-- Print Variables -->
+    <app-content-section title="Printing Variables" description="Display variable values and combine text with variables.">
+      <app-code-block [code]="printVariablesCode" [output]="printVariablesOutput" language="Python"></app-code-block>
+    </app-content-section>
+
+    <!-- String Formatting -->
+    <app-content-section title="String Formatting" description="Modern ways to format strings and variables in print statements.">
+      <app-code-block [code]="stringFormattingCode" [output]="stringFormattingOutput" language="Python"></app-code-block>
+      
+      <app-info-box type="success" title="✅ F-String Benefits">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>Readable:</strong> Variables directly in the string</li>
+          <li><strong>Fast:</strong> Better performance than other methods</li>
+          <li><strong>Flexible:</strong> Can include expressions and function calls</li>
+          <li><strong>Modern:</strong> Python 3.6+ recommended approach</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Print Parameters -->
+    <app-content-section title="Print Parameters" description="Customize print behavior with sep, end, and other parameters.">
+      <app-code-block [code]="printParametersCode" [output]="printParametersOutput" language="Python"></app-code-block>
+    </app-content-section>
+
+    <!-- Debugging with Print -->
+    <app-content-section title="Debugging with Print" description="Use print statements to debug and understand your code.">
+      <app-code-block [code]="debuggingCode" [output]="debuggingOutput" language="Python"></app-code-block>
+      
+      <app-info-box type="purple" title="🐛 Debugging Tips">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>Track variables:</strong> Print variable values at different points</li>
+          <li><strong>Function calls:</strong> Print when functions are called</li>
+          <li><strong>Loop iterations:</strong> Print counter values in loops</li>
+          <li><strong>Conditional paths:</strong> Print which if/else branch executes</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Advanced Formatting -->
+    <app-content-section title="Advanced Formatting" description="Advanced string formatting techniques and special characters.">
+      <app-code-block [code]="advancedFormattingCode" [output]="advancedFormattingOutput" language="Python"></app-code-block>
+      
+      <app-info-box type="warning" title="⚠️ Format Specifiers">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>:.2f</strong> - 2 decimal places for floats</li>
+          <li><strong>:,</strong> - Thousands separator</li>
+          <li><strong>:>10</strong> - Right align in 10 characters</li>
+          <li><strong>:<10</strong> - Left align in 10 characters</li>
+          <li><strong>:^10</strong> - Center align in 10 characters</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Print to Files -->
+    <app-content-section title="Print to Files" description="Redirect print output to files and handle file operations.">
+      <app-code-block [code]="printToFileCode" [output]="printToFileOutput" language="Python"></app-code-block>
+    </app-content-section>
+
+    <!-- Practice Exercise -->
+    <app-content-section title="Practice" description="Practice different ways to print and format output.">
+      <app-practice-exercise 
+        title="💡 Practice Exercise"
+        description="Create a program that displays user information in different formats."
+        [code]="practiceCode"
+        [output]="practiceOutput">
+      </app-practice-exercise>
+    </app-content-section>
+  </div>
+</app-layout>

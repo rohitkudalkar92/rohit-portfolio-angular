@@ -8,6 +8,7 @@ import { DSAComponent } from './pages/dsa.component';
 import { DiagramComponent } from './pages/diagram/diagram.component';
 import { NotesComponent } from './pages/notes/notes.component';
 import { PythonDetailsComponent } from './pages/notes/python/python-details.component';
+import { PrintConsoleNotesComponent } from './pages/notes/python/print-console/notes.component';
 import { VariablesDataTypesNotesComponent } from './pages/notes/python/variables-data-types/notes.component';
 import { OperatorsNotesComponent } from './pages/notes/python/operators/notes.component';
 import { TypeConversionNotesComponent } from './pages/notes/python/type-conversion/notes.component';
@@ -22,6 +23,7 @@ export const routes: Routes = [
   { path: 'diagram', component: DiagramComponent },
   { path: 'notes', component: NotesComponent },
   { path: 'notes/python', component: PythonDetailsComponent },
+  { path: 'notes/python/print-console', component: PrintConsoleNotesComponent },
   { path: 'notes/python/variables-data-types', component: VariablesDataTypesNotesComponent },
   { path: 'notes/python/operators', component: OperatorsNotesComponent },
   { path: 'notes/python/type-conversion', component: TypeConversionNotesComponent },

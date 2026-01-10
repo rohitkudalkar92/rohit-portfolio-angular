@@ -12,9 +12,9 @@ import { CONSTANTS } from '../../constants';
   template: `
     <app-layout>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div *ngFor="let project of projects" class="project-card glass p-6 rounded-xl transition-all duration-300 hover:scale-105">
+        <div *ngFor="let project of projects" class="project-card glass p-6 rounded-xl transition-all duration-300">
           <div class="mb-4">
-            <img [src]="project.image" [alt]="project.title" class="w-full h-48 object-cover rounded-lg transition-transform duration-300 hover:scale-105">
+            <img [src]="project.image" [alt]="project.title" class="w-full h-48 object-cover rounded-lg">
           </div>
           <h3 class="font-semibold text-lg mb-2">{{ project.title }}</h3>
           <p class="text-sm opacity-80 mb-4">{{ project.description }}</p>
