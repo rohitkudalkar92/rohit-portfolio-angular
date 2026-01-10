@@ -25,6 +25,7 @@ import { PageHeaderComponent } from '../../common/page-header/page-header.compon
 const routes = [
   { path: '', component: NotesComponent },
   { path: 'python', component: PythonDetailsComponent },
+  { path: 'angular', loadChildren: () => import('./angular/angular.module').then(m => m.AngularModule) },
   { path: 'git', loadChildren: () => import('./git/git.module').then(m => m.GitModule) },
   { path: 'meditation', loadChildren: () => import('./meditation/meditation.module').then(m => m.MeditationModule) },
   { path: 'python-dsa', loadChildren: () => import('./python-dsa/python-dsa.module').then(m => m.PythonDsaModule) },

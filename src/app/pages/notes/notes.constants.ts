@@ -28,5 +28,19 @@ export const NOTES_DATA: Note[] = [
     category: 'python-dsa',
     content: 'Comprehensive guide to data structures and algorithms in Python. Covers arrays, strings, linked lists, stacks, queues, and trees with practical implementations.',
     tags: ['python', 'dsa', 'algorithms', 'data-structures']
+  },
+  {
+    id: '5',
+    title: 'Angular Components Basics',
+    category: 'angular',
+    content: 'Components are the building blocks of Angular apps. Create with @Component decorator, define selector, template, and styles. Use ng generate component to scaffold. Lifecycle hooks: ngOnInit, ngOnDestroy.',
+    tags: ['angular', 'components', 'typescript']
+  },
+  {
+    id: '6',
+    title: 'React Components & JSX',
+    category: 'react',
+    content: 'React components are JavaScript functions that return JSX. Use function components with hooks. JSX syntax combines HTML with JavaScript. Props pass data to components. State manages component data with useState hook.',
+    tags: ['react', 'components', 'jsx', 'hooks']
   }
 ];
