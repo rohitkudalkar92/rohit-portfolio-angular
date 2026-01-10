@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from '../../../common/layout/layout.component';
+import { BackNavComponent } from '../../../common/back-nav.component';
 import { PageHeaderComponent } from '../../../common/page-header.component';
 import { SearchBoxComponent } from '../../../common/search-box.component';
 import { TopicsListComponent } from '../../../common/topics-list.component';
@@ -10,10 +11,12 @@ import { PYTHON_DSA_TOPICS } from '../../../data/python-dsa-topics.data';
 @Component({
   selector: 'app-python-dsa-details',
   standalone: true,
-  imports: [CommonModule, LayoutComponent, PageHeaderComponent, SearchBoxComponent, TopicsListComponent],
+  imports: [CommonModule, LayoutComponent, BackNavComponent, PageHeaderComponent, SearchBoxComponent, TopicsListComponent],
   template: `
     <app-layout>
       <div class="space-y-6">
+        <app-back-nav backLink="/notes" backText="Back to Notes"></app-back-nav>
+        
         <app-page-header 
           title="Python DSA" 
           description="Data Structures and Algorithms in Python">
