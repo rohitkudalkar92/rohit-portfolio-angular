@@ -2,7 +2,7 @@
 # Learn different ways to display output in Python
 
 print("=== Basic Print Statements ===")
-print("")
+print("=== basic print statements ===")
 # Simple text output
 print("Hello, World!")
 print("Welcome to Python!")

@@ -3,12 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-import { GitDetailsComponent } from './git-details.component';
-import { GitBasicsNotesComponent } from './git-basics/notes.component';
-import { BranchingMergingNotesComponent } from './branching-merging/notes.component';
-import { RemoteRepositoriesNotesComponent } from './remote-repositories/notes.component';
-import { GitWorkflowNotesComponent } from './git-workflow/notes.component';
-import { AdvancedGitNotesComponent } from './advanced-git/notes.component';
+import { MeditationDetailsComponent } from './meditation-details.component';
 
 import { LayoutComponent } from '../../../common/layout/layout.component';
 import { BackNavComponent } from '../../../common/back-nav.component';
@@ -21,22 +16,12 @@ import { SearchBoxComponent } from '../../../common/search-box.component';
 import { TopicsListComponent } from '../../../common/topics-list.component';
 
 const routes = [
-  { path: '', component: GitDetailsComponent },
-  { path: 'git-basics', component: GitBasicsNotesComponent },
-  { path: 'branching-merging', component: BranchingMergingNotesComponent },
-  { path: 'remote-repositories', component: RemoteRepositoriesNotesComponent },
-  { path: 'git-workflow', component: GitWorkflowNotesComponent },
-  { path: 'advanced-git', component: AdvancedGitNotesComponent }
+  { path: '', component: MeditationDetailsComponent }
 ];
 
 @NgModule({
   declarations: [
-    GitDetailsComponent,
-    GitBasicsNotesComponent,
-    BranchingMergingNotesComponent,
-    RemoteRepositoriesNotesComponent,
-    GitWorkflowNotesComponent,
-    AdvancedGitNotesComponent
+    MeditationDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -53,4 +38,4 @@ const routes = [
     TopicsListComponent
   ]
 })
-export class GitModule { }
+export class MeditationModule { }

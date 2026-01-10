@@ -1,26 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { TitleService } from '../../../title.service';
 import { CONSTANTS } from '../../../constants';
-import { GIT_TOPICS, GitTopic } from '../../../data/git-topics.data';
+import { MEDITATION_TOPICS, MeditationTopic } from '../../../data/meditation-topics.data';
 
 @Component({
-  selector: 'app-git-details',
-  templateUrl: './git-details.component.html'
+  selector: 'app-meditation-details',
+  templateUrl: './meditation-details.component.html'
 })
-export class GitDetailsComponent implements OnInit {
+export class MeditationDetailsComponent implements OnInit {
   CONSTANTS = CONSTANTS;
-  gitTopics = GIT_TOPICS;
-  filteredTopics = GIT_TOPICS;
+  meditationTopics = MEDITATION_TOPICS;
+  filteredTopics = MEDITATION_TOPICS;
   searchTerm = '';
 
   constructor(private titleService: TitleService) {}
 
   ngOnInit(): void {
-    this.titleService.setTitle('Git Learning');
+    this.titleService.setTitle('Meditation Learning');
   }
 
   filterTopics(): void {
-    this.filteredTopics = this.gitTopics.filter(topic =>
+    this.filteredTopics = this.meditationTopics.filter(topic =>
       topic.title.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
       topic.description.toLowerCase().includes(this.searchTerm.toLowerCase())
     );

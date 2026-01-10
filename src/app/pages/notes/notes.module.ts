@@ -18,11 +18,14 @@ import { ContentSectionComponent } from '../../common/content-section.component'
 import { TopicHeaderComponent } from '../../common/topic-header.component';
 import { DataTypesGridComponent } from '../../common/data-types-grid.component';
 import { PracticeExerciseComponent } from '../../common/practice-exercise.component';
+import { SearchBoxComponent } from '../../common/search-box.component';
+import { TopicsListComponent } from '../../common/topics-list.component';
 
 const routes = [
   { path: '', component: NotesComponent },
   { path: 'python', component: PythonDetailsComponent },
   { path: 'git', loadChildren: () => import('./git/git.module').then(m => m.GitModule) },
+  { path: 'meditation', loadChildren: () => import('./meditation/meditation.module').then(m => m.MeditationModule) },
   { path: 'python/print-console', component: PrintConsoleNotesComponent },
   { path: 'python/variables-data-types', component: VariablesDataTypesNotesComponent },
   { path: 'python/operators', component: OperatorsNotesComponent },
@@ -49,7 +52,9 @@ const routes = [
     ContentSectionComponent,
     TopicHeaderComponent,
     DataTypesGridComponent,
-    PracticeExerciseComponent
+    PracticeExerciseComponent,
+    SearchBoxComponent,
+    TopicsListComponent
   ]
 })
 export class NotesModule { }

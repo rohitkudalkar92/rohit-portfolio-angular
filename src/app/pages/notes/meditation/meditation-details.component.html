@@ -4,15 +4,15 @@
 
   <!-- Search -->
   <app-search-box 
-    placeholder="Search Git topics..." 
+    placeholder="Search meditation topics..." 
     [searchValue]="searchTerm" 
     (searchChange)="onSearchChange($event)">
   </app-search-box>
 
-  <!-- Git Topics List -->
+  <!-- Meditation Topics List -->
   <app-topics-list 
     [topics]="filteredTopics" 
-    baseRoute="/notes/git" 
-    badgeClass="bg-orange-500/20 text-orange-400">
+    baseRoute="/notes/meditation" 
+    badgeClass="bg-purple-500/20 text-purple-400">
   </app-topics-list>
 </app-layout>

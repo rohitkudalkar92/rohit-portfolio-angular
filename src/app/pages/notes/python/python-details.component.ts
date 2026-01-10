@@ -25,4 +25,9 @@ export class PythonDetailsComponent implements OnInit {
       topic.description.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
   }
+
+  onSearchChange(searchValue: string): void {
+    this.searchTerm = searchValue;
+    this.filterTopics();
+  }
 }

@@ -31,19 +31,5 @@ export const NOTES_DATA: Note[] = [
     category: 'meditation',
     content: 'Started 10-minute morning meditation using breathing techniques. Focus on breath counting from 1 to 10, then repeat. Notice when mind wanders and gently return to breath.',
     tags: ['mindfulness', 'breathing', 'morning']
-  },
-  {
-    id: '4',
-    title: 'Daily Water Intake Goal',
-    category: 'health',
-    content: 'Aiming for 8 glasses (2 liters) of water daily. Using a water tracking app. Benefits: better skin, improved energy, better digestion.',
-    tags: ['hydration', 'health', 'goals']
-  },
-  {
-    id: '5',
-    title: 'GitHub Pages Deployment Fix',
-    category: 'general',
-    content: 'Fixed GitHub Actions deployment by using official GitHub Pages actions instead of angular-cli-ghpages. Key: Set Pages source to "GitHub Actions" in repo settings, use upload-pages-artifact@v3 and deploy-pages@v4 actions.',
-    tags: ['github', 'deployment', 'ci-cd', 'troubleshooting']
   }
 ];
