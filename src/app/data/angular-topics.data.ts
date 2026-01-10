@@ -166,5 +166,47 @@ export const ANGULAR_TOPICS = [
     title: 'Server-Side Rendering',
     description: 'Angular Universal and SSR implementation',
     route: '/notes/angular/ssr'
+  },
+  {
+    id: 'signals',
+    title: 'Angular Signals',
+    description: 'New reactive primitives for state management',
+    route: '/notes/angular/signals'
+  },
+  {
+    id: 'control-flow',
+    title: 'Control Flow (@if, @for, @switch)',
+    description: 'New template control flow syntax',
+    route: '/notes/angular/control-flow'
+  },
+  {
+    id: 'view-transitions',
+    title: 'View Transitions API',
+    description: 'Smooth page transitions and animations',
+    route: '/notes/angular/view-transitions'
+  },
+  {
+    id: 'material',
+    title: 'Angular Material',
+    description: 'Material Design components and CDK',
+    route: '/notes/angular/material'
+  },
+  {
+    id: 'flex-layout',
+    title: 'Angular Flex Layout',
+    description: 'Responsive layout with flexbox',
+    route: '/notes/angular/flex-layout'
+  },
+  {
+    id: 'schematics',
+    title: 'Angular Schematics',
+    description: 'Code generation and project scaffolding',
+    route: '/notes/angular/schematics'
+  },
+  {
+    id: 'workspace',
+    title: 'Angular Workspace',
+    description: 'Multi-project workspace configuration',
+    route: '/notes/angular/workspace'
   }
 ];

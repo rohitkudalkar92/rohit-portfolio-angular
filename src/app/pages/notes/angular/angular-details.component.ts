@@ -21,7 +21,7 @@ import { ANGULAR_TOPICS } from '../../../data/angular-topics.data';
       </app-search-box>
       
       <div class="container mx-auto px-4 py-8">
-        <app-topics-list [topics]="filteredTopics"></app-topics-list>
+        <app-topics-list [topics]="filteredTopics" baseRoute="/notes/angular"></app-topics-list>
       </div>
     </app-layout>
   `
