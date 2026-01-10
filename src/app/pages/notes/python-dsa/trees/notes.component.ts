@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from '../../../../common/layout/layout.component';
-import { TopicHeaderComponent } from '../../../../common/topic-header.component';
-import { ContentSectionComponent } from '../../../../common/content-section.component';
-import { CodeBlockComponent } from '../../../../common/code-block.component';
+import { TopicHeaderComponent } from '../../../../common/topic-header/topic-header.component';
+import { ContentSectionComponent } from '../../../../common/content-section/content-section.component';
+import { CodeBlockComponent } from '../../../../common/code-block/code-block.component';
 import { TitleService } from '../../../../title.service';
 
 @Component({

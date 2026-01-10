@@ -11,16 +11,16 @@ import { OperatorsNotesComponent } from './python/operators/notes.component';
 import { TypeConversionNotesComponent } from './python/type-conversion/notes.component';
 
 import { LayoutComponent } from '../../common/layout/layout.component';
-import { BackNavComponent } from '../../common/back-nav.component';
-import { CodeBlockComponent } from '../../common/code-block.component';
-import { InfoBoxComponent } from '../../common/info-box.component';
-import { ContentSectionComponent } from '../../common/content-section.component';
-import { TopicHeaderComponent } from '../../common/topic-header.component';
-import { DataTypesGridComponent } from '../../common/data-types-grid.component';
-import { PracticeExerciseComponent } from '../../common/practice-exercise.component';
-import { SearchBoxComponent } from '../../common/search-box.component';
-import { TopicsListComponent } from '../../common/topics-list.component';
-import { PageHeaderComponent } from '../../common/page-header.component';
+import { BackNavComponent } from '../../common/back-nav/back-nav.component';
+import { CodeBlockComponent } from '../../common/code-block/code-block.component';
+import { InfoBoxComponent } from '../../common/info-box/info-box.component';
+import { ContentSectionComponent } from '../../common/content-section/content-section.component';
+import { TopicHeaderComponent } from '../../common/topic-header/topic-header.component';
+import { DataTypesGridComponent } from '../../common/data-types-grid/data-types-grid.component';
+import { PracticeExerciseComponent } from '../../common/practice-exercise/practice-exercise.component';
+import { SearchBoxComponent } from '../../common/search-box/search-box.component';
+import { TopicsListComponent } from '../../common/topics-list/topics-list.component';
+import { PageHeaderComponent } from '../../common/page-header/page-header.component';
 
 const routes = [
   { path: '', component: NotesComponent },

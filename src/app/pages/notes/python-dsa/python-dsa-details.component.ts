@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from '../../../common/layout/layout.component';
-import { BackNavComponent } from '../../../common/back-nav.component';
-import { PageHeaderComponent } from '../../../common/page-header.component';
-import { SearchBoxComponent } from '../../../common/search-box.component';
-import { TopicsListComponent } from '../../../common/topics-list.component';
+import { BackNavComponent } from '../../../common/back-nav/back-nav.component';
+import { PageHeaderComponent } from '../../../common/page-header/page-header.component';
+import { SearchBoxComponent } from '../../../common/search-box/search-box.component';
+import { TopicsListComponent } from '../../../common/topics-list/topics-list.component';
 import { TitleService } from '../../../title.service';
 import { PYTHON_DSA_TOPICS } from '../../../data/python-dsa-topics.data';
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { LayoutComponent } from '../../common/layout/layout.component';
-import { BackNavComponent } from '../../common/back-nav.component';
+import { BackNavComponent } from '../../common/back-nav/back-nav.component';
 import { TitleService } from '../../title.service';
 import { CONSTANTS } from '../../constants';
 

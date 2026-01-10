@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TitleService } from '../../../../title.service';
-import { DataTypeItem } from '../../../../common/data-types-grid.component';
+import { DataTypeItem } from '../../../../common/data-types-grid/data-types-grid.component';
 
 @Component({
   selector: 'app-variables-data-types-notes',
