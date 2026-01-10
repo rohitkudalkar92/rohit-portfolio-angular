@@ -1,21 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { LayoutComponent } from '../../../../common/layout/layout.component';
-import { BackNavComponent } from '../../../../common/back-nav.component';
-import { CodeBlockComponent } from '../../../../common/code-block.component';
-import { InfoBoxComponent } from '../../../../common/info-box.component';
-import { ContentSectionComponent } from '../../../../common/content-section.component';
-import { TopicHeaderComponent } from '../../../../common/topic-header.component';
-import { PracticeExerciseComponent } from '../../../../common/practice-exercise.component';
 import { TitleService } from '../../../../title.service';
 
 @Component({
   selector: 'app-print-console-notes',
-  standalone: true,
-  imports: [CommonModule, RouterLink, LayoutComponent, BackNavComponent, CodeBlockComponent, InfoBoxComponent, ContentSectionComponent, TopicHeaderComponent, PracticeExerciseComponent],
-  templateUrl: './notes.component.html',
-  styleUrls: []
+  templateUrl: './notes.component.html'
 })
 export class PrintConsoleNotesComponent implements OnInit {
 

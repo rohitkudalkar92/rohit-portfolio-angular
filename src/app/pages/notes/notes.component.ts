@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { LayoutComponent } from '../../common/layout/layout.component';
 import { TitleService } from '../../title.service';
 import { CONSTANTS } from '../../constants';
 import { Note, Category } from './notes.interface';
@@ -9,8 +6,6 @@ import { CATEGORIES, NOTES_DATA } from './notes.constants';
 
 @Component({
   selector: 'app-notes',
-  standalone: true,
-  imports: [CommonModule, LayoutComponent, RouterLink],
   templateUrl: './notes.component.html'
 })
 export class NotesComponent implements OnInit {

@@ -6,12 +6,6 @@ import { ProjectDetailComponent } from './pages/projects/project-detail.componen
 import { SkillsComponent } from './pages/skills/skills.component';
 import { DSAComponent } from './pages/dsa.component';
 import { DiagramComponent } from './pages/diagram/diagram.component';
-import { NotesComponent } from './pages/notes/notes.component';
-import { PythonDetailsComponent } from './pages/notes/python/python-details.component';
-import { PrintConsoleNotesComponent } from './pages/notes/python/print-console/notes.component';
-import { VariablesDataTypesNotesComponent } from './pages/notes/python/variables-data-types/notes.component';
-import { OperatorsNotesComponent } from './pages/notes/python/operators/notes.component';
-import { TypeConversionNotesComponent } from './pages/notes/python/type-conversion/notes.component';
 import { NotFoundComponent } from './common/not-found.component';
 
 export const routes: Routes = [
@@ -21,12 +15,7 @@ export const routes: Routes = [
   { path: 'projects', component: ProjectsComponent },
   { path: 'dsa', component: DSAComponent },
   { path: 'diagram', component: DiagramComponent },
-  { path: 'notes', component: NotesComponent },
-  { path: 'notes/python', component: PythonDetailsComponent },
-  { path: 'notes/python/print-console', component: PrintConsoleNotesComponent },
-  { path: 'notes/python/variables-data-types', component: VariablesDataTypesNotesComponent },
-  { path: 'notes/python/operators', component: OperatorsNotesComponent },
-  { path: 'notes/python/type-conversion', component: TypeConversionNotesComponent },
+  { path: 'notes', loadChildren: () => import('./pages/notes/notes.module').then(m => m.NotesModule) },
   { path: 'project/:id', component: ProjectDetailComponent },
   { path: '**', component: NotFoundComponent }
 ];
