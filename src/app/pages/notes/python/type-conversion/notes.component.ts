@@ -9,6 +9,56 @@ import { DataTypeItem } from '../../../../common/data-types-grid/data-types-grid
 export class TypeConversionNotesComponent implements OnInit {
 
   // Basic Type Conversion Examples
+  implicitVsExplicitCode = `# IMPLICIT TYPE CONVERSION (Automatic)
+print("=== Implicit Conversion ===")
+
+# Python automatically converts types in mixed operations
+result1 = 10 + 3.5        # int + float → float (10.0 + 3.5)
+print(f"10 + 3.5 = {result1} (type: {type(result1).__name__})")
+
+result2 = True + 5        # bool + int → int (1 + 5)
+print(f"True + 5 = {result2} (type: {type(result2).__name__})")
+
+result3 = False * 10      # bool * int → int (0 * 10)
+print(f"False * 10 = {result3} (type: {type(result3).__name__})")
+
+print("\n=== Explicit Conversion ===")
+
+# You manually convert using functions
+age_str = "25"            # String
+age_int = int(age_str)    # Explicitly convert to int
+print(f"String '{age_str}' → int {age_int}")
+
+price_str = "19.99"       # String
+price_float = float(price_str)  # Explicitly convert to float
+print(f"String '{price_str}' → float {price_float}")
+
+number = 42               # Integer
+number_str = str(number)  # Explicitly convert to string
+print(f"Int {number} → string '{number_str}'")
+
+print("\n=== When Explicit is Required ===")
+
+# This would cause an error (uncomment to see):
+# result = "Age: " + 25    # TypeError: can't concatenate str and int
+
+# Must convert explicitly:
+result = "Age: " + str(25)  # Explicit conversion required
+print(f"Concatenation: {result}")`;
+
+  implicitVsExplicitOutput = `=== Implicit Conversion ===
+10 + 3.5 = 13.5 (type: float)
+True + 5 = 6 (type: int)
+False * 10 = 0 (type: int)
+
+=== Explicit Conversion ===
+String '25' → int 25
+String '19.99' → float 19.99
+Int 42 → string '42'
+
+=== When Explicit is Required ===
+Concatenation: Age: 25`;
+
   stringToNumberCode = `# String to Integer
 age_str = "25"
 age_int = int(age_str)

@@ -22,6 +22,20 @@
         </ul>
       </app-info-box>
     </app-content-section>
+
+    <!-- Implicit vs Explicit Conversion -->
+    <app-content-section title="Implicit vs Explicit Conversion" description="Understanding the difference between automatic and manual type conversion.">
+      <app-code-block [code]="implicitVsExplicitCode" [output]="implicitVsExplicitOutput" language="Python"></app-code-block>
+      
+      <app-info-box type="warning" title="⚠️ Key Differences">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>Implicit:</strong> Python automatically converts types during operations</li>
+          <li><strong>Explicit:</strong> You manually convert using functions like int(), str(), float()</li>
+          <li><strong>Safety:</strong> Explicit conversion gives you more control and prevents errors</li>
+          <li><strong>Clarity:</strong> Explicit conversion makes your intentions clear to other developers</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
     <!-- Conversion Methods Overview -->
     <app-content-section title="Conversion Methods" description="Python provides built-in functions to convert between data types.">
       <app-data-types-grid [items]="conversionMethods"></app-data-types-grid>
