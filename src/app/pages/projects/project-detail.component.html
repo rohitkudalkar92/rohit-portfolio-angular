@@ -1,8 +1,6 @@
 <app-layout>
   <div *ngIf="project" class="mt-8">
-    <button (click)="goBack()" class="mb-6 flex items-center gap-2 text-sm opacity-80 hover:opacity-100 transition-opacity">
-      {{ backToProjectsText }}
-    </button>
+    <app-back-nav [backLink]="'/projects'" [backText]="backToProjectsText"></app-back-nav>
     
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div>
@@ -54,6 +52,6 @@
   
   <div *ngIf="!project" class="text-center py-12">
     <h2 class="text-2xl font-semibold mb-4">{{ notFoundTitle }}</h2>
-    <button (click)="goBack()" class="text-indigo-400 hover:underline">{{ backToProjectsText }}</button>
+    <a routerLink="/projects" class="text-indigo-400 hover:underline">{{ backToProjectsText }}</a>
   </div>
 </app-layout>

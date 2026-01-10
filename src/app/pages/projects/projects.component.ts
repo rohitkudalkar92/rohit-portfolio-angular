@@ -25,7 +25,7 @@ import { CONSTANTS } from '../../constants';
             </span>
           </div>
           <div class="flex gap-2">
-            <a [routerLink]="['/project', project.id]" class="flex-1 text-center py-2 px-3 bg-gradient-to-r from-indigo-400 to-purple-600 text-white rounded-lg hover:opacity-90 transition-opacity text-xs">
+            <a [routerLink]="['/projects', project.id]" class="flex-1 text-center py-2 px-3 bg-gradient-to-r from-indigo-400 to-purple-600 text-white rounded-lg hover:opacity-90 transition-opacity text-xs">
               {{ detailsBtn }}
             </a>
             <a [href]="project.liveUrl" target="_blank" class="flex-1 text-center py-2 px-3 border border-glass-border rounded-lg hover:bg-glass-bg text-xs">

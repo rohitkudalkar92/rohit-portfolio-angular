@@ -14,6 +14,6 @@ export const routes: Routes = [
   { path: 'projects', component: ProjectsComponent },
   { path: 'diagram', component: DiagramComponent },
   { path: 'notes', loadChildren: () => import('./pages/notes/notes.module').then(m => m.NotesModule) },
-  { path: 'project/:id', component: ProjectDetailComponent },
+  { path: 'projects/:id', component: ProjectDetailComponent },
   { path: '**', component: NotFoundComponent }
 ];

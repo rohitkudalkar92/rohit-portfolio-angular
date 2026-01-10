@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { LayoutComponent } from '../../common/layout/layout.component';
+import { BackNavComponent } from '../../common/back-nav.component';
 import { TitleService } from '../../title.service';
 import { CONSTANTS } from '../../constants';
 
 @Component({
   selector: 'app-project-detail',
   standalone: true,
-  imports: [CommonModule, LayoutComponent],
+  imports: [CommonModule, LayoutComponent, BackNavComponent, RouterLink],
   templateUrl: './project-detail.component.html'
 })
 export class ProjectDetailComponent implements OnInit {
@@ -46,10 +47,6 @@ export class ProjectDetailComponent implements OnInit {
 
   getTechIcon(tech: string): string {
     return (this.techIcons as any)[tech] || CONSTANTS.DEFAULT_TECH_ICON;
-  }
-
-  goBack() {
-    this.router.navigate([CONSTANTS.ROUTES.PROJECTS]);
   }
 
   setMainImage(imageSrc: string) {
