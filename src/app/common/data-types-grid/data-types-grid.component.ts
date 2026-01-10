@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CodeBlockComponent } from './code-block.component';
+import { CodeBlockComponent } from '../code-block/code-block.component';
 
 export interface DataTypeItem {
   title: string;
