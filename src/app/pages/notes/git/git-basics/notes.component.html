@@ -1,0 +1,68 @@
+<app-layout>
+  <!-- Navigation -->
+  <app-back-nav backLink="/notes/git" backText="Back to Git Topics"></app-back-nav>
+  
+  <!-- Page Header -->
+  <app-topic-header 
+    title="Git Basics" 
+    description="Learn fundamental Git commands, repository initialization, and basic version control concepts.">
+  </app-topic-header>
+
+  <!-- Content Sections -->
+  <div>
+    <!-- Key Rules -->
+    <app-content-section title="Key Concepts" description="Essential Git concepts to understand before diving into commands.">
+      <app-info-box type="info" title="🔧 Git Workflow">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>Working Directory:</strong> Your actual files and folders</li>
+          <li><strong>Staging Area:</strong> Files ready to be committed</li>
+          <li><strong>Repository:</strong> Committed snapshots of your project</li>
+          <li><strong>Commit:</strong> A snapshot of your project at a specific time</li>
+          <li><strong>Branch:</strong> Independent line of development</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Basic Commands -->
+    <app-content-section title="Basic Commands" description="Essential Git commands every developer should know.">
+      <app-code-block [code]="basicCommandsCode" [output]="basicCommandsOutput" language="bash"></app-code-block>
+    </app-content-section>
+
+    <!-- Configuration -->
+    <app-content-section title="Git Configuration" description="Set up your Git identity and preferences.">
+      <app-code-block [code]="configurationCode" language="bash"></app-code-block>
+      
+      <app-info-box type="warning" title="⚠️ Configuration Levels">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>--global:</strong> Settings for all repositories on your system</li>
+          <li><strong>--local:</strong> Settings for current repository only</li>
+          <li><strong>--system:</strong> Settings for all users on the system</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Working Directory Flow -->
+    <app-content-section title="Git Workflow" description="Understanding the three-stage workflow in Git.">
+      <app-code-block [code]="workingDirectoryCode" language="bash"></app-code-block>
+      
+      <app-info-box type="success" title="✅ Best Practices">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>Commit often:</strong> Make small, focused commits</li>
+          <li><strong>Write clear messages:</strong> Describe what and why</li>
+          <li><strong>Check status:</strong> Always know what's staged</li>
+          <li><strong>Review changes:</strong> Use git diff before committing</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Practice Exercise -->
+    <app-content-section title="Practice" description="Practice the complete Git workflow from initialization to commit.">
+      <app-practice-exercise 
+        title="💡 Practice Exercise"
+        description="Create a new repository and practice the basic Git workflow."
+        [code]="practiceCode"
+        [output]="practiceOutput">
+      </app-practice-exercise>
+    </app-content-section>
+  </div>
+</app-layout>

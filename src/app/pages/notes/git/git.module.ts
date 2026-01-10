@@ -4,6 +4,11 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { GitDetailsComponent } from './git-details.component';
+import { GitBasicsNotesComponent } from './git-basics/notes.component';
+import { BranchingMergingNotesComponent } from './branching-merging/notes.component';
+import { RemoteRepositoriesNotesComponent } from './remote-repositories/notes.component';
+import { GitWorkflowNotesComponent } from './git-workflow/notes.component';
+import { AdvancedGitNotesComponent } from './advanced-git/notes.component';
 
 import { LayoutComponent } from '../../../common/layout/layout.component';
 import { BackNavComponent } from '../../../common/back-nav.component';
@@ -14,12 +19,22 @@ import { TopicHeaderComponent } from '../../../common/topic-header.component';
 import { PracticeExerciseComponent } from '../../../common/practice-exercise.component';
 
 const routes = [
-  { path: '', component: GitDetailsComponent }
+  { path: '', component: GitDetailsComponent },
+  { path: 'git-basics', component: GitBasicsNotesComponent },
+  { path: 'branching-merging', component: BranchingMergingNotesComponent },
+  { path: 'remote-repositories', component: RemoteRepositoriesNotesComponent },
+  { path: 'git-workflow', component: GitWorkflowNotesComponent },
+  { path: 'advanced-git', component: AdvancedGitNotesComponent }
 ];
 
 @NgModule({
   declarations: [
-    GitDetailsComponent
+    GitDetailsComponent,
+    GitBasicsNotesComponent,
+    BranchingMergingNotesComponent,
+    RemoteRepositoriesNotesComponent,
+    GitWorkflowNotesComponent,
+    AdvancedGitNotesComponent
   ],
   imports: [
     CommonModule,

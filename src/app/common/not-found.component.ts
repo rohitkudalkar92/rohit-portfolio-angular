@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 
@@ -25,10 +23,10 @@ import { HeaderComponent } from './header/header.component';
         
         <div class="flex gap-4">
           <a routerLink="/" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-black font-semibold btn-accent hover:opacity-90 transition-opacity">
-            ← Back to Home
+            Back to Home
           </a>
           <button (click)="goBack()" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg glass hover:opacity-90 transition-opacity">
-            ← Go to Previous Page
+            Go to Previous Page
           </button>
         </div>
       </div>
