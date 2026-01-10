@@ -3,7 +3,6 @@ export interface Note {
   title: string;
   category: string;
   content: string;
-  date: string;
   tags: string[];
 }
 

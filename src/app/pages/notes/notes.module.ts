@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { NotesComponent } from './notes.component';
 import { PythonDetailsComponent } from './python/python-details.component';
+import { GitDetailsComponent } from './git/git-details.component';
 import { PrintConsoleNotesComponent } from './python/print-console/notes.component';
 import { VariablesDataTypesNotesComponent } from './python/variables-data-types/notes.component';
 import { OperatorsNotesComponent } from './python/operators/notes.component';
@@ -22,6 +23,7 @@ import { PracticeExerciseComponent } from '../../common/practice-exercise.compon
 const routes = [
   { path: '', component: NotesComponent },
   { path: 'python', component: PythonDetailsComponent },
+  { path: 'git', component: GitDetailsComponent },
   { path: 'python/print-console', component: PrintConsoleNotesComponent },
   { path: 'python/variables-data-types', component: VariablesDataTypesNotesComponent },
   { path: 'python/operators', component: OperatorsNotesComponent },
@@ -32,6 +34,7 @@ const routes = [
   declarations: [
     NotesComponent,
     PythonDetailsComponent,
+    GitDetailsComponent,
     PrintConsoleNotesComponent,
     VariablesDataTypesNotesComponent,
     OperatorsNotesComponent,
