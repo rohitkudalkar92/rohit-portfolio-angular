@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Location } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 
 @Component({
