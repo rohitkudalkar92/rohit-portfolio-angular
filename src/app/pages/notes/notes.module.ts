@@ -20,6 +20,7 @@ import { DataTypesGridComponent } from '../../common/data-types-grid.component';
 import { PracticeExerciseComponent } from '../../common/practice-exercise.component';
 import { SearchBoxComponent } from '../../common/search-box.component';
 import { TopicsListComponent } from '../../common/topics-list.component';
+import { PageHeaderComponent } from '../../common/page-header.component';
 
 const routes = [
   { path: '', component: NotesComponent },
@@ -55,7 +56,8 @@ const routes = [
     DataTypesGridComponent,
     PracticeExerciseComponent,
     SearchBoxComponent,
-    TopicsListComponent
+    TopicsListComponent,
+    PageHeaderComponent
   ]
 })
 export class NotesModule { }
