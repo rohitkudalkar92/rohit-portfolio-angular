@@ -10,6 +10,7 @@ import { VariablesDataTypesNotesComponent } from './python/variables-data-types/
 import { OperatorsNotesComponent } from './python/operators/notes.component';
 import { TypeConversionNotesComponent } from './python/type-conversion/notes.component';
 import { StringsNotesComponent } from './python/strings/notes.component';
+import { ErrorTypesNotesComponent } from './python/error-types/notes.component';
 import { CleanCodeComponent } from './clean-code/clean-code.component';
 
 import { LayoutComponent } from '../../common/layout/layout.component';
@@ -36,6 +37,7 @@ const routes = [
   { path: 'python/operators', component: OperatorsNotesComponent },
   { path: 'python/type-conversion', component: TypeConversionNotesComponent },
   { path: 'python/strings', component: StringsNotesComponent },
+  { path: 'python/error-types', component: ErrorTypesNotesComponent },
   { path: 'clean-code', component: CleanCodeComponent }
 ];
 
@@ -48,6 +50,7 @@ const routes = [
     OperatorsNotesComponent,
     TypeConversionNotesComponent,
     StringsNotesComponent,
+    ErrorTypesNotesComponent,
     CleanCodeComponent
   ],
   imports: [

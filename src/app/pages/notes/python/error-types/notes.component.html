@@ -1,0 +1,137 @@
+<app-layout>
+  <app-back-nav backLink="/notes/python" backText="Back to Python Notes"></app-back-nav>
+  
+  <app-topic-header 
+    title="Python Error Types" 
+    description="Understanding common Python errors and how to handle them effectively.">
+  </app-topic-header>
+
+  <div>
+    <!-- Overview -->
+    <app-content-section title="Common Python Errors" description="Learn to identify and fix the most frequent Python errors.">
+      <app-info-box type="info" title="🐛 Error Categories">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>SyntaxError:</strong> Invalid Python syntax</li>
+          <li><strong>NameError:</strong> Using undefined variables</li>
+          <li><strong>TypeError:</strong> Wrong data type operations</li>
+          <li><strong>ValueError:</strong> Correct type but invalid value</li>
+          <li><strong>IndexError:</strong> List/string index out of range</li>
+          <li><strong>KeyError:</strong> Dictionary key doesn't exist</li>
+          <li><strong>AttributeError:</strong> Object doesn't have attribute</li>
+          <li><strong>ZeroDivisionError:</strong> Division by zero</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- SyntaxError -->
+    <app-content-section title="1. SyntaxError" description="Occurs when Python can't parse your code due to invalid syntax.">
+      <app-code-block [code]="syntaxErrorCode" [output]="syntaxErrorOutput" language="Python"></app-code-block>
+      
+      <app-info-box type="warning" title="⚠️ Common Syntax Mistakes">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li>Missing colons after if, for, while, def statements</li>
+          <li>Unmatched parentheses, brackets, or quotes</li>
+          <li>Incorrect indentation</li>
+          <li>Using reserved keywords as variable names</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- NameError -->
+    <app-content-section title="2. NameError" description="Happens when you try to use a variable that hasn't been defined.">
+      <app-code-block [code]="nameErrorCode" [output]="nameErrorOutput" language="Python"></app-code-block>
+    </app-content-section>
+
+    <!-- TypeError -->
+    <app-content-section title="3. TypeError" description="Occurs when an operation is performed on an inappropriate data type.">
+      <app-code-block [code]="typeErrorCode" [output]="typeErrorOutput" language="Python"></app-code-block>
+    </app-content-section>
+
+    <!-- ValueError -->
+    <app-content-section title="4. ValueError" description="Raised when a function receives an argument of correct type but inappropriate value.">
+      <app-code-block [code]="valueErrorCode" [output]="valueErrorOutput" language="Python"></app-code-block>
+    </app-content-section>
+
+    <!-- IndexError -->
+    <app-content-section title="5. IndexError" description="Happens when trying to access an index that doesn't exist in a list or string.">
+      <app-code-block [code]="indexErrorCode" [output]="indexErrorOutput" language="Python"></app-code-block>
+    </app-content-section>
+
+    <!-- KeyError -->
+    <app-content-section title="6. KeyError" description="Occurs when trying to access a dictionary key that doesn't exist.">
+      <app-code-block [code]="keyErrorCode" [output]="keyErrorOutput" language="Python"></app-code-block>
+    </app-content-section>
+
+    <!-- AttributeError -->
+    <app-content-section title="7. AttributeError" description="Raised when an object doesn't have the requested attribute or method.">
+      <app-code-block [code]="attributeErrorCode" [output]="attributeErrorOutput" language="Python"></app-code-block>
+    </app-content-section>
+
+    <!-- ZeroDivisionError -->
+    <app-content-section title="8. ZeroDivisionError" description="Occurs when attempting to divide a number by zero.">
+      <app-code-block [code]="zeroDivisionErrorCode" [output]="zeroDivisionErrorOutput" language="Python"></app-code-block>
+    </app-content-section>
+
+    <!-- FileNotFoundError -->
+    <app-content-section title="9. FileNotFoundError" description="Happens when trying to open a file that doesn't exist.">
+      <app-code-block [code]="fileNotFoundErrorCode" [output]="fileNotFoundErrorOutput" language="Python"></app-code-block>
+    </app-content-section>
+
+    <!-- IndentationError -->
+    <app-content-section title="10. IndentationError" description="Python requires proper indentation to define code blocks.">
+      <app-code-block [code]="indentationErrorCode" [output]="indentationErrorOutput" language="Python"></app-code-block>
+      
+      <app-info-box type="purple" title="🎯 Indentation Rules">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>Use 4 spaces:</strong> Standard Python indentation</li>
+          <li><strong>Be consistent:</strong> Don't mix tabs and spaces</li>
+          <li><strong>Align properly:</strong> All code at same level should align</li>
+          <li><strong>IDE help:</strong> Use code editor with Python support</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Error Handling -->
+    <app-content-section title="Error Handling with Try-Except" description="Learn to handle errors gracefully using try-except blocks.">
+      <app-code-block [code]="errorHandlingCode" [output]="errorHandlingOutput" language="Python"></app-code-block>
+      
+      <app-info-box type="success" title="✅ Error Handling Best Practices">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>Specific exceptions:</strong> Catch specific error types</li>
+          <li><strong>Multiple handlers:</strong> Handle different errors differently</li>
+          <li><strong>Graceful degradation:</strong> Provide fallback behavior</li>
+          <li><strong>User feedback:</strong> Give meaningful error messages</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Practice Exercise -->
+    <app-content-section title="Practice Exercise" description="Fix common Python errors and add proper error handling.">
+      <app-code-block [code]="practiceCode" [output]="practiceOutput" language="Python"></app-code-block>
+      
+      <app-info-box type="info" title="🎯 Your Challenge">
+        <p class="text-secondary text-sm mb-2">Practice identifying and fixing these common errors:</p>
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li>Add missing colons and fix syntax errors</li>
+          <li>Define variables before using them</li>
+          <li>Convert data types when needed</li>
+          <li>Check array bounds before accessing</li>
+          <li>Add try-except blocks for error handling</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Summary -->
+    <app-content-section title="Summary" description="Key takeaways for handling Python errors effectively.">
+      <app-info-box type="success" title="🏆 Error Prevention Tips">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>Read error messages:</strong> They tell you exactly what's wrong</li>
+          <li><strong>Use IDE features:</strong> Syntax highlighting and error detection</li>
+          <li><strong>Test frequently:</strong> Run code often to catch errors early</li>
+          <li><strong>Handle exceptions:</strong> Use try-except for robust code</li>
+          <li><strong>Debug systematically:</strong> Check line numbers and stack traces</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+  </div>
+</app-layout>
