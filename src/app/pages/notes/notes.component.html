@@ -5,85 +5,18 @@
       *ngFor="let note of notes" 
       class="glass rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300"
     >
-      <div class="flex items-start justify-between mb-3">
-        <span class="text-xs px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full">
-          {{ note.category | titlecase }}
-        </span>
-      </div>
-      
       <h3 class="text-lg font-semibold text-primary mb-2">{{ note.title }}</h3>
       <p class="text-secondary text-sm mb-4 line-clamp-3">{{ note.content }}</p>
       
-      <!-- Show details button for Python and Git notes -->
+      <!-- Show details button if routerLink exists -->
       <app-button 
-        *ngIf="note.category === 'python'" 
-        routerLink="/notes/python"
-        variant="accent"
-        size="sm"
-        [block]="true"
-        text="View Details">
-      </app-button>
-      
-      <app-button 
-        *ngIf="note.category === 'git'" 
-        routerLink="/notes/git"
-        variant="accent"
-        size="sm"
-        [block]="true"
-        text="View Details">
-      </app-button>
-      
-      <app-button 
-        *ngIf="note.category === 'python-dsa'" 
-        routerLink="/notes/python-dsa"
-        variant="accent"
-        size="sm"
-        [block]="true"
-        text="View Details">
-      </app-button>
-      
-      <app-button 
-        *ngIf="note.category === 'meditation'" 
-        routerLink="/notes/meditation"
-        variant="accent"
-        size="sm"
-        [block]="true"
-        text="View Details">
-      </app-button>
-      
-      <app-button 
-        *ngIf="note.category === 'angular'" 
-        routerLink="/notes/angular"
-        variant="accent"
-        size="sm"
-        [block]="true"
-        text="View Details">
-      </app-button>
-      
-      <app-button 
-        *ngIf="note.category === 'clean-code'" 
-        routerLink="/notes/clean-code"
-        variant="accent"
-        size="sm"
-        [block]="true"
-        text="View Details">
-      </app-button>
-      
-      <app-button 
-        *ngIf="note.category === 'es6'" 
-        routerLink="/notes/es6"
+        *ngIf="note.routerLink" 
+        [routerLink]="note.routerLink"
         variant="accent"
         size="sm"
         [block]="true"
         text="View Details">
       </app-button>
     </div>
-  </div>
-
-  <!-- Empty State -->
-  <div *ngIf="notes.length === 0" class="text-center py-16">
-    <div class="text-6xl mb-4">📝</div>
-    <h3 class="text-xl font-semibold text-primary mb-2">No notes found</h3>
-    <p class="text-secondary">Start your learning journey by adding some notes!</p>
   </div>
 </app-layout>
