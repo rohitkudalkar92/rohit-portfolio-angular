@@ -85,12 +85,10 @@ export const CONSTANTS = {
   PROJECTS: {
     TITLE: 'Featured Projects',
     DETAILS_BTN: 'Details',
-    LIVE_DEMO_BTN: 'Live Demo',
     BACK_TO_PROJECTS: 'Back to Projects',
     TECHNOLOGIES_TITLE: 'Technologies Used',
     KEY_FEATURES_TITLE: 'Key Features',
     PROJECT_DETAILS_TITLE: 'Project Details',
-    VIEW_LIVE_BTN: 'View Live Site',
     NOT_FOUND_TITLE: 'Project Not Found'
   },
   

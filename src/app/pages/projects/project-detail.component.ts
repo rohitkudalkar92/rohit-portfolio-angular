@@ -21,7 +21,6 @@ export class ProjectDetailComponent implements OnInit {
   technologiesTitle = CONSTANTS.PROJECTS.TECHNOLOGIES_TITLE;
   keyFeaturesTitle = CONSTANTS.PROJECTS.KEY_FEATURES_TITLE;
   projectDetailsTitle = CONSTANTS.PROJECTS.PROJECT_DETAILS_TITLE;
-  viewLiveBtn = CONSTANTS.PROJECTS.VIEW_LIVE_BTN;
   notFoundTitle = CONSTANTS.PROJECTS.NOT_FOUND_TITLE;
   checkMark = CONSTANTS.SYMBOLS.CHECK_MARK;
   
