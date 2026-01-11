@@ -15,7 +15,13 @@
           <li><strong>Small Functions:</strong> Keep functions under 20 lines</li>
           <li><strong>Avoid Deep Nesting:</strong> Maximum 3 levels of indentation</li>
           <li><strong>Single Responsibility:</strong> Each function should do one thing</li>
+          <li><strong>KISS Principle:</strong> Keep It Simple, Stupid - avoid unnecessary complexity</li>
+          <li><strong>YAGNI:</strong> You Aren't Gonna Need It - don't implement until required</li>
           <li><strong>DRY Principle:</strong> Don't Repeat Yourself - eliminate code duplication</li>
+          <li><strong>Readability Over Cleverness:</strong> Code is read more than written</li>
+          <li><strong>Consistency:</strong> Follow consistent patterns throughout codebase</li>
+          <li><strong>Explicit Is Better:</strong> Make behavior obvious and predictable</li>
+          <li><strong>Fail Fast:</strong> Detect and report errors as early as possible</li>
           <li><strong>Error Handling:</strong> Handle errors gracefully</li>
           <li><strong>No Magic Numbers:</strong> Use named constants</li>
           <li><strong>Consistent Formatting:</strong> Follow style guidelines</li>
@@ -52,8 +58,18 @@
       <app-code-block [code]="singleResponsibilityCode" [output]="singleResponsibilityOutput" language="JavaScript"></app-code-block>
     </app-content-section>
 
+    <!-- KISS Principle -->
+    <app-content-section title="5. KISS Principle (Keep It Simple, Stupid)" description="Choose simple solutions over complex ones - avoid unnecessary complexity.">
+      <app-code-block [code]="kissPrincipleCode" [output]="kissPrincipleOutput" language="JavaScript"></app-code-block>
+    </app-content-section>
+
+    <!-- YAGNI Principle -->
+    <app-content-section title="6. YAGNI (You Aren't Gonna Need It)" description="Do not implement features until they are actually required.">
+      <app-code-block [code]="yagniPrincipleCode" [output]="yagniPrincipleOutput" language="JavaScript"></app-code-block>
+    </app-content-section>
+
     <!-- DRY Principle -->
-    <app-content-section title="5. DRY Principle (Don't Repeat Yourself)" description="Eliminate code duplication by extracting common logic into reusable functions.">
+    <app-content-section title="7. DRY Principle (Don't Repeat Yourself)" description="Eliminate code duplication by extracting common logic into reusable functions.">
       <app-code-block [code]="dryPrincipleCode" [output]="dryPrincipleOutput" language="JavaScript"></app-code-block>
       
       <app-info-box type="warning" title="⚠️ Signs of Code Duplication">
@@ -66,18 +82,38 @@
       </app-info-box>
     </app-content-section>
 
+    <!-- Readability Over Cleverness -->
+    <app-content-section title="8. Readability Over Cleverness" description="Code is read more often than it is written - prioritize clarity.">
+      <app-code-block [code]="readabilityCode" [output]="readabilityOutput" language="JavaScript"></app-code-block>
+    </app-content-section>
+
+    <!-- Consistency -->
+    <app-content-section title="9. Consistency" description="Follow consistent naming, formatting, and patterns throughout the codebase.">
+      <app-code-block [code]="consistencyCode" [output]="consistencyOutput" language="JavaScript"></app-code-block>
+    </app-content-section>
+
+    <!-- Explicit Is Better -->
+    <app-content-section title="10. Explicit Is Better Than Implicit" description="Make behavior obvious and predictable - avoid hidden complexity.">
+      <app-code-block [code]="explicitCode" [output]="explicitOutput" language="JavaScript"></app-code-block>
+    </app-content-section>
+
+    <!-- Fail Fast -->
+    <app-content-section title="11. Fail Fast" description="Detect and report errors as early as possible in the execution flow.">
+      <app-code-block [code]="failFastCode" [output]="failFastOutput" language="JavaScript"></app-code-block>
+    </app-content-section>
+
     <!-- Error Handling -->
-    <app-content-section title="6. Handle Errors Gracefully" description="Always anticipate and handle potential errors in your code.">
+    <app-content-section title="12. Handle Errors Gracefully" description="Always anticipate and handle potential errors in your code.">
       <app-code-block [code]="errorHandlingCode" [output]="errorHandlingOutput" language="JavaScript"></app-code-block>
     </app-content-section>
 
     <!-- Magic Numbers -->
-    <app-content-section title="7. Avoid Magic Numbers" description="Use named constants instead of hard-coded values.">
+    <app-content-section title="13. Avoid Magic Numbers" description="Use named constants instead of hard-coded values.">
       <app-code-block [code]="magicNumbersCode" [output]="magicNumbersOutput" language="JavaScript"></app-code-block>
     </app-content-section>
 
     <!-- Consistent Formatting -->
-    <app-content-section title="8. Consistent Formatting" description="Follow consistent style guidelines for better code readability.">
+    <app-content-section title="14. Consistent Formatting" description="Follow consistent style guidelines for better code readability.">
       <app-code-block [code]="consistentFormattingCode" [output]="consistentFormattingOutput" language="JavaScript"></app-code-block>
       
       <app-info-box type="purple" title="🎯 Style Guidelines">
@@ -90,33 +126,32 @@
       </app-info-box>
     </app-content-section>
 
-    <!-- Best Practices Summary -->
-    <app-content-section title="Practice Exercise" description="Apply clean code principles to refactor messy code.">
-      <app-code-block [code]="practiceCode" [output]="practiceOutput" language="JavaScript"></app-code-block>
-      
-      <app-info-box type="info" title="🎯 Your Challenge">
-        <p class="text-secondary text-sm mb-2">Try refactoring the "BAD CODE" example above using these clean code principles:</p>
+    <!-- SOLID Principles -->
+    <app-content-section title="15. SOLID Principles" description="Object-oriented design principles for maintainable code.">
+      <app-info-box type="info" title="🏗️ SOLID Principles">
         <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
-          <li>Replace magic numbers with named constants</li>
-          <li>Use meaningful function and variable names</li>
-          <li>Extract small, focused functions</li>
-          <li>Eliminate deep nesting with early returns</li>
-          <li>Apply single responsibility principle</li>
+          <li><strong>S - Single Responsibility:</strong> One reason to change</li>
+          <li><strong>O - Open/Closed:</strong> Open for extension, closed for modification</li>
+          <li><strong>L - Liskov Substitution:</strong> Subclasses must be replaceable</li>
+          <li><strong>I - Interface Segregation:</strong> Many small interfaces vs one large</li>
+          <li><strong>D - Dependency Inversion:</strong> Depend on abstractions</li>
         </ul>
       </app-info-box>
+      <app-code-block [code]="solidSrpCode" [output]="solidSrpOutput" language="JavaScript"></app-code-block>
     </app-content-section>
 
-    <!-- Best Practices Summary -->
-    <app-content-section title="Summary" description="Key takeaways for writing clean, maintainable code.">
-      <app-info-box type="success" title="🏆 Clean Code Benefits">
+    <!-- Language-Agnostic Best Practices -->
+    <app-content-section title="16. Language-Agnostic Best Practices" description="Universal principles that apply across all programming languages.">
+      <app-info-box type="success" title="🌐 Universal Best Practices">
         <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
-          <li><strong>Readability:</strong> Code is easier to understand</li>
-          <li><strong>Maintainability:</strong> Changes are safer and faster</li>
-          <li><strong>Debugging:</strong> Issues are easier to find and fix</li>
-          <li><strong>Collaboration:</strong> Team members can work together effectively</li>
-          <li><strong>Quality:</strong> Fewer bugs and better software</li>
+          <li><strong>Avoid Magic Numbers and Strings:</strong> Use named constants for all literal values</li>
+          <li><strong>Use Constants and Enums:</strong> Define meaningful constants instead of raw values</li>
+          <li><strong>Handle Edge Cases:</strong> Consider null, empty, boundary, and error conditions</li>
+          <li><strong>Prefer Immutability:</strong> Use immutable objects when possible to prevent bugs</li>
+          <li><strong>Write Self-Documenting Code:</strong> Code should explain itself without comments</li>
         </ul>
       </app-info-box>
+      <app-code-block [code]="languageAgnosticCode" [output]="languageAgnosticOutput" language="JavaScript"></app-code-block>
     </app-content-section>
   </div>
 </app-layout>
