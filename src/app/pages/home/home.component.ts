@@ -6,11 +6,12 @@ import { TitleService } from '../../title.service';
 import { CONSTANTS } from '../../constants';
 import { HeroTitle, QuickInfo, Icons, Contact} from './home.interface';
 import { LazyLoadDirective } from '../../shared/directives/lazy-load.directive';
+import { ButtonComponent } from '../../common/button/button.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, LayoutComponent, RouterModule, LazyLoadDirective],
+  imports: [CommonModule, LayoutComponent, RouterModule, LazyLoadDirective, ButtonComponent],
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
