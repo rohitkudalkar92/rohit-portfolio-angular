@@ -1,0 +1,50 @@
+<app-layout>
+  <app-back-nav backLink="/notes/css-scss" backText="Back to CSS & SCSS"></app-back-nav>
+  
+  <app-page-header 
+    title="SCSS Mixins" 
+    description="Reusable groups of CSS declarations">
+  </app-page-header>
+
+  <app-content-section title="What are SCSS Mixins?">
+    <p class="text-secondary mb-4">SCSS mixins are reusable blocks of CSS declarations that can be included in multiple selectors. They help eliminate code duplication and maintain consistency across your stylesheet.</p>
+  </app-content-section>
+
+  <app-content-section title="Benefits">
+    <div class="space-y-4">
+      <div class="glass p-4 rounded-lg">
+        <h4 class="text-accent font-semibold mb-2">Code Reusability</h4>
+        <p class="text-secondary text-sm">Write once, use multiple times across your stylesheet</p>
+      </div>
+      <div class="glass p-4 rounded-lg">
+        <h4 class="text-accent font-semibold mb-2">Consistency</h4>
+        <p class="text-secondary text-sm">Ensure uniform styling patterns throughout your project</p>
+      </div>
+      <div class="glass p-4 rounded-lg">
+        <h4 class="text-accent font-semibold mb-2">Maintainability</h4>
+        <p class="text-secondary text-sm">Update styles in one place, changes reflect everywhere</p>
+      </div>
+    </div>
+  </app-content-section>
+
+  <app-content-section title="Basic Mixins">
+    <p class="text-secondary mb-4">Define reusable CSS patterns with &#64;mixin and use them with &#64;include:</p>
+    <app-code-block language="scss" [code]="basicExample"></app-code-block>
+  </app-content-section>
+
+  <app-content-section title="Parameters & Default Values">
+    <p class="text-secondary mb-4">Make mixins flexible with parameters and default values:</p>
+    <app-code-block language="scss" [code]="parametersExample"></app-code-block>
+  </app-content-section>
+
+  <app-content-section title="@content Directive">
+    <p class="text-secondary mb-4">Pass custom CSS blocks to mixins using &#64;content:</p>
+    <app-code-block language="scss" [code]="contentExample"></app-code-block>
+  </app-content-section>
+
+  <app-content-section title="Best Practices">
+    <p class="text-secondary mb-4">Follow these guidelines for effective mixin usage:</p>
+    <app-code-block language="scss" [code]="bestPractices"></app-code-block>
+  </app-content-section>
+
+</app-layout>

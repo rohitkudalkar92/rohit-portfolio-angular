@@ -1,0 +1,47 @@
+<app-layout>
+  <app-back-nav backLink="/notes/css-scss" backText="Back to CSS & SCSS"></app-back-nav>
+  
+  <app-page-header 
+    title="SCSS Extends" 
+    description="Inherit styles from other selectors using @extend">
+  </app-page-header>
+
+  <app-content-section title="What are SCSS Extends?">
+    <p class="text-secondary mb-4">SCSS extends allow you to share CSS properties from one selector to another using &#64;extend. This creates efficient, grouped selectors in the compiled CSS.</p>
+  </app-content-section>
+
+  <app-content-section title="Benefits">
+    <div class="space-y-4">
+      <app-info-box title="Code Sharing">
+        <app-description-text text="Share common styles between related selectors"></app-description-text>
+      </app-info-box>
+      <app-info-box title="Smaller CSS Output">
+        <app-description-text text="Groups selectors together, reducing file size"></app-description-text>
+      </app-info-box>
+      <app-info-box title="Inheritance Patterns">
+        <app-description-text text="Create logical style inheritance hierarchies"></app-description-text>
+      </app-info-box>
+    </div>
+  </app-content-section>
+
+  <app-content-section title="Basic Extends">
+    <p class="text-secondary mb-4">Use &#64;extend to inherit styles from existing selectors:</p>
+    <app-code-block language="scss" [code]="basicExample"></app-code-block>
+  </app-content-section>
+
+  <app-content-section title="Placeholder Selectors (%)">
+    <p class="text-secondary mb-4">Use % placeholders for styles that only exist to be extended:</p>
+    <app-code-block language="scss" [code]="placeholderExample"></app-code-block>
+  </app-content-section>
+
+  <app-content-section title="Good Practice">
+    <p class="text-secondary mb-4">Use extends for related components with shared base styles:</p>
+    <app-code-block language="scss" [code]="goodPractice"></app-code-block>
+  </app-content-section>
+
+  <app-content-section title="Bad Practice">
+    <p class="text-secondary mb-4">Avoid extending unrelated selectors and complex chains:</p>
+    <app-code-block language="scss" [code]="badPractice"></app-code-block>
+  </app-content-section>
+
+</app-layout>

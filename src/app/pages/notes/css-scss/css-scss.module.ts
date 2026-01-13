@@ -6,12 +6,16 @@ import { CssScssDetailsComponent } from './css-scss-details.component';
 import { CssScssOutletComponent } from './css-scss-outlet.component';
 import { VariablesNotesComponent } from './variables/notes.component';
 import { NestingNotesComponent } from './nesting/notes.component';
+import { MixinsNotesComponent } from './mixins/notes.component';
+import { ExtendsNotesComponent } from './extends/notes.component';
 import { LayoutComponent } from '../../../common/layout/layout.component';
 import { BackNavComponent } from '../../../common/back-nav/back-nav.component';
 import { PageHeaderComponent } from '../../../common/page-header/page-header.component';
 import { TopicsListComponent } from '../../../common/topics-list/topics-list.component';
 import { CodeBlockComponent } from '../../../common/code-block/code-block.component';
 import { ContentSectionComponent } from '../../../common/content-section/content-section.component';
+import { InfoBoxComponent } from '../../../common/info-box/info-box.component';
+import { DescriptionTextComponent } from '../../../common/description-text/description-text.component';
 
 const routes = [
   { 
@@ -20,7 +24,9 @@ const routes = [
     children: [
       { path: '', component: CssScssDetailsComponent },
       { path: 'variables', component: VariablesNotesComponent },
-      { path: 'nesting', component: NestingNotesComponent }
+      { path: 'nesting', component: NestingNotesComponent },
+      { path: 'mixins', component: MixinsNotesComponent },
+      { path: 'extends', component: ExtendsNotesComponent }
     ]
   }
 ];
@@ -30,7 +36,9 @@ const routes = [
     CssScssDetailsComponent,
     CssScssOutletComponent,
     VariablesNotesComponent,
-    NestingNotesComponent
+    NestingNotesComponent,
+    MixinsNotesComponent,
+    ExtendsNotesComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +48,9 @@ const routes = [
     PageHeaderComponent,
     TopicsListComponent,
     CodeBlockComponent,
-    ContentSectionComponent
+    ContentSectionComponent,
+    InfoBoxComponent,
+    DescriptionTextComponent
   ]
 })
 export class CssScssModule { }

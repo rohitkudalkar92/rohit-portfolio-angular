@@ -6,26 +6,23 @@
     description="Store reusable values like colors, fonts, and spacing">
   </app-page-header>
 
+  <app-content-section title="Use Cases">
+    <div class="space-y-4">
+      <app-info-box title="Colors">
+        <app-description-text text="Define brand colors once, use everywhere"></app-description-text>
+      </app-info-box>
+      <app-info-box title="Typography">
+        <app-description-text text="Consistent font sizes and families"></app-description-text>
+      </app-info-box>
+      <app-info-box title="Spacing">
+        <app-description-text text="Uniform margins, padding, and gaps"></app-description-text>
+      </app-info-box>
+    </div>
+  </app-content-section>
+
   <app-content-section title="What are SCSS Variables?">
     <p class="text-secondary mb-4">SCSS variables store reusable values that can be used throughout your stylesheet. They start with $ and help maintain consistency.</p>
     <app-code-block language="scss" [code]="basicExample"></app-code-block>
-  </app-content-section>
-
-  <app-content-section title="Use Cases">
-    <div class="space-y-4">
-      <div class="glass p-4 rounded-lg">
-        <h4 class="text-accent font-semibold mb-2">Colors</h4>
-        <p class="text-secondary text-sm">Define brand colors once, use everywhere</p>
-      </div>
-      <div class="glass p-4 rounded-lg">
-        <h4 class="text-accent font-semibold mb-2">Typography</h4>
-        <p class="text-secondary text-sm">Consistent font sizes and families</p>
-      </div>
-      <div class="glass p-4 rounded-lg">
-        <h4 class="text-accent font-semibold mb-2">Spacing</h4>
-        <p class="text-secondary text-sm">Uniform margins, padding, and gaps</p>
-      </div>
-    </div>
   </app-content-section>
 
   <app-content-section title="Good Practice">
