@@ -1,18 +1,16 @@
 <app-layout>
   <!-- Hero -->
-  <section id="home" class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center py-24">
-    <div class="md:col-span-7 mb-10 md:mb-0">
+  <section id="home" class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center py-12 md:py-24">
+    <div class="md:col-span-7 mb-10 md:mb-0 text-center md:text-left">
       <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
         {{ heroTitle.part1 }} <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-pink-400">{{ heroTitle.clean }}</span>
         {{ heroTitle.and }}
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-200 to-yellow-200">{{ heroTitle.impactful }}</span>
         {{ heroTitle.part2 }}
       </h1>
-      <p class="mt-4 text-dark max-w-xl">
-        {{ heroDescription }}
-      </p>
-      <div class="mt-6 flex gap-3">
-        <app-button routerLink="/skills" [variant]="ButtonVariant.ACCENT" [text]="exploreSkillsBtn"></app-button>
+      <app-description-text [text]="heroDescription" customClass="mt-4 text-dark max-w-xl mx-auto md:mx-0"></app-description-text>
+      <div class="mt-6 flex gap-3 justify-center md:justify-start">
+        <app-button routerLink="/skills" [variant]="ButtonVariant.ACCENT" [text]="exploreSkillsBtn" [block]="true" class="md:w-auto w-full"></app-button>
       </div>
     </div>
     <div class="md:col-span-5 flex justify-center md:justify-end">
@@ -24,34 +22,34 @@
   </section>
 
   <!-- Expertise -->
-  <section id="services" class="py-8">
+  <section id="services" class="py-8 text-center md:text-left">
     <h2 class="text-2xl font-bold">{{ expertiseTitle }}</h2>
-    <p class="text-dark mt-2 max-w-2xl">{{ expertiseDescription }}</p>
+    <app-description-text [text]="expertiseDescription" customClass="text-dark mt-2 max-w-2xl mx-auto md:mx-0"></app-description-text>
     <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
       <div *ngFor="let skill of skills" class="p-5 rounded-xl glass">
         <h3 class="font-semibold">{{ skill.title }}</h3>
-        <p class="text-dark text-sm mt-2">{{ skill.description }}</p>
+        <app-description-text [text]="skill.description" size="sm" customClass="text-dark mt-2"></app-description-text>
       </div>
     </div>
   </section>
 
   <!-- About -->
-  <section id="about" class="py-8">
+  <section id="about" class="py-8 text-center md:text-left">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
       <div class="md:col-span-2">
         <h2 class="text-2xl font-bold">{{ aboutTitle }}</h2>
-        <p class="text-dark mt-3" [innerHTML]="aboutDescription"></p>
+        <p class="text-dark mt-3 mx-auto md:mx-0" [innerHTML]="aboutDescription"></p>
         <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div *ngFor="let trait of traits" class="p-4 rounded-lg glass">
             <h4 class="font-semibold">{{ trait.title }}</h4>
-            <p class="text-dark text-sm mt-1">{{ trait.description }}</p>
+            <app-description-text [text]="trait.description" size="sm" customClass="text-dark mt-1"></app-description-text>
           </div>
         </div>
       </div>
 
-      <aside class="p-6 rounded-xl glass">
+      <aside class="p-6 rounded-xl glass text-center md:text-left">
         <h3 class="font-semibold">{{ quickInfoTitle }}</h3>
-        <div class="mt-4 text-sm text-dark space-y-3">
+        <div class="mt-4 text-sm text-dark space-y-3 flex flex-col items-center md:items-start">
           <div class="flex items-center gap-2">
             <span>{{ icons.location }}</span>
             <span>{{ quickInfo.location }}</span>
@@ -86,14 +84,14 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-8">
+  <section id="contact" class="py-8 text-center md:text-left">
     <h2 class="text-2xl font-bold mb-4">{{ contactTitle }}</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
       <div class="p-6 rounded-xl glass">
         <h3 class="font-semibold text-lg">{{ contactConnectTitle }}</h3>
-        <p class="text-dark text-sm mt-2">{{ contactConnectDescription }}</p>
+        <app-description-text [text]="contactConnectDescription" size="sm" customClass="text-dark mt-2"></app-description-text>
         <div class="mt-6 text-sm text-dark">
-          <p>{{ contactConnectText }}</p>
+          <app-description-text [text]="contactConnectText" size="sm"></app-description-text>
         </div>
       </div>
 

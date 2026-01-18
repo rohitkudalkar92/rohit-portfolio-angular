@@ -6,8 +6,9 @@
     description="Structural and attribute directives in Angular">
   </app-topic-header>
 
-  <app-content-section title="What are Directives?">
-    <p>Directives are classes that add behavior to elements in Angular templates. There are three types:</p>
+  <app-content-section 
+    title="What are Directives?" 
+    description="Directives are classes that add behavior to elements in Angular templates. There are three types:">
     <ul class="list-disc ml-6 mt-2 space-y-1">
       <li><strong>Structural Directives:</strong> Change DOM layout by adding/removing elements</li>
       <li><strong>Attribute Directives:</strong> Change appearance or behavior of elements</li>
@@ -15,36 +16,32 @@
     </ul>
   </app-content-section>
 
-  <app-content-section title="Built-in Structural Directives">
-    <p>Common structural directives that modify DOM structure:</p>
-    <app-code-block 
-      language="html"
-      [code]="structuralExample">
-    </app-code-block>
+  <app-content-section 
+    title="Built-in Structural Directives" 
+    description="Common structural directives that modify DOM structure:" 
+    [code]="structuralExample" 
+    language="html">
   </app-content-section>
 
-  <app-content-section title="Built-in Attribute Directives">
-    <p>Attribute directives that modify element appearance or behavior:</p>
-    <app-code-block 
-      language="html"
-      [code]="attributeExample">
-    </app-code-block>
+  <app-content-section 
+    title="Built-in Attribute Directives" 
+    description="Attribute directives that modify element appearance or behavior:" 
+    [code]="attributeExample" 
+    language="html">
   </app-content-section>
 
-  <app-content-section title="Custom Attribute Directive">
-    <p>Create custom directives with &#64;Directive decorator:</p>
-    <app-code-block 
-      language="typescript"
-      [code]="customDirectiveExample">
-    </app-code-block>
+  <app-content-section 
+    title="Custom Attribute Directive" 
+    description="Create custom directives with @Directive decorator:" 
+    [code]="customDirectiveExample" 
+    language="typescript">
   </app-content-section>
 
-  <app-content-section title="Custom Structural Directive">
-    <p>Create structural directives with TemplateRef and ViewContainerRef:</p>
-    <app-code-block 
-      language="typescript"
-      [code]="structuralDirectiveExample">
-    </app-code-block>
+  <app-content-section 
+    title="Custom Structural Directive" 
+    description="Create structural directives with TemplateRef and ViewContainerRef:" 
+    [code]="structuralDirectiveExample" 
+    language="typescript">
   </app-content-section>
 
   <app-info-box 

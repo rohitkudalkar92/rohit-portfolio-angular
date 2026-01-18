@@ -7,11 +7,12 @@ import { CONSTANTS } from '../../constants';
 import { HeroTitle, QuickInfo, Icons, Contact} from './home.interface';
 import { LazyLoadDirective } from '../../shared/directives/lazy-load.directive';
 import { ButtonComponent, ButtonVariant } from '../../common/button/button.component';
+import { DescriptionTextComponent } from '../../shared/components/description-text/description-text.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, LayoutComponent, RouterModule, LazyLoadDirective, ButtonComponent],
+  imports: [CommonModule, LayoutComponent, RouterModule, LazyLoadDirective, ButtonComponent, DescriptionTextComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
