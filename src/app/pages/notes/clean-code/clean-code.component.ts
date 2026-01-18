@@ -7,34 +7,26 @@ import { TitleService } from '../../../title.service';
 })
 export class CleanCodeComponent implements OnInit {
 
-  meaningfulNamesCode = `// BAD - Unclear names
-const d = 30;              // What is d?
+  meaningfulNamesBad = `const d = 30;              // What is d?
 const u = getUser();       // What kind of user?
-const calc = (x, y) => {}; // What does this calculate?
+const calc = (x, y) => {}; // What does this calculate?`;
 
-// GOOD - Meaningful names
-const daysInMonth = 30;
+  meaningfulNamesGood = `const daysInMonth = 30;
 const currentUser = getAuthenticatedUser();
 const calculateMonthlySalary = (baseSalary, bonus) => {
   return baseSalary + bonus;
 };`;
 
-  meaningfulNamesOutput = `// Clear, self-documenting code
-// Anyone can understand what these variables represent
-// Function names explain their purpose`;
-
-  smallFunctionsCode = `// BAD - Large function doing multiple things
-const processUserData = (userData) => {
+  smallFunctionsBad = `const processUserData = (userData) => {
   // Validate data (20 lines)
   // Transform data (15 lines)
   // Save to database (10 lines)
   // Send email (8 lines)
   // Log activity (5 lines)
   // 58 lines total!
-};
+};`;
 
-// GOOD - Small, focused functions
-const validateUserData = (userData) => {
+  smallFunctionsGood = `const validateUserData = (userData) => {
   // Only validation logic (max 20 lines)
   if (!userData.name) throw new Error('Name required');
   if (!userData.email) throw new Error('Email required');
@@ -54,12 +46,7 @@ const saveUserToDatabase = async (userData) => {
   return await db.users.create(userData);
 };`;
 
-  smallFunctionsOutput = `// Each function has a single responsibility
-// Easy to test, debug, and maintain
-// Functions are reusable`;
-
-  avoidNestingCode = `// BAD - Deep nesting (hard to read)
-const processOrder = (order) => {
+  avoidNestingBad = `const processOrder = (order) => {
   if (order) {
     if (order.isValid()) {
       if (order.customer) {
@@ -73,10 +60,9 @@ const processOrder = (order) => {
     }
   }
   return "Order failed";
-};
+};`;
 
-// GOOD - Early returns (flat structure)
-const processOrder = (order) => {
+  avoidNestingGood = `const processOrder = (order) => {
   if (!order) {
     return "No order provided";
   }
@@ -97,13 +83,7 @@ const processOrder = (order) => {
   return "Order processed successfully";
 };`;
 
-  avoidNestingOutput = `// Flat structure is easier to read
-// Each condition is clear and separate
-// Early returns prevent deep nesting
-// Uses optional chaining (?.) for safer property access`;
-
-  singleResponsibilityCode = `// BAD - Multiple responsibilities
-class User {
+  singleResponsibilityBad = `class User {
   constructor(name, email) {
     this.name = name;
     this.email = email;
@@ -123,10 +103,9 @@ class User {
     // Validation logic
     return this.name && this.email;
   }
-}
+}`;
 
-// GOOD - Single responsibility
-class User {
+  singleResponsibilityGood = `class User {
   constructor(name, email) {
     this.name = name;
     this.email = email;
@@ -153,13 +132,7 @@ class UserValidator {
   }
 }`;
 
-  singleResponsibilityOutput = `// Each class has one reason to change
-// Easy to modify without affecting other functionality
-// Better testability and maintainability
-// Modern ES6 class syntax`;
-
-  kissPrincipleCode = `// BAD - Over-engineered, complex solution
-class AdvancedCalculatorWithMultipleDesignPatterns {
+  kissPrincipleBad = `class AdvancedCalculatorWithMultipleDesignPatterns {
   constructor() {
     this.strategyFactory = new CalculationStrategyFactory();
     this.observerManager = new CalculationObserverManager();
@@ -177,10 +150,9 @@ class AdvancedCalculatorWithMultipleDesignPatterns {
 
 // Usage (overly complex for simple math)
 const calc = new AdvancedCalculatorWithMultipleDesignPatterns();
-const result = calc.performComplexCalculation(5, 3, "add");
+const result = calc.performComplexCalculation(5, 3, "add");`;
 
-// GOOD - Simple, straightforward solution
-class SimpleCalculator {
+  kissPrincipleGood = `class SimpleCalculator {
   add(a, b) {
     return a + b;
   }
@@ -204,57 +176,9 @@ class SimpleCalculator {
 // Usage (simple and clear)
 const calculator = new SimpleCalculator();
 const sum = calculator.add(5, 3);
-const product = calculator.multiply(4, 6);
+const product = calculator.multiply(4, 6);`;
 
-console.log("Sum:", sum);
-console.log("Product:", product);
-
-// Another example: Simple vs Complex
-// BAD - Unnecessarily complex
-function processUserDataWithAdvancedPatterns(userData) {
-  const validator = new ChainOfResponsibilityValidator();
-  const transformer = new StrategyPatternTransformer();
-  const persister = new AbstractFactoryPersister();
-  
-  return validator.validate(userData)
-    .then(validData => transformer.transform(validData))
-    .then(transformedData => persister.persist(transformedData));
-}
-
-// GOOD - Simple and direct
-function processUserData(userData) {
-  // Validate
-  if (!userData.name || !userData.email) {
-    throw new Error("Name and email are required");
-  }
-  
-  // Transform
-  const processedData = {
-    name: userData.name.trim(),
-    email: userData.email.toLowerCase(),
-    createdAt: new Date()
-  };
-  
-  // Save
-  return saveToDatabase(processedData);
-}
-
-function saveToDatabase(data) {
-  console.log("Saving to database:", data);
-  return Promise.resolve(data);
-}
-
-// Test simple approach
-processUserData({ name: "  John Doe  ", email: "JOHN@EXAMPLE.COM" })
-  .then(result => console.log("Saved:", result));`;
-
-  kissPrincipleOutput = `Sum: 8
-Product: 24
-Saving to database: { name: "John Doe", email: "john@example.com", createdAt: 2024-01-15T10:30:00.000Z }
-Saved: { name: "John Doe", email: "john@example.com", createdAt: 2024-01-15T10:30:00.000Z }`;
-
-  yagniPrincipleCode = `// BAD - Implementing features "just in case"
-class UserManager {
+  yagniPrincipleBad = `class UserManager {
   constructor() {
     this.users = [];
     this.userHistory = []; // Not needed yet
@@ -274,10 +198,9 @@ class UserManager {
   logUserAction(action, user) { /* complex implementation */ }
   updateAnalytics(event) { /* complex implementation */ }
   sendNotificationToAdmins(user) { /* complex implementation */ }
-}
+}`;
 
-// GOOD - Implement only what's needed now
-class SimpleUserManager {
+  yagniPrincipleGood = `class SimpleUserManager {
   constructor() {
     this.users = [];
   }
@@ -297,30 +220,15 @@ class SimpleUserManager {
   findUser(email) {
     return this.users.find(user => user.email === email);
   }
-}
+}`;
 
-// Usage
-const userManager = new SimpleUserManager();
-userManager.addUser({ name: 'Alice', email: 'alice@example.com' });
-userManager.addUser({ name: 'Bob', email: 'bob@example.com' });
-
-console.log('Total users:', userManager.getUsers().length);
-console.log('Found user:', userManager.findUser('alice@example.com').name);`;
-
-  yagniPrincipleOutput = `User added: Alice
-User added: Bob
-Total users: 2
-Found user: Alice`;
-
-  readabilityCode = `// BAD - Clever but hard to read
-const u = users.filter(u => u.a && u.s === 'A').map(u => ({ ...u, n: u.fn + ' ' + u.ln }));
+  readabilityBad = `const u = users.filter(u => u.a && u.s === 'A').map(u => ({ ...u, n: u.fn + ' ' + u.ln }));
 const r = u.reduce((a, c) => a + c.sal, 0) / u.length;
 
 // One-liner that's hard to understand
-const x = arr.reduce((a,b,i,ar) => i === ar.length-1 ? (a+b)/ar.length : a+b, 0);
+const x = arr.reduce((a,b,i,ar) => i === ar.length-1 ? (a+b)/ar.length : a+b, 0);`;
 
-// GOOD - Clear and readable
-const activeUsers = users.filter(user => {
+  readabilityGood = `const activeUsers = users.filter(user => {
   return user.active && user.status === 'APPROVED';
 });
 
@@ -342,21 +250,9 @@ function calculateAverage(numbers) {
   if (numbers.length === 0) return 0;
   const sum = numbers.reduce((total, num) => total + num, 0);
   return sum / numbers.length;
-}
+}`;
 
-const scores = [85, 92, 78, 96, 88];
-const averageScore = calculateAverage(scores);
-
-console.log('Active users:', activeUsers.length);
-console.log('Average salary:', averageSalary);
-console.log('Average score:', averageScore);`;
-
-  readabilityOutput = `Active users: 3
-Average salary: 75000
-Average score: 87.8`;
-
-  consistencyCode = `// BAD - Inconsistent naming and patterns
-class userManager {
+  consistencyBad = `class userManager {
   AddUser(userData) { // PascalCase method
     this.user_list.push(userData); // snake_case property
   }
@@ -368,10 +264,9 @@ class userManager {
   FindUserByEmail(email_address) { // Mixed naming
     return this.Users.find(u => u.EmailAddress === email_address);
   }
-}
+}`;
 
-// GOOD - Consistent naming and patterns
-class UserManager {
+  consistencyGood = `class UserManager {
   constructor() {
     this.users = [];
   }
@@ -391,39 +286,9 @@ class UserManager {
   removeUser(email) {
     this.users = this.users.filter(user => user.email !== email);
   }
-}
+}`;
 
-// Consistent error handling pattern
-class ApiService {
-  async fetchUser(id) {
-    try {
-      const response = await fetch(\`/api/users/\${id}\`);
-      return await response.json();
-    } catch (error) {
-      console.error('Failed to fetch user:', error);
-      throw error;
-    }
-  }
-  
-  async fetchPosts(userId) {
-    try {
-      const response = await fetch(\`/api/users/\${userId}/posts\`);
-      return await response.json();
-    } catch (error) {
-      console.error('Failed to fetch posts:', error);
-      throw error;
-    }
-  }
-}
-
-const manager = new UserManager();
-manager.addUser({ name: 'Alice', email: 'alice@example.com' });
-console.log('User count:', manager.getUserCount());`;
-
-  consistencyOutput = `User count: 1`;
-
-  explicitCode = `// BAD - Implicit behavior
-function processData(data) {
+  explicitBad = `function processData(data) {
   // What does this return? What does it modify?
   return data.map(item => {
     item.processed = true; // Mutating input!
@@ -440,10 +305,9 @@ function saveUser(user) {
     // Create new
     users.push({ ...user, id: generateId() });
   }
-}
+}`;
 
-// GOOD - Explicit behavior
-function calculateDoubledValues(data) {
+  explicitGood = `function calculateDoubledValues(data) {
   // Clear what it returns, doesn't mutate input
   return data.map(item => item.value * 2);
 }
@@ -473,26 +337,58 @@ function updateUser(id, updates) {
   }
   users[userIndex] = { ...users[userIndex], ...updates };
   return users[userIndex]; // Explicit return
-}
+}`;
 
-function generateId() {
-  return Math.random().toString(36).substr(2, 9);
-}
+  failFastBad = `const processOrder = (orderData) => {
+  let total = 0;
+  for (let item of orderData.items) {
+    total += item.price * item.quantity;
+  }
+  
+  if (total > 1000) {
+    // Error discovered late in process
+    throw new Error('Order too large');
+  }
+  
+  return total;
+};`;
 
-const users = [];
-const data = [{ value: 5 }, { value: 10 }];
-
-const doubled = calculateDoubledValues(data);
-const newUser = createUser({ name: 'Alice', email: 'alice@example.com' });
-
-console.log('Doubled values:', doubled);
-console.log('Created user:', newUser.name);`;
-
-  explicitOutput = `Doubled values: [10, 20]
-Created user: Alice`;
-
-  failFastOutput = `Order processed successfully
-Total: 1134.40`;
+  failFastGood = `const processOrder = (orderData) => {
+  // Validate immediately
+  if (!orderData) {
+    throw new Error('Order data is required');
+  }
+  
+  if (!orderData.items || orderData.items.length === 0) {
+    throw new Error('Order must contain items');
+  }
+  
+  if (!orderData.customerId) {
+    throw new Error('Customer ID is required');
+  }
+  
+  // Calculate total
+  const total = orderData.items.reduce((sum, item) => {
+    if (!item.price || item.price < 0) {
+      throw new Error(\`Invalid price for item: \${item.name}\`);
+    }
+    if (!item.quantity || item.quantity < 1) {
+      throw new Error(\`Invalid quantity for item: \${item.name}\`);
+    }
+    return sum + (item.price * item.quantity);
+  }, 0);
+  
+  // Check business rules early
+  if (total > 1000) {
+    throw new Error('Order exceeds maximum allowed amount of $1000');
+  }
+  
+  return {
+    customerId: orderData.customerId,
+    total: total,
+    itemCount: orderData.items.length
+  };
+};`;
 
   // SOLID Principles
   solidSrpOutput = `Saving user: Alice
@@ -643,18 +539,16 @@ Processed item: 2
 Processed items: 2
 Log entries: 3`;
 
-  errorHandlingCode = `// BAD - Ignoring errors
-const divideNumbers = (a, b) => {
+  errorHandlingBad = `const divideNumbers = (a, b) => {
   return a / b;  // What if b is 0?
 };
 
 const readFile = (filename) => {
   const fs = require('fs');
   return fs.readFileSync(filename, 'utf8');  // What if file doesn't exist?
-};
+};`;
 
-// GOOD - Proper error handling
-const divideNumbers = (a, b) => {
+  errorHandlingGood = `const divideNumbers = (a, b) => {
   if (b === 0) {
     throw new Error('Cannot divide by zero');
   }
@@ -675,13 +569,7 @@ const readFile = async (filename) => {
   }
 };`;
 
-  errorHandlingOutput = `// Graceful error handling prevents crashes
-// Clear error messages help debugging
-// Users get meaningful feedback
-// Uses async/await for better error handling`;
-
-  magicNumbersCode = `// BAD - Magic numbers
-const calculateTax = (salary) => {
+  magicNumbersBad = `const calculateTax = (salary) => {
   return salary * 0.18;  // What is 0.18?
 };
 
@@ -691,10 +579,9 @@ const isAdult = (age) => {
 
 const processPayment = (amount) => {
   return amount * 1.05;  // What is 1.05?
-};
+};`;
 
-// GOOD - Named constants
-const TAX_RATE = 0.18;
+  magicNumbersGood = `const TAX_RATE = 0.18;
 const ADULT_AGE = 18;
 const PROCESSING_FEE_MULTIPLIER = 1.05;
 
@@ -710,13 +597,7 @@ const processPayment = (amount) => {
   return amount * PROCESSING_FEE_MULTIPLIER;
 };`;
 
-  magicNumbersOutput = `// Constants make code self-documenting
-// Easy to change values in one place
-// Clear business rules
-// Modern const declarations`;
-
-  consistentFormattingCode = `// BAD - Inconsistent formatting
-const calculateTotal=(items)=>{
+  consistentFormattingBad = `const calculateTotal=(items)=>{
   let total=0;
   for(let item of items){
     if(item.price>0){
@@ -724,10 +605,9 @@ const calculateTotal=(items)=>{
     }
   }
   return total;
-};
+};`;
 
-// GOOD - Consistent formatting
-const calculateTotal = (items) => {
+  consistentFormattingGood = `const calculateTotal = (items) => {
   let total = 0;
   for (const item of items) {
     if (item.price > 0) {
@@ -737,13 +617,7 @@ const calculateTotal = (items) => {
   return total;
 };`;
 
-  consistentFormattingOutput = `// Consistent spacing and indentation
-// Follows ESLint/Prettier guidelines
-// Easy to read and maintain
-// Modern ES6 syntax with const/let`;
-
-  dryPrincipleCode = `// BAD - Repetitive code (violates DRY)
-class UserService {
+  dryPrincipleBad = `class UserService {
   createUser(name, email) {
     if (!name || name.trim() === '') {
       throw new Error('Name cannot be empty');
@@ -771,10 +645,9 @@ class UserService {
     // Update user logic
     console.log('Updating user...');
   }
-}
+}`;
 
-// GOOD - DRY principle (extract common logic)
-class UserService {
+  dryPrincipleGood = `class UserService {
   createUser(name, email) {
     this.validateUserInput(name, email);
     // Create user logic
@@ -799,12 +672,6 @@ class UserService {
     }
   }
 }`;
-
-  dryPrincipleOutput = `// Single source of truth for validation logic
-// Changes only need to be made in one place
-// Reduces bugs and maintenance overhead
-// Code is more maintainable and testable
-// Uses optional chaining (?.) for safer checks`;
 
   practiceCode = `// Practice: Refactor this messy code using clean code principles
 
@@ -863,8 +730,7 @@ const logValueCategory = (total) => {
 // ✅ DRY principle - no code duplication
 // ✅ Clear separation of concerns`;
 
-  languageAgnosticCode = `// BAD - Magic numbers and strings, no edge case handling
-const processOrder = (items, userType) => {
+  languageAgnosticBad = `const processOrder = (items, userType) => {
   let total = 0;
   for (let item of items) {
     if (userType === "premium") {
@@ -877,10 +743,9 @@ const processOrder = (items, userType) => {
 };
 
 const user = { name: "John", orders: [] };
-user.orders.push({ id: 1, total: 100 });  // Mutating object
+user.orders.push({ id: 1, total: 100 });  // Mutating object`;
 
-// GOOD - Constants, enums, edge cases, immutability
-const DISCOUNT_RATES = {
+  languageAgnosticGood = `const DISCOUNT_RATES = {
   PREMIUM: 0.1,
   REGULAR: 0.0
 };
@@ -920,39 +785,7 @@ const createUserWithOrder = (user, newOrder) => {
     ...user,
     orders: [...user.orders, newOrder]
   };
-};
-
-// Self-documenting code
-const calculateDiscountedPrice = (originalPrice, discountPercentage) => {
-  const discountAmount = originalPrice * (discountPercentage / 100);
-  return originalPrice - discountAmount;
-};
-
-const isValidEmail = (email) => {
-  return email && 
-         typeof email === 'string' && 
-         email.includes('@') && 
-         email.includes('.');
-};
-
-// Usage examples
-const items = [
-  { price: 100, name: 'Item 1' },
-  { price: 50, name: 'Item 2' }
-];
-
-const regularTotal = processOrder(items, USER_TYPES.REGULAR);
-const premiumTotal = processOrder(items, USER_TYPES.PREMIUM);
-
-console.log('Regular total:', regularTotal);
-console.log('Premium total:', premiumTotal);
-console.log('Discount price:', calculateDiscountedPrice(100, 20));
-console.log('Valid email:', isValidEmail('user@example.com'));`;
-
-  languageAgnosticOutput = `Regular total: 150
-Premium total: 135
-Discount price: 80
-Valid email: true`;
+}`;
 
   failFastCode = `// BAD - Failing late, unclear errors
 const processOrder = (orderData) => {
@@ -1020,8 +853,7 @@ const result = processOrder(validOrder);
 console.log('Order processed successfully');
 console.log('Total:', result.total);`;
 
-  solidSrpCode = `// BAD - Multiple responsibilities in one class
-class User {
+  solidSrpBadCode = `class User {
   constructor(name, email) {
     this.name = name;
     this.email = email;
@@ -1036,10 +868,9 @@ class User {
     // Email responsibility
     console.log('Sending email...');
   }
-}
+}`;
 
-// GOOD - Single Responsibility Principle
-class User {
+  solidSrpGoodCode = `class User {
   constructor(name, email) {
     this.name = name;
     this.email = email;
@@ -1056,19 +887,264 @@ class EmailService {
   sendWelcomeEmail(user) {
     console.log(\`Sending email to: \${user.email}\`);
   }
+}`;
+
+  solidOcpBad = `class Discount {
+  calculate(type, amount) {
+    if (type === 'student') {
+      return amount * 0.8;
+    } else if (type === 'senior') {
+      return amount * 0.7;
+    }
+    return amount;
+  }
+}`;
+
+  solidOcpGood = `class Discount {
+  calculate(amount) {
+    return amount;
+  }
 }
 
-// Usage
-const user = new User('Alice', 'alice@example.com');
-const userRepo = new UserRepository();
-const emailService = new EmailService();
+class StudentDiscount extends Discount {
+  calculate(amount) {
+    return amount * 0.8;
+  }
+}
 
-userRepo.save(user);
-emailService.sendWelcomeEmail(user);`;
+class SeniorDiscount extends Discount {
+  calculate(amount) {
+    return amount * 0.7;
+  }
+}`;
+
+  solidLspBad = `class Bird {
+  fly() {
+    console.log('Flying...');
+  }
+}
+
+class Penguin extends Bird {
+  fly() {
+    throw new Error('Cannot fly!');
+  }
+}`;
+
+  solidLspGood = `class Bird {
+  move() {
+    console.log('Moving...');
+  }
+}
+
+class FlyingBird extends Bird {
+  fly() {
+    console.log('Flying...');
+  }
+}
+
+class Penguin extends Bird {
+  swim() {
+    console.log('Swimming...');
+  }
+}`;
+
+  solidIspBad = `class Worker {
+  work() {}
+  eat() {}
+  sleep() {}
+}
+
+class Robot extends Worker {
+  work() {
+    console.log('Working...');
+  }
+  eat() {
+    throw new Error('Robots do not eat');
+  }
+  sleep() {
+    throw new Error('Robots do not sleep');
+  }
+}`;
+
+  solidIspGood = `class Workable {
+  work() {}
+}
+
+class Human extends Workable {
+  work() {
+    console.log('Working...');
+  }
+  eat() {
+    console.log('Eating...');
+  }
+}
+
+class Robot extends Workable {
+  work() {
+    console.log('Working...');
+  }
+}`;
+
+  solidDipBad = `class MySQLDatabase {
+  connect() {
+    console.log('MySQL connected');
+  }
+}
+
+class UserService {
+  constructor() {
+    this.db = new MySQLDatabase();
+  }
+  
+  getUser() {
+    this.db.connect();
+  }
+}`;
+
+  solidDipGood = `class Database {
+  connect() {}
+}
+
+class MySQLDatabase extends Database {
+  connect() {
+    console.log('MySQL connected');
+  }
+}
+
+class UserService {
+  constructor(database) {
+    this.db = database;
+  }
+  
+  getUser() {
+    this.db.connect();
+  }
+}`;
+
+  solidPrinciples = [
+    {label: 'S - Single Responsibility', text: 'One reason to change'},
+    {label: 'O - Open/Closed', text: 'Open for extension, closed for modification'},
+    {label: 'L - Liskov Substitution', text: 'Subclasses must be replaceable'},
+    {label: 'I - Interface Segregation', text: 'Many small interfaces vs one large'},
+    {label: 'D - Dependency Inversion', text: 'Depend on abstractions'}
+  ];
+
+  solidBenefits = [
+    {label: '', text: 'Each class has one reason to change'},
+    {label: '', text: 'Easy to extend without modifying existing code'},
+    {label: '', text: 'Better testability and maintainability'},
+    {label: '', text: 'Loose coupling between components'}
+  ];
+
+  universalPractices = [
+    {label: 'Avoid Magic Numbers and Strings', text: 'Use named constants for all literal values'},
+    {label: 'Use Constants and Enums', text: 'Define meaningful constants instead of raw values'},
+    {label: 'Handle Edge Cases', text: 'Consider null, empty, boundary, and error conditions'},
+    {label: 'Prefer Immutability', text: 'Use immutable objects when possible to prevent bugs'},
+    {label: 'Write Self-Documenting Code', text: 'Code should explain itself without comments'}
+  ];
+
+  commentGuidelines = [
+    {label: 'Explain Why', text: 'Not what the code does, but why it exists'},
+    {label: 'Avoid Obvious', text: "Don't comment self-explanatory code"},
+    {label: 'Keep Updated', text: 'Update comments when code changes'},
+    {label: 'Use TODO/FIXME', text: 'Mark temporary solutions'},
+    {label: 'Document Complex Logic', text: 'Explain algorithms and business rules'}
+  ];
+
+  testingPractices = [
+    {label: 'Unit Tests', text: 'Test individual functions in isolation'},
+    {label: 'Test Coverage', text: 'Aim for 80%+ code coverage'},
+    {label: 'TDD', text: 'Write tests before implementation'},
+    {label: 'Arrange-Act-Assert', text: 'Structure tests clearly'},
+    {label: 'Test Edge Cases', text: 'Include boundary conditions'},
+    {label: 'Fast Tests', text: 'Keep tests quick to run'}
+  ];
+
+  reviewChecklist = [
+    {label: 'Functionality', text: 'Does it work as intended?'},
+    {label: 'Readability', text: 'Is the code easy to understand?'},
+    {label: 'Tests', text: 'Are there adequate tests?'},
+    {label: 'Performance', text: 'Any obvious bottlenecks?'},
+    {label: 'Security', text: 'Any vulnerabilities?'},
+    {label: 'Standards', text: 'Follows team conventions?'}
+  ];
+
+  refactoringTechniques = [
+    {label: 'Extract Method', text: 'Break large functions into smaller ones'},
+    {label: 'Rename', text: 'Improve variable and function names'},
+    {label: 'Extract Variable', text: 'Name complex expressions'},
+    {label: 'Inline', text: 'Remove unnecessary abstractions'},
+    {label: 'Move Method', text: 'Relocate to appropriate class'},
+    {label: 'Replace Conditional', text: 'Use polymorphism instead'}
+  ];
+
+  codeSmells = [
+    {label: 'Long Methods', text: 'Functions over 20 lines'},
+    {label: 'Large Classes', text: 'Classes with too many responsibilities'},
+    {label: 'Duplicate Code', text: 'Copy-pasted logic'},
+    {label: 'Dead Code', text: 'Unused variables and functions'},
+    {label: 'God Object', text: 'Class that knows/does too much'},
+    {label: 'Primitive Obsession', text: 'Using primitives instead of objects'},
+    {label: 'Long Parameter List', text: 'More than 3-4 parameters'}
+  ];
+
+  securityEssentials = [
+    {label: 'Input Validation', text: 'Never trust user input'},
+    {label: 'SQL Injection', text: 'Use parameterized queries'},
+    {label: 'XSS Prevention', text: 'Sanitize output'},
+    {label: 'Authentication', text: 'Use strong password hashing'},
+    {label: 'Authorization', text: 'Check permissions properly'},
+    {label: 'Secrets', text: 'Never hardcode credentials'},
+    {label: 'HTTPS', text: 'Always use encrypted connections'}
+  ];
+
+  performanceTips = [
+    {label: 'Premature Optimization', text: 'Avoid until proven necessary'},
+    {label: 'Measure First', text: 'Profile before optimizing'},
+    {label: 'Big O Notation', text: 'Understand algorithm complexity'},
+    {label: 'Caching', text: 'Cache expensive operations'},
+    {label: 'Database', text: 'Use indexes and optimize queries'},
+    {label: 'Memory', text: 'Avoid memory leaks'}
+  ];
+
+  documentationTypes = [
+    {label: 'README', text: 'Project overview and setup instructions'},
+    {label: 'API Docs', text: 'Document public interfaces'},
+    {label: 'Inline Docs', text: 'Docstrings for functions/classes'},
+    {label: 'Architecture', text: 'High-level system design'},
+    {label: 'Changelog', text: 'Track version changes'},
+    {label: 'Examples', text: 'Provide usage examples'}
+  ];
+
+  gitGuidelines = [
+    {label: 'Commit Messages', text: 'Clear, descriptive messages'},
+    {label: 'Small Commits', text: 'One logical change per commit'},
+    {label: 'Branching', text: 'Use feature branches'},
+    {label: 'Pull Requests', text: 'Review before merging'},
+    {label: 'Rebase', text: 'Keep history clean'},
+    {label: '.gitignore', text: 'Exclude generated files'}
+  ];
+
+  loggingGuidelines = [
+    {label: 'Log Levels', text: 'Use DEBUG, INFO, WARN, ERROR appropriately'},
+    {label: 'Structured Logs', text: 'Use JSON format for parsing'},
+    {label: 'Context', text: 'Include relevant information (user ID, request ID)'},
+    {label: 'No Sensitive Data', text: "Don't log passwords or tokens"},
+    {label: 'Performance', text: 'Avoid excessive logging in loops'},
+    {label: 'Rotation', text: 'Implement log rotation policies'}
+  ];
 
   constructor(private titleService: TitleService) {}
 
   ngOnInit(): void {
     this.titleService.setTitle('Clean Code Principles - My Notes');
+  }
+
+  scrollToSection(sectionId: string): void {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }

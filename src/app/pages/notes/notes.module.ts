@@ -18,6 +18,8 @@ import { ES6Component } from './es6/es6.component';
 import { LayoutComponent } from '../../common/layout/layout.component';
 import { BackNavComponent } from '../../common/back-nav/back-nav.component';
 import { CodeBlockComponent } from '../../common/code-block/code-block.component';
+import { CodeComparisonComponent } from '../../common/code-comparison/code-comparison.component';
+import { StyledListComponent } from '../../common/styled-list/styled-list.component';
 import { InfoBoxComponent } from '../../common/info-box/info-box.component';
 import { ContentSectionComponent } from '../../common/content-section/content-section.component';
 import { TopicHeaderComponent } from '../../common/topic-header/topic-header.component';
@@ -69,6 +71,8 @@ const routes = [
     LayoutComponent,
     BackNavComponent,
     CodeBlockComponent,
+    CodeComparisonComponent,
+    StyledListComponent,
     InfoBoxComponent,
     ContentSectionComponent,
     TopicHeaderComponent,

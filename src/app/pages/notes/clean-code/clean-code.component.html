@@ -7,6 +7,90 @@
   </app-topic-header>
 
   <div>
+    <!-- Quick Reference -->
+    <app-content-section title="Quick Reference" description="Navigate to any principle quickly.">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <a (click)="scrollToSection('meaningful-names')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">1.</span> Meaningful Names
+        </a>
+        <a (click)="scrollToSection('small-functions')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">2.</span> Small Functions
+        </a>
+        <a (click)="scrollToSection('avoid-nesting')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">3.</span> Avoid Deep Nesting
+        </a>
+        <a (click)="scrollToSection('single-responsibility')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">4.</span> Single Responsibility
+        </a>
+        <a (click)="scrollToSection('kiss')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">5.</span> KISS Principle
+        </a>
+        <a (click)="scrollToSection('yagni')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">6.</span> YAGNI
+        </a>
+        <a (click)="scrollToSection('dry')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">7.</span> DRY Principle
+        </a>
+        <a (click)="scrollToSection('readability')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">8.</span> Readability
+        </a>
+        <a (click)="scrollToSection('consistency')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">9.</span> Consistency
+        </a>
+        <a (click)="scrollToSection('explicit')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">10.</span> Explicit Is Better
+        </a>
+        <a (click)="scrollToSection('fail-fast')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">11.</span> Fail Fast
+        </a>
+        <a (click)="scrollToSection('error-handling')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">12.</span> Error Handling
+        </a>
+        <a (click)="scrollToSection('magic-numbers')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">13.</span> Magic Numbers
+        </a>
+        <a (click)="scrollToSection('formatting')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">14.</span> Formatting
+        </a>
+        <a (click)="scrollToSection('solid')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">15.</span> SOLID
+        </a>
+        <a (click)="scrollToSection('language-agnostic')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">16.</span> Language-Agnostic
+        </a>
+        <a (click)="scrollToSection('comments')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">17.</span> Comments
+        </a>
+        <a (click)="scrollToSection('testing')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">18.</span> Testing
+        </a>
+        <a (click)="scrollToSection('code-review')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">19.</span> Code Review
+        </a>
+        <a (click)="scrollToSection('refactoring')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">20.</span> Refactoring
+        </a>
+        <a (click)="scrollToSection('code-smells')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">21.</span> Code Smells
+        </a>
+        <a (click)="scrollToSection('security')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">22.</span> Security
+        </a>
+        <a (click)="scrollToSection('logging')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">23.</span> Logging
+        </a>
+        <a (click)="scrollToSection('performance')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">24.</span> Performance
+        </a>
+        <a (click)="scrollToSection('documentation')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">25.</span> Documentation
+        </a>
+        <a (click)="scrollToSection('version-control')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">26.</span> Version Control
+        </a>
+      </div>
+    </app-content-section>
+
     <!-- Overview -->
     <app-content-section title="Clean Code Rules" description="Core principles every developer should follow.">
       <app-info-box type="info" title="📋 Essential Rules">
@@ -30,8 +114,8 @@
     </app-content-section>
 
     <!-- Meaningful Names -->
-    <app-content-section title="1. Use Meaningful Names" description="Choose names that reveal intent and make code self-documenting.">
-      <app-code-block [code]="meaningfulNamesCode" [output]="meaningfulNamesOutput" language="JavaScript"></app-code-block>
+    <app-content-section id="meaningful-names" title="1. Use Meaningful Names" description="Choose names that reveal intent and make code self-documenting.">
+      <app-code-comparison [badCode]="meaningfulNamesBad" [goodCode]="meaningfulNamesGood" language="javascript"></app-code-comparison>
       
       <app-info-box type="success" title="✅ Naming Guidelines">
         <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
@@ -44,33 +128,33 @@
     </app-content-section>
 
     <!-- Small Functions -->
-    <app-content-section title="2. Write Small Functions" description="Keep functions focused and under 20 lines for better readability and testing.">
-      <app-code-block [code]="smallFunctionsCode" [output]="smallFunctionsOutput" language="JavaScript"></app-code-block>
+    <app-content-section id="small-functions" title="2. Write Small Functions" description="Keep functions focused and under 20 lines for better readability and testing.">
+      <app-code-comparison [badCode]="smallFunctionsBad" [goodCode]="smallFunctionsGood" language="javascript"></app-code-comparison>
     </app-content-section>
 
     <!-- Avoid Deep Nesting -->
-    <app-content-section title="3. Avoid Deep Nesting" description="Use early returns and guard clauses to keep code flat and readable.">
-      <app-code-block [code]="avoidNestingCode" [output]="avoidNestingOutput" language="JavaScript"></app-code-block>
+    <app-content-section id="avoid-nesting" title="3. Avoid Deep Nesting" description="Use early returns and guard clauses to keep code flat and readable.">
+      <app-code-comparison [badCode]="avoidNestingBad" [goodCode]="avoidNestingGood" language="javascript"></app-code-comparison>
     </app-content-section>
 
     <!-- Single Responsibility -->
-    <app-content-section title="4. Single Responsibility Principle" description="Each class and function should have only one reason to change.">
-      <app-code-block [code]="singleResponsibilityCode" [output]="singleResponsibilityOutput" language="JavaScript"></app-code-block>
+    <app-content-section id="single-responsibility" title="4. Single Responsibility Principle" description="Each class and function should have only one reason to change.">
+      <app-code-comparison [badCode]="singleResponsibilityBad" [goodCode]="singleResponsibilityGood" language="javascript"></app-code-comparison>
     </app-content-section>
 
     <!-- KISS Principle -->
-    <app-content-section title="5. KISS Principle (Keep It Simple, Stupid)" description="Choose simple solutions over complex ones - avoid unnecessary complexity.">
-      <app-code-block [code]="kissPrincipleCode" [output]="kissPrincipleOutput" language="JavaScript"></app-code-block>
+    <app-content-section id="kiss" title="5. KISS Principle (Keep It Simple, Stupid)" description="Choose simple solutions over complex ones - avoid unnecessary complexity.">
+      <app-code-comparison [badCode]="kissPrincipleBad" [goodCode]="kissPrincipleGood" language="javascript"></app-code-comparison>
     </app-content-section>
 
     <!-- YAGNI Principle -->
-    <app-content-section title="6. YAGNI (You Aren't Gonna Need It)" description="Do not implement features until they are actually required.">
-      <app-code-block [code]="yagniPrincipleCode" [output]="yagniPrincipleOutput" language="JavaScript"></app-code-block>
+    <app-content-section id="yagni" title="6. YAGNI (You Aren't Gonna Need It)" description="Do not implement features until they are actually required.">
+      <app-code-comparison [badCode]="yagniPrincipleBad" [goodCode]="yagniPrincipleGood" language="javascript"></app-code-comparison>
     </app-content-section>
 
     <!-- DRY Principle -->
-    <app-content-section title="7. DRY Principle (Don't Repeat Yourself)" description="Eliminate code duplication by extracting common logic into reusable functions.">
-      <app-code-block [code]="dryPrincipleCode" [output]="dryPrincipleOutput" language="JavaScript"></app-code-block>
+    <app-content-section id="dry" title="7. DRY Principle (Don't Repeat Yourself)" description="Eliminate code duplication by extracting common logic into reusable functions.">
+      <app-code-comparison [badCode]="dryPrincipleBad" [goodCode]="dryPrincipleGood" language="javascript"></app-code-comparison>
       
       <app-info-box type="warning" title="⚠️ Signs of Code Duplication">
         <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
@@ -83,38 +167,38 @@
     </app-content-section>
 
     <!-- Readability Over Cleverness -->
-    <app-content-section title="8. Readability Over Cleverness" description="Code is read more often than it is written - prioritize clarity.">
-      <app-code-block [code]="readabilityCode" [output]="readabilityOutput" language="JavaScript"></app-code-block>
+    <app-content-section id="readability" title="8. Readability Over Cleverness" description="Code is read more often than it is written - prioritize clarity.">
+      <app-code-comparison [badCode]="readabilityBad" [goodCode]="readabilityGood" language="javascript"></app-code-comparison>
     </app-content-section>
 
     <!-- Consistency -->
-    <app-content-section title="9. Consistency" description="Follow consistent naming, formatting, and patterns throughout the codebase.">
-      <app-code-block [code]="consistencyCode" [output]="consistencyOutput" language="JavaScript"></app-code-block>
+    <app-content-section id="consistency" title="9. Consistency" description="Follow consistent naming, formatting, and patterns throughout the codebase.">
+      <app-code-comparison [badCode]="consistencyBad" [goodCode]="consistencyGood" language="javascript"></app-code-comparison>
     </app-content-section>
 
     <!-- Explicit Is Better -->
-    <app-content-section title="10. Explicit Is Better Than Implicit" description="Make behavior obvious and predictable - avoid hidden complexity.">
-      <app-code-block [code]="explicitCode" [output]="explicitOutput" language="JavaScript"></app-code-block>
+    <app-content-section id="explicit" title="10. Explicit Is Better Than Implicit" description="Make behavior obvious and predictable - avoid hidden complexity.">
+      <app-code-comparison [badCode]="explicitBad" [goodCode]="explicitGood" language="javascript"></app-code-comparison>
     </app-content-section>
 
     <!-- Fail Fast -->
-    <app-content-section title="11. Fail Fast" description="Detect and report errors as early as possible in the execution flow.">
-      <app-code-block [code]="failFastCode" [output]="failFastOutput" language="JavaScript"></app-code-block>
+    <app-content-section id="fail-fast" title="11. Fail Fast" description="Detect and report errors as early as possible in the execution flow.">
+      <app-code-comparison [badCode]="failFastBad" [goodCode]="failFastGood" language="javascript"></app-code-comparison>
     </app-content-section>
 
     <!-- Error Handling -->
-    <app-content-section title="12. Handle Errors Gracefully" description="Always anticipate and handle potential errors in your code.">
-      <app-code-block [code]="errorHandlingCode" [output]="errorHandlingOutput" language="JavaScript"></app-code-block>
+    <app-content-section id="error-handling" title="12. Handle Errors Gracefully" description="Always anticipate and handle potential errors in your code.">
+      <app-code-comparison [badCode]="errorHandlingBad" [goodCode]="errorHandlingGood" language="javascript"></app-code-comparison>
     </app-content-section>
 
     <!-- Magic Numbers -->
-    <app-content-section title="13. Avoid Magic Numbers" description="Use named constants instead of hard-coded values.">
-      <app-code-block [code]="magicNumbersCode" [output]="magicNumbersOutput" language="JavaScript"></app-code-block>
+    <app-content-section id="magic-numbers" title="13. Avoid Magic Numbers" description="Use named constants instead of hard-coded values.">
+      <app-code-comparison [badCode]="magicNumbersBad" [goodCode]="magicNumbersGood" language="javascript"></app-code-comparison>
     </app-content-section>
 
     <!-- Consistent Formatting -->
-    <app-content-section title="14. Consistent Formatting" description="Follow consistent style guidelines for better code readability.">
-      <app-code-block [code]="consistentFormattingCode" [output]="consistentFormattingOutput" language="JavaScript"></app-code-block>
+    <app-content-section id="formatting" title="14. Consistent Formatting" description="Follow consistent style guidelines for better code readability.">
+      <app-code-comparison [badCode]="consistentFormattingBad" [goodCode]="consistentFormattingGood" language="javascript"></app-code-comparison>
       
       <app-info-box type="purple" title="🎯 Style Guidelines">
         <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
@@ -127,31 +211,108 @@
     </app-content-section>
 
     <!-- SOLID Principles -->
-    <app-content-section title="15. SOLID Principles" description="Object-oriented design principles for maintainable code.">
+    <app-content-section id="solid" title="15. SOLID Principles" description="Object-oriented design principles for maintainable code.">
       <app-info-box type="info" title="🏗️ SOLID Principles">
-        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
-          <li><strong>S - Single Responsibility:</strong> One reason to change</li>
-          <li><strong>O - Open/Closed:</strong> Open for extension, closed for modification</li>
-          <li><strong>L - Liskov Substitution:</strong> Subclasses must be replaceable</li>
-          <li><strong>I - Interface Segregation:</strong> Many small interfaces vs one large</li>
-          <li><strong>D - Dependency Inversion:</strong> Depend on abstractions</li>
-        </ul>
+        <app-styled-list [items]="solidPrinciples"></app-styled-list>
       </app-info-box>
-      <app-code-block [code]="solidSrpCode" [output]="solidSrpOutput" language="JavaScript"></app-code-block>
+      
+      <h3 class="text-lg font-semibold text-primary mt-6 mb-3">S - Single Responsibility Principle</h3>
+      <app-code-comparison [badCode]="solidSrpBadCode" [goodCode]="solidSrpGoodCode" language="javascript"></app-code-comparison>
+      
+      <h3 class="text-lg font-semibold text-primary mt-6 mb-3">O - Open/Closed Principle</h3>
+      <app-code-comparison [badCode]="solidOcpBad" [goodCode]="solidOcpGood" language="javascript"></app-code-comparison>
+      
+      <h3 class="text-lg font-semibold text-primary mt-6 mb-3">L - Liskov Substitution Principle</h3>
+      <app-code-comparison [badCode]="solidLspBad" [goodCode]="solidLspGood" language="javascript"></app-code-comparison>
+      
+      <h3 class="text-lg font-semibold text-primary mt-6 mb-3">I - Interface Segregation Principle</h3>
+      <app-code-comparison [badCode]="solidIspBad" [goodCode]="solidIspGood" language="javascript"></app-code-comparison>
+      
+      <h3 class="text-lg font-semibold text-primary mt-6 mb-3">D - Dependency Inversion Principle</h3>
+      <app-code-comparison [badCode]="solidDipBad" [goodCode]="solidDipGood" language="javascript"></app-code-comparison>
+      
+      <app-info-box type="success" title="✅ Benefits">
+        <app-styled-list [items]="solidBenefits"></app-styled-list>
+      </app-info-box>
     </app-content-section>
 
     <!-- Language-Agnostic Best Practices -->
-    <app-content-section title="16. Language-Agnostic Best Practices" description="Universal principles that apply across all programming languages.">
+    <app-content-section id="language-agnostic" title="16. Language-Agnostic Best Practices" description="Universal principles that apply across all programming languages.">
       <app-info-box type="success" title="🌐 Universal Best Practices">
-        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
-          <li><strong>Avoid Magic Numbers and Strings:</strong> Use named constants for all literal values</li>
-          <li><strong>Use Constants and Enums:</strong> Define meaningful constants instead of raw values</li>
-          <li><strong>Handle Edge Cases:</strong> Consider null, empty, boundary, and error conditions</li>
-          <li><strong>Prefer Immutability:</strong> Use immutable objects when possible to prevent bugs</li>
-          <li><strong>Write Self-Documenting Code:</strong> Code should explain itself without comments</li>
-        </ul>
+        <app-styled-list [items]="universalPractices"></app-styled-list>
       </app-info-box>
-      <app-code-block [code]="languageAgnosticCode" [output]="languageAgnosticOutput" language="JavaScript"></app-code-block>
+      <app-code-comparison [badCode]="languageAgnosticBad" [goodCode]="languageAgnosticGood" language="javascript"></app-code-comparison>
     </app-content-section>
+
+    <!-- Code Comments Best Practices -->
+    <app-content-section id="comments" title="17. Code Comments Best Practices" description="Write comments that add value and explain why, not what.">
+      <app-info-box type="info" title="💬 Comment Guidelines">
+        <app-styled-list [items]="commentGuidelines"></app-styled-list>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Testing Principles -->
+    <app-content-section id="testing" title="18. Testing Principles" description="Write tests to ensure code quality and prevent regressions.">
+      <app-info-box type="success" title="✅ Testing Best Practices">
+        <app-styled-list [items]="testingPractices"></app-styled-list>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Code Review Guidelines -->
+    <app-content-section id="code-review" title="19. Code Review Guidelines" description="Effective code reviews improve quality and knowledge sharing.">
+      <app-info-box type="purple" title="👀 Review Checklist">
+        <app-styled-list [items]="reviewChecklist"></app-styled-list>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Refactoring Techniques -->
+    <app-content-section id="refactoring" title="20. Refactoring Techniques" description="Improve code structure without changing behavior.">
+      <app-info-box type="info" title="🔧 Common Refactorings">
+        <app-styled-list [items]="refactoringTechniques"></app-styled-list>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Code Smells -->
+    <app-content-section id="code-smells" title="21. Code Smells & Anti-patterns" description="Recognize and avoid common code problems.">
+      <app-info-box type="warning" title="⚠️ Common Code Smells">
+        <app-styled-list [items]="codeSmells"></app-styled-list>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Security Best Practices -->
+    <app-content-section id="security" title="22. Security Best Practices" description="Write secure code to protect against vulnerabilities.">
+      <app-info-box type="error" title="🔒 Security Essentials">
+        <app-styled-list [items]="securityEssentials"></app-styled-list>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Logging Best Practices -->
+    <app-content-section id="logging" title="23. Logging Best Practices" description="Effective logging helps debugging and monitoring.">
+      <app-info-box type="info" title="📝 Logging Guidelines">
+        <app-styled-list [items]="loggingGuidelines"></app-styled-list>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Performance Considerations -->
+    <app-content-section id="performance" title="24. Performance Considerations" description="Balance performance with code clarity.">
+      <app-info-box type="success" title="⚡ Performance Tips">
+        <app-styled-list [items]="performanceTips"></app-styled-list>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Documentation Standards -->
+    <app-content-section id="documentation" title="25. Documentation Standards" description="Good documentation helps team collaboration.">
+      <app-info-box type="purple" title="📚 Documentation Types">
+        <app-styled-list [items]="documentationTypes"></app-styled-list>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Version Control Best Practices -->
+    <app-content-section id="version-control" title="26. Version Control Best Practices" description="Use Git effectively for collaboration.">
+      <app-info-box type="info" title="🔀 Git Guidelines">
+        <app-styled-list [items]="gitGuidelines"></app-styled-list>
+      </app-info-box>
+    </app-content-section>
+
   </div>
 </app-layout>
