@@ -1,0 +1,152 @@
+<app-layout>
+  <app-back-nav backLink="/notes" backText="Back to All Notes"></app-back-nav>
+  
+  <app-topic-header 
+    title="TypeScript" 
+    description="Strongly typed JavaScript superset for building scalable applications.">
+  </app-topic-header>
+
+  <div>
+    <!-- Quick Reference -->
+    <app-content-section title="Quick Reference" description="Navigate to any topic quickly.">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <a (click)="scrollToSection('basics')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">1.</span> TypeScript Basics
+        </a>
+        <a (click)="scrollToSection('types')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">2.</span> Basic Types
+        </a>
+        <a (click)="scrollToSection('interfaces')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">3.</span> Interfaces
+        </a>
+        <a (click)="scrollToSection('type-aliases')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">4.</span> Type Aliases
+        </a>
+        <a (click)="scrollToSection('classes')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">5.</span> Classes
+        </a>
+        <a (click)="scrollToSection('generics')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">6.</span> Generics
+        </a>
+        <a (click)="scrollToSection('enums')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">7.</span> Enums
+        </a>
+        <a (click)="scrollToSection('union-intersection')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">8.</span> Union & Intersection
+        </a>
+        <a (click)="scrollToSection('type-guards')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">9.</span> Type Guards
+        </a>
+        <a (click)="scrollToSection('utility-types')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">10.</span> Utility Types
+        </a>
+        <a (click)="scrollToSection('decorators')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">11.</span> Decorators
+        </a>
+        <a (click)="scrollToSection('modules')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">12.</span> Modules
+        </a>
+      </div>
+    </app-content-section>
+
+    <!-- TypeScript Basics -->
+    <app-content-section id="basics" title="1. TypeScript Basics" description="Introduction to TypeScript and its benefits.">
+      <app-info-box type="info" title="📚 What is TypeScript?">
+        <app-styled-list [items]="tsBasics"></app-styled-list>
+      </app-info-box>
+      <app-info-box type="error" title="❌ JavaScript Problems">
+        <app-styled-list [items]="jsProblems"></app-styled-list>
+      </app-info-box>
+      <app-code-block [code]="basicsCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+    <!-- Basic Types -->
+    <app-content-section id="types" title="2. Basic Types" description="Fundamental TypeScript types.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">Type annotations catch errors at compile time, provide better IDE support, and make code self-documenting.</p>
+      </app-info-box>
+      <app-code-block [code]="typesCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+    <!-- Interfaces -->
+    <app-content-section id="interfaces" title="3. Interfaces" description="Define object shapes with interfaces.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">Interfaces enforce structure, enable code reuse, and provide clear contracts between different parts of your application.</p>
+      </app-info-box>
+      <app-code-block [code]="interfacesCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+    <!-- Type Aliases -->
+    <app-content-section id="type-aliases" title="4. Type Aliases" description="Create custom type names.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">Type aliases simplify complex types, improve readability, and allow reusing type definitions across your codebase.</p>
+      </app-info-box>
+      <app-code-block [code]="typeAliasesCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+    <!-- Classes -->
+    <app-content-section id="classes" title="5. Classes" description="Object-oriented programming with TypeScript classes.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">Classes provide encapsulation, inheritance, and access control for building maintainable object-oriented applications.</p>
+      </app-info-box>
+      <app-code-block [code]="classesCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+    <!-- Generics -->
+    <app-content-section id="generics" title="6. Generics" description="Create reusable components with generics.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">Generics enable type-safe reusable code without sacrificing flexibility, reducing duplication while maintaining type safety.</p>
+      </app-info-box>
+      <app-code-block [code]="genericsCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+    <!-- Enums -->
+    <app-content-section id="enums" title="7. Enums" description="Define named constants with enums.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">Enums provide meaningful names for numeric or string values, making code more readable and preventing magic values.</p>
+      </app-info-box>
+      <app-code-block [code]="enumsCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+    <!-- Union & Intersection Types -->
+    <app-content-section id="union-intersection" title="8. Union & Intersection Types" description="Combine types in different ways.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">Union and intersection types model complex real-world scenarios where values can be multiple types or combine multiple shapes.</p>
+      </app-info-box>
+      <app-code-block [code]="unionIntersectionCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+    <!-- Type Guards -->
+    <app-content-section id="type-guards" title="9. Type Guards" description="Narrow down types at runtime.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">Type guards safely narrow union types at runtime, enabling type-safe operations on different type branches.</p>
+      </app-info-box>
+      <app-code-block [code]="typeGuardsCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+    <!-- Utility Types -->
+    <app-content-section id="utility-types" title="10. Utility Types" description="Built-in type transformation utilities.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">Utility types transform existing types without duplication, reducing boilerplate and maintaining consistency.</p>
+      </app-info-box>
+      <app-code-block [code]="utilityTypesCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+    <!-- Decorators -->
+    <app-content-section id="decorators" title="11. Decorators" description="Add metadata and modify classes.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">Decorators enable meta-programming, adding functionality to classes and methods without modifying their code directly.</p>
+      </app-info-box>
+      <app-code-block [code]="decoratorsCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+    <!-- Modules -->
+    <app-content-section id="modules" title="12. Modules" description="Organize code with ES6 modules.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">Modules organize code into reusable units, manage dependencies, and prevent global namespace pollution.</p>
+      </app-info-box>
+      <app-code-block [code]="modulesCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+  </div>
+</app-layout>

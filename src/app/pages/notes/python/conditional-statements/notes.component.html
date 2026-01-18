@@ -1,0 +1,90 @@
+<app-layout>
+  <app-back-nav backLink="/notes/python" backText="Back to Python"></app-back-nav>
+  
+  <app-topic-header 
+    title="Python Conditional Statements" 
+    description="Control program flow with if, elif, and else statements.">
+  </app-topic-header>
+
+  <div>
+    <!-- If Statement -->
+    <app-content-section title="1. If Statement" description="Execute code only if a condition is true.">
+      <app-code-block [code]="ifCode" [output]="ifOutput" language="python"></app-code-block>
+      <app-info-box type="info" title="💡 Key Points">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li>Condition must evaluate to True or False</li>
+          <li>Colon (:) is required after the condition</li>
+          <li>Indentation (4 spaces) defines the code block</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- If-Else Statement -->
+    <app-content-section title="2. If-Else Statement" description="Execute one block if true, another if false.">
+      <app-code-block [code]="ifElseCode" [output]="ifElseOutput" language="python"></app-code-block>
+    </app-content-section>
+
+    <!-- If-Elif-Else Statement -->
+    <app-content-section title="3. If-Elif-Else Statement" description="Check multiple conditions in sequence.">
+      <app-code-block [code]="ifElifElseCode" [output]="ifElifElseOutput" language="python"></app-code-block>
+      <app-info-box type="success" title="✅ Best Practice">
+        <p class="text-secondary text-sm">Use elif instead of multiple if statements for mutually exclusive conditions - it's more efficient and clearer.</p>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Nested If Statements -->
+    <app-content-section title="4. Nested If Statements" description="If statements inside other if statements.">
+      <app-code-block [code]="nestedIfCode" [output]="nestedIfOutput" language="python"></app-code-block>
+      <app-info-box type="warning" title="⚠️ Warning">
+        <p class="text-secondary text-sm">Avoid deep nesting (more than 2-3 levels) - use logical operators or functions instead.</p>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Logical Operators -->
+    <app-content-section title="5. Logical Operators" description="Combine multiple conditions with and, or, not.">
+      <app-code-block [code]="logicalOperatorsCode" [output]="logicalOperatorsOutput" language="python"></app-code-block>
+      <app-info-box type="info" title="📋 Logical Operators">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>and:</strong> Both conditions must be True</li>
+          <li><strong>or:</strong> At least one condition must be True</li>
+          <li><strong>not:</strong> Reverses the boolean value</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Comparison Operators -->
+    <app-content-section title="6. Comparison Operators" description="Compare values to create conditions.">
+      <app-code-block [code]="comparisonCode" [output]="comparisonOutput" language="python"></app-code-block>
+    </app-content-section>
+
+    <!-- Ternary Operator -->
+    <app-content-section title="7. Ternary Operator" description="Conditional expression in a single line.">
+      <app-code-block [code]="ternaryCode" [output]="ternaryOutput" language="python"></app-code-block>
+      <app-info-box type="success" title="✅ When to Use">
+        <p class="text-secondary text-sm">Use ternary operator for simple assignments. For complex logic, use regular if-else for better readability.</p>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Membership Operators -->
+    <app-content-section title="8. Membership Operators" description="Check if a value exists in a sequence.">
+      <app-code-block [code]="membershipCode" [output]="membershipOutput" language="python"></app-code-block>
+    </app-content-section>
+
+    <!-- Practice Exercises -->
+    <app-content-section title="9. Practice Exercises" description="Apply what you've learned.">
+      <app-practice-exercise 
+        title="Practice: Conditional Logic"
+        [code]="practiceCode"
+        difficulty="Beginner">
+      </app-practice-exercise>
+      <app-info-box type="purple" title="🎯 Challenge">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li>Create a program to check if a number is positive, negative, or zero</li>
+          <li>Build a simple calculator that performs operations based on user input</li>
+          <li>Write a program to determine if a person is eligible to vote (age >= 18)</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+  </div>
+</app-layout>

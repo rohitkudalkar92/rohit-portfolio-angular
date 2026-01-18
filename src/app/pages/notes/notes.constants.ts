@@ -37,6 +37,11 @@ export const NOTES_DATA: Note[] = [
     routerLink: '/notes/es6'
   },
   {
+    title: 'TypeScript',
+    content: 'Strongly typed JavaScript superset. Features: static typing, interfaces, classes, generics, enums, type inference. Build scalable applications with better tooling and type safety.',
+    routerLink: '/notes/typescript'
+  },
+  {
     title: 'CSS & SCSS Styling',
     content: 'Modern CSS with SCSS preprocessing. Features: variables, mixins, nesting, partials, imports. SCSS syntax: $variables, @mixin/@include, &:hover, @media queries. Build responsive, maintainable stylesheets.',
     routerLink: '/notes/css-scss'

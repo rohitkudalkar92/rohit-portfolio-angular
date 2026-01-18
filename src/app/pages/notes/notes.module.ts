@@ -12,8 +12,10 @@ import { TypeConversionNotesComponent } from './python/type-conversion/notes.com
 import { StringsNotesComponent } from './python/strings/notes.component';
 import { ErrorTypesNotesComponent } from './python/error-types/notes.component';
 import { EscapeSequenceCharactersNotesComponent } from './python/escape-sequence-characters/notes.component';
+import { ConditionalStatementsNotesComponent } from './python/conditional-statements/notes.component';
 import { CleanCodeComponent } from './clean-code/clean-code.component';
 import { ES6Component } from './es6/es6.component';
+import { TypeScriptComponent } from './typescript/typescript.component';
 
 import { LayoutComponent } from '../../common/layout/layout.component';
 import { BackNavComponent } from '../../common/back-nav/back-nav.component';
@@ -45,8 +47,10 @@ const routes = [
   { path: 'python/strings', component: StringsNotesComponent },
   { path: 'python/error-types', component: ErrorTypesNotesComponent },
   { path: 'python/escape-sequence-characters', component: EscapeSequenceCharactersNotesComponent },
+  { path: 'python/conditional-statements', component: ConditionalStatementsNotesComponent },
   { path: 'clean-code', component: CleanCodeComponent },
   { path: 'es6', component: ES6Component },
+  { path: 'typescript', component: TypeScriptComponent },
   { path: 'css-scss', loadChildren: () => import('./css-scss/css-scss.module').then(m => m.CssScssModule) }
 ];
 
@@ -61,8 +65,10 @@ const routes = [
     StringsNotesComponent,
     ErrorTypesNotesComponent,
     EscapeSequenceCharactersNotesComponent,
+    ConditionalStatementsNotesComponent,
     CleanCodeComponent,
-    ES6Component
+    ES6Component,
+    TypeScriptComponent
   ],
   imports: [
     CommonModule,

@@ -37,6 +37,11 @@ export const PYTHON_TOPICS: PythonTopic[] = [
     title: 'Escape Sequence Characters',
     description: 'Learn about escape sequences like \n, \t, \\, \" and how to use special characters in strings.'
   },
+  {
+    id: 'conditional-statements',
+    title: 'Conditional Statements',
+    description: 'Learn about if, elif, else statements and how to make decisions in your code.'
+  },
   // {
   //   id: 'input-output',
   //   title: 'Input and Output',
