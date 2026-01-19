@@ -1,0 +1,249 @@
+<app-layout>
+  <app-back-nav backLink="/notes" backText="Back to All Notes"></app-back-nav>
+  
+  <app-topic-header 
+    title="System Design" 
+    description="Design scalable, reliable, and maintainable systems.">
+  </app-topic-header>
+
+  <div>
+    <!-- Quick Reference -->
+    <app-content-section title="Quick Reference" description="Navigate to any topic quickly.">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <a (click)="scrollToSection('basics')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">1.</span> Design Basics
+        </a>
+        <a (click)="scrollToSection('scalability')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">2.</span> Scalability
+        </a>
+        <a (click)="scrollToSection('load-balancing')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">3.</span> Load Balancing
+        </a>
+        <a (click)="scrollToSection('caching')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">4.</span> Caching
+        </a>
+        <a (click)="scrollToSection('databases')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">5.</span> Databases
+        </a>
+        <a (click)="scrollToSection('cap-theorem')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">6.</span> CAP Theorem
+        </a>
+        <a (click)="scrollToSection('microservices')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">7.</span> Microservices
+        </a>
+        <a (click)="scrollToSection('message-queues')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">8.</span> Message Queues
+        </a>
+        <a (click)="scrollToSection('api-design')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">9.</span> API Design
+        </a>
+        <a (click)="scrollToSection('cdn')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">10.</span> CDN
+        </a>
+        <a (click)="scrollToSection('security')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">11.</span> Security
+        </a>
+        <a (click)="scrollToSection('monitoring')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">12.</span> Monitoring
+        </a>
+      </div>
+    </app-content-section>
+
+    <!-- Design Basics -->
+    <app-content-section id="basics" title="1. System Design Basics" description="Core principles of system design.">
+      <app-info-box type="info" title="📚 Key Principles">
+        <app-styled-list [items]="designBasics"></app-styled-list>
+      </app-info-box>
+      <app-info-box type="success" title="✅ Design Process">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li>Understand requirements (functional & non-functional)</li>
+          <li>Estimate scale (users, requests, storage)</li>
+          <li>Define APIs and data models</li>
+          <li>Design high-level architecture</li>
+          <li>Identify bottlenecks and optimize</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Scalability -->
+    <app-content-section id="scalability" title="2. Scalability" description="Handle growing workloads efficiently.">
+      <app-info-box type="success" title="✅ Scaling Strategies">
+        <app-styled-list [items]="scalabilityTypes"></app-styled-list>
+      </app-info-box>
+      <app-info-box type="warning" title="⚠️ Considerations">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li>Vertical scaling has hardware limits</li>
+          <li>Horizontal scaling requires load balancing</li>
+          <li>Stateless services scale better</li>
+          <li>Database scaling is often the bottleneck</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Load Balancing -->
+    <app-content-section id="load-balancing" title="3. Load Balancing" description="Distribute traffic across multiple servers.">
+      <app-info-box type="info" title="💡 Load Balancer Types">
+        <app-styled-list [items]="loadBalancerTypes"></app-styled-list>
+      </app-info-box>
+      <app-info-box type="success" title="✅ Benefits">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li>Improved availability and fault tolerance</li>
+          <li>Better resource utilization</li>
+          <li>Enables horizontal scaling</li>
+          <li>Health checks remove failed servers</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Caching -->
+    <app-content-section id="caching" title="4. Caching" description="Store frequently accessed data for faster retrieval.">
+      <app-info-box type="success" title="✅ Caching Strategies">
+        <app-styled-list [items]="cachingStrategies"></app-styled-list>
+      </app-info-box>
+      <app-info-box type="info" title="📋 Cache Levels">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>Client-side:</strong> Browser cache, local storage</li>
+          <li><strong>CDN:</strong> Cache static content globally</li>
+          <li><strong>Application:</strong> In-memory cache (Redis, Memcached)</li>
+          <li><strong>Database:</strong> Query result cache</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Databases -->
+    <app-content-section id="databases" title="5. Databases" description="Choose the right database for your needs.">
+      <app-info-box type="info" title="💾 Database Types">
+        <app-styled-list [items]="databaseTypes"></app-styled-list>
+      </app-info-box>
+      <app-info-box type="success" title="✅ Scaling Techniques">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>Replication:</strong> Master-slave for read scaling</li>
+          <li><strong>Sharding:</strong> Partition data across multiple databases</li>
+          <li><strong>Indexing:</strong> Speed up queries with indexes</li>
+          <li><strong>Denormalization:</strong> Trade storage for query speed</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- CAP Theorem -->
+    <app-content-section id="cap-theorem" title="6. CAP Theorem" description="Trade-offs in distributed systems.">
+      <app-info-box type="warning" title="⚠️ CAP Theorem">
+        <app-styled-list [items]="capTheorem"></app-styled-list>
+      </app-info-box>
+      <app-info-box type="info" title="💡 Key Insight">
+        <p class="text-secondary text-sm mb-2">You can only guarantee 2 out of 3 properties in a distributed system:</p>
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>CP:</strong> Consistency + Partition Tolerance (MongoDB, HBase)</li>
+          <li><strong>AP:</strong> Availability + Partition Tolerance (Cassandra, DynamoDB)</li>
+          <li><strong>CA:</strong> Consistency + Availability (Traditional RDBMS - not distributed)</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Microservices -->
+    <app-content-section id="microservices" title="7. Microservices Architecture" description="Break monolith into independent services.">
+      <app-info-box type="success" title="✅ Advantages">
+        <app-styled-list [items]="microservicesAdvantages"></app-styled-list>
+      </app-info-box>
+      <app-info-box type="warning" title="⚠️ Challenges">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li>Increased complexity in deployment and monitoring</li>
+          <li>Network latency between services</li>
+          <li>Data consistency across services</li>
+          <li>Testing becomes more complex</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Message Queues -->
+    <app-content-section id="message-queues" title="8. Message Queues" description="Asynchronous communication between services.">
+      <app-info-box type="info" title="📨 Popular Message Queues">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>RabbitMQ:</strong> Feature-rich message broker</li>
+          <li><strong>Apache Kafka:</strong> High-throughput distributed streaming</li>
+          <li><strong>AWS SQS:</strong> Managed queue service</li>
+          <li><strong>Redis Pub/Sub:</strong> Lightweight messaging</li>
+        </ul>
+      </app-info-box>
+      <app-info-box type="success" title="✅ Benefits">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li>Decouples services for better scalability</li>
+          <li>Handles traffic spikes with buffering</li>
+          <li>Enables asynchronous processing</li>
+          <li>Improves fault tolerance</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- API Design -->
+    <app-content-section id="api-design" title="9. API Design" description="Design robust and scalable APIs.">
+      <app-info-box type="success" title="✅ Best Practices">
+        <app-styled-list [items]="apiDesignPrinciples"></app-styled-list>
+      </app-info-box>
+      <app-info-box type="info" title="💡 API Patterns">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>REST:</strong> Resource-based with HTTP methods</li>
+          <li><strong>GraphQL:</strong> Query exactly what you need</li>
+          <li><strong>gRPC:</strong> High-performance RPC framework</li>
+          <li><strong>WebSocket:</strong> Real-time bidirectional communication</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- CDN -->
+    <app-content-section id="cdn" title="10. Content Delivery Network (CDN)" description="Serve content from locations close to users.">
+      <app-info-box type="success" title="✅ CDN Benefits">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li>Reduced latency by serving from edge locations</li>
+          <li>Lower bandwidth costs</li>
+          <li>Improved availability and redundancy</li>
+          <li>DDoS protection</li>
+        </ul>
+      </app-info-box>
+      <app-info-box type="info" title="📋 Use Cases">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li>Static assets (images, CSS, JavaScript)</li>
+          <li>Video streaming</li>
+          <li>Software downloads</li>
+          <li>API responses (with caching)</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Security -->
+    <app-content-section id="security" title="11. Security" description="Protect your system from threats.">
+      <app-info-box type="error" title="🔒 Security Essentials">
+        <app-styled-list [items]="securityPractices"></app-styled-list>
+      </app-info-box>
+      <app-info-box type="warning" title="⚠️ Common Threats">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>DDoS:</strong> Overwhelm system with traffic</li>
+          <li><strong>SQL Injection:</strong> Malicious database queries</li>
+          <li><strong>XSS:</strong> Inject malicious scripts</li>
+          <li><strong>CSRF:</strong> Unauthorized actions on behalf of user</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Monitoring -->
+    <app-content-section id="monitoring" title="12. Monitoring & Observability" description="Track system health and performance.">
+      <app-info-box type="info" title="📊 Key Metrics">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>Latency:</strong> Response time for requests</li>
+          <li><strong>Throughput:</strong> Requests per second</li>
+          <li><strong>Error Rate:</strong> Percentage of failed requests</li>
+          <li><strong>Saturation:</strong> Resource utilization (CPU, memory)</li>
+        </ul>
+      </app-info-box>
+      <app-info-box type="success" title="✅ Tools">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>Prometheus:</strong> Metrics collection and alerting</li>
+          <li><strong>Grafana:</strong> Visualization dashboards</li>
+          <li><strong>ELK Stack:</strong> Log aggregation and analysis</li>
+          <li><strong>Datadog:</strong> Full-stack monitoring platform</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+  </div>
+</app-layout>

@@ -18,6 +18,7 @@ import { CleanCodeComponent } from './clean-code/clean-code.component';
 import { ES6Component } from './es6/es6.component';
 import { TypeScriptComponent } from './typescript/typescript.component';
 import { ReactComponent } from './react/react.component';
+import { SystemDesignComponent } from './system-design/system-design.component';
 
 import { LayoutComponent } from '../../common/layout/layout.component';
 import { BackNavComponent } from '../../common/back-nav/back-nav.component';
@@ -55,6 +56,7 @@ const routes = [
   { path: 'es6', component: ES6Component },
   { path: 'typescript', component: TypeScriptComponent },
   { path: 'react', component: ReactComponent },
+  { path: 'system-design', component: SystemDesignComponent },
   { path: 'css-scss', loadChildren: () => import('./css-scss/css-scss.module').then(m => m.CssScssModule) }
 ];
 
@@ -74,7 +76,8 @@ const routes = [
     CleanCodeComponent,
     ES6Component,
     TypeScriptComponent,
-    ReactComponent
+    ReactComponent,
+    SystemDesignComponent
   ],
   imports: [
     CommonModule,

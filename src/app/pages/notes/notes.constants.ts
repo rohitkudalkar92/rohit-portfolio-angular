@@ -47,6 +47,11 @@ export const NOTES_DATA: Note[] = [
     routerLink: '/notes/react'
   },
   {
+    title: 'System Design',
+    content: 'Design scalable and reliable systems. Topics: scalability, load balancing, caching, databases, microservices, API design, security, monitoring.',
+    routerLink: '/notes/system-design'
+  },
+  {
     title: 'CSS & SCSS Styling',
     content: 'Modern CSS with SCSS preprocessing. Features: variables, mixins, nesting, partials, imports. SCSS syntax: $variables, @mixin/@include, &:hover, @media queries. Build responsive, maintainable stylesheets.',
     routerLink: '/notes/css-scss'
