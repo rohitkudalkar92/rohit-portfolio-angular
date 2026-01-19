@@ -13,6 +13,7 @@ import { StringsNotesComponent } from './python/strings/notes.component';
 import { ErrorTypesNotesComponent } from './python/error-types/notes.component';
 import { EscapeSequenceCharactersNotesComponent } from './python/escape-sequence-characters/notes.component';
 import { ConditionalStatementsNotesComponent } from './python/conditional-statements/notes.component';
+import { LoopsNotesComponent } from './python/loops/notes.component';
 import { CleanCodeComponent } from './clean-code/clean-code.component';
 import { ES6Component } from './es6/es6.component';
 import { TypeScriptComponent } from './typescript/typescript.component';
@@ -48,6 +49,7 @@ const routes = [
   { path: 'python/error-types', component: ErrorTypesNotesComponent },
   { path: 'python/escape-sequence-characters', component: EscapeSequenceCharactersNotesComponent },
   { path: 'python/conditional-statements', component: ConditionalStatementsNotesComponent },
+  { path: 'python/loops', component: LoopsNotesComponent },
   { path: 'clean-code', component: CleanCodeComponent },
   { path: 'es6', component: ES6Component },
   { path: 'typescript', component: TypeScriptComponent },
@@ -66,6 +68,7 @@ const routes = [
     ErrorTypesNotesComponent,
     EscapeSequenceCharactersNotesComponent,
     ConditionalStatementsNotesComponent,
+    LoopsNotesComponent,
     CleanCodeComponent,
     ES6Component,
     TypeScriptComponent

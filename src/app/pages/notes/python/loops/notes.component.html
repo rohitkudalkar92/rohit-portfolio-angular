@@ -1,0 +1,106 @@
+<app-layout>
+  <app-back-nav backLink="/notes/python" backText="Back to Python"></app-back-nav>
+  
+  <app-topic-header 
+    title="Python Loops" 
+    description="Repeat code execution with for and while loops.">
+  </app-topic-header>
+
+  <div>
+    <!-- For Loop with Range -->
+    <app-content-section title="1. For Loop with Range" description="Iterate a specific number of times using range().">
+      <app-code-block [code]="forLoopCode" [output]="forLoopOutput" language="python"></app-code-block>
+      <app-info-box type="info" title="💡 Range Function">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>range(stop):</strong> 0 to stop-1</li>
+          <li><strong>range(start, stop):</strong> start to stop-1</li>
+          <li><strong>range(start, stop, step):</strong> start to stop-1 with step increment</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- For Loop with Lists -->
+    <app-content-section title="2. For Loop with Lists" description="Iterate through list elements.">
+      <app-code-block [code]="forListCode" [output]="forListOutput" language="python"></app-code-block>
+      <app-info-box type="success" title="✅ Best Practice">
+        <p class="text-secondary text-sm">Use enumerate() when you need both index and value. It's more Pythonic than using range(len(list)).</p>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- While Loop -->
+    <app-content-section title="3. While Loop" description="Repeat code while a condition is true.">
+      <app-code-block [code]="whileLoopCode" [output]="whileLoopOutput" language="python"></app-code-block>
+      <app-info-box type="warning" title="⚠️ Warning">
+        <p class="text-secondary text-sm">Always ensure the condition will eventually become False to avoid infinite loops. Update the loop variable inside the loop.</p>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Break Statement -->
+    <app-content-section title="4. Break Statement" description="Exit the loop immediately.">
+      <app-code-block [code]="breakCode" [output]="breakOutput" language="python"></app-code-block>
+      <app-info-box type="info" title="📋 When to Use Break">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li>Exit loop when a condition is met</li>
+          <li>Stop searching when item is found</li>
+          <li>Exit infinite loops (while True)</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Continue Statement -->
+    <app-content-section title="5. Continue Statement" description="Skip the current iteration and continue with the next.">
+      <app-code-block [code]="continueCode" [output]="continueOutput" language="python"></app-code-block>
+      <app-info-box type="success" title="✅ Use Cases">
+        <p class="text-secondary text-sm">Use continue to skip unwanted values, filter data during iteration, or avoid nested if statements.</p>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Nested Loops -->
+    <app-content-section title="6. Nested Loops" description="Loops inside other loops.">
+      <app-code-block [code]="nestedLoopCode" [output]="nestedLoopOutput" language="python"></app-code-block>
+      <app-info-box type="warning" title="⚠️ Performance">
+        <p class="text-secondary text-sm">Nested loops can be slow with large datasets. Time complexity is O(n²) for two nested loops. Consider alternatives for better performance.</p>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Loop with Else -->
+    <app-content-section title="7. Loop with Else" description="Execute code after loop completes normally.">
+      <app-code-block [code]="loopElseCode" [output]="loopElseOutput" language="python"></app-code-block>
+      <app-info-box type="info" title="💡 Key Point">
+        <p class="text-secondary text-sm">The else block executes only if the loop completes normally (not interrupted by break). Useful for search operations.</p>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Loop through Dictionary -->
+    <app-content-section title="8. Loop through Dictionary" description="Iterate over dictionary keys, values, or items.">
+      <app-code-block [code]="loopDictCode" [output]="loopDictOutput" language="python"></app-code-block>
+      <app-info-box type="success" title="✅ Dictionary Methods">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>dict.keys():</strong> Loop through keys</li>
+          <li><strong>dict.values():</strong> Loop through values</li>
+          <li><strong>dict.items():</strong> Loop through key-value pairs</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+    <!-- Practice Exercises -->
+    <app-content-section title="9. Practice Exercises" description="Apply what you've learned.">
+      <app-practice-exercise 
+        title="Practice: Loop Exercises"
+        [code]="practiceCode"
+        [output]="practiceOutput"
+        difficulty="Beginner">
+      </app-practice-exercise>
+      <app-info-box type="purple" title="🎯 Challenge">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li>Print Fibonacci sequence up to n terms</li>
+          <li>Check if a number is prime using loops</li>
+          <li>Reverse a string using a loop</li>
+          <li>Find the largest number in a list</li>
+          <li>Create a simple guessing game with while loop</li>
+        </ul>
+      </app-info-box>
+    </app-content-section>
+
+  </div>
+</app-layout>

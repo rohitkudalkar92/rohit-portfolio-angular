@@ -42,6 +42,11 @@ export const PYTHON_TOPICS: PythonTopic[] = [
     title: 'Conditional Statements',
     description: 'Learn about if, elif, else statements and how to make decisions in your code.'
   },
+  {
+    id: 'loops',
+    title: 'Loops',
+    description: 'Learn about for loops, while loops, and loop control statements like break and continue.'
+  },
   // {
   //   id: 'input-output',
   //   title: 'Input and Output',
