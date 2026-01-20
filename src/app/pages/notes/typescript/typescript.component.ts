@@ -428,6 +428,122 @@ function getArea(shape: Shape): number {
   }
 }`;
 
+  unionTypesCode = `// Union type - value can be ONE of several types (OR)
+type StringOrNumber = string | number;
+
+let value: StringOrNumber;
+value = "hello"; // OK
+value = 42; // OK
+// value = true; // ERROR - boolean not allowed
+
+// Union with literal types
+type Status = "success" | "error" | "pending";
+let status: Status = "success";
+// status = "loading"; // ERROR - not in union
+
+// Function with union parameter
+function formatValue(value: string | number): string {
+  if (typeof value === "string") {
+    return value.toUpperCase();
+  }
+  return value.toFixed(2);
+}
+
+// Array union
+type MixedArray = (string | number)[];
+const arr: MixedArray = ["hello", 42, "world", 100];
+
+// Discriminated unions (Tagged unions)
+interface Circle {
+  kind: "circle";
+  radius: number;
+}
+
+interface Square {
+  kind: "square";
+  sideLength: number;
+}
+
+interface Rectangle {
+  kind: "rectangle";
+  width: number;
+  height: number;
+}
+
+type Shape = Circle | Square | Rectangle;
+
+function getArea(shape: Shape): number {
+  switch (shape.kind) {
+    case "circle":
+      return Math.PI * shape.radius ** 2;
+    case "square":
+      return shape.sideLength ** 2;
+    case "rectangle":
+      return shape.width * shape.height;
+  }
+}`;
+
+  intersectionTypesCode = `// Intersection type - combines multiple types (AND)
+// Must have ALL properties from both types
+interface Person {
+  name: string;
+  age: number;
+}
+
+interface Employee {
+  employeeId: number;
+  department: string;
+}
+
+// Staff has ALL properties from both Person AND Employee
+type Staff = Person & Employee;
+
+const staff: Staff = {
+  name: "John",
+  age: 30,
+  employeeId: 123,
+  department: "IT"
+};
+// Missing any property would be an error
+
+// Intersection with type aliases
+type Draggable = {
+  drag: () => void;
+};
+
+type Resizable = {
+  resize: () => void;
+};
+
+type UIWidget = Draggable & Resizable;
+
+const widget: UIWidget = {
+  drag: () => console.log("Dragging"),
+  resize: () => console.log("Resizing")
+};
+
+// Mixing interfaces and types
+interface Timestamped {
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+type Product = {
+  id: number;
+  name: string;
+  price: number;
+};
+
+type TimestampedProduct = Product & Timestamped;
+
+const product: TimestampedProduct = {
+  id: 1,
+  name: "Laptop",
+  price: 999,
+  createdAt: new Date(),
+  updatedAt: new Date()
+}`;
+
   typeGuardsCode = `// typeof type guard
 function printValue(value: string | number) {
   if (typeof value === "string") {

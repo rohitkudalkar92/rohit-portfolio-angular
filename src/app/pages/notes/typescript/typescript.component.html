@@ -31,20 +31,23 @@
         <a (click)="scrollToSection('enums')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
           <span class="text-accent font-semibold">7.</span> Enums
         </a>
-        <a (click)="scrollToSection('union-intersection')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
-          <span class="text-accent font-semibold">8.</span> Union & Intersection
+        <a (click)="scrollToSection('union-types')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">8.</span> Union Types
+        </a>
+        <a (click)="scrollToSection('intersection-types')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">9.</span> Intersection Types
         </a>
         <a (click)="scrollToSection('type-guards')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
-          <span class="text-accent font-semibold">9.</span> Type Guards
+          <span class="text-accent font-semibold">10.</span> Type Guards
         </a>
         <a (click)="scrollToSection('utility-types')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
-          <span class="text-accent font-semibold">10.</span> Utility Types
+          <span class="text-accent font-semibold">11.</span> Utility Types
         </a>
         <a (click)="scrollToSection('decorators')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
-          <span class="text-accent font-semibold">11.</span> Decorators
+          <span class="text-accent font-semibold">12.</span> Decorators
         </a>
         <a (click)="scrollToSection('modules')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
-          <span class="text-accent font-semibold">12.</span> Modules
+          <span class="text-accent font-semibold">13.</span> Modules
         </a>
       </div>
     </app-content-section>
@@ -111,16 +114,24 @@
       <app-code-block [code]="enumsCode" language="typescript"></app-code-block>
     </app-content-section>
 
-    <!-- Union & Intersection Types -->
-    <app-content-section id="union-intersection" title="8. Union & Intersection Types" description="Combine types in different ways.">
+    <!-- Union Types -->
+    <app-content-section id="union-types" title="8. Union Types" description="Value can be ONE of several types.">
       <app-info-box type="success" title="✅ Why Important?">
-        <p class="text-secondary text-sm">Union and intersection types model complex real-world scenarios where values can be multiple types or combine multiple shapes.</p>
+        <p class="text-secondary text-sm">Union types model values that can be multiple types. Discriminated unions enable type-safe pattern matching.</p>
       </app-info-box>
-      <app-code-block [code]="unionIntersectionCode" language="typescript"></app-code-block>
+      <app-code-block [code]="unionTypesCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+    <!-- Intersection Types -->
+    <app-content-section id="intersection-types" title="9. Intersection Types" description="Combine multiple types into one.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">Intersection types merge multiple types, requiring ALL properties. Perfect for composing types and mixins.</p>
+      </app-info-box>
+      <app-code-block [code]="intersectionTypesCode" language="typescript"></app-code-block>
     </app-content-section>
 
     <!-- Type Guards -->
-    <app-content-section id="type-guards" title="9. Type Guards" description="Narrow down types at runtime.">
+    <app-content-section id="type-guards" title="10. Type Guards" description="Narrow down types at runtime.">
       <app-info-box type="success" title="✅ Why Important?">
         <p class="text-secondary text-sm">Type guards safely narrow union types at runtime, enabling type-safe operations on different type branches.</p>
       </app-info-box>
@@ -128,7 +139,7 @@
     </app-content-section>
 
     <!-- Utility Types -->
-    <app-content-section id="utility-types" title="10. Utility Types" description="Built-in type transformation utilities.">
+    <app-content-section id="utility-types" title="11. Utility Types" description="Built-in type transformation utilities.">
       <app-info-box type="success" title="✅ Why Important?">
         <p class="text-secondary text-sm">Utility types transform existing types without duplication, reducing boilerplate and maintaining consistency.</p>
       </app-info-box>
@@ -136,7 +147,7 @@
     </app-content-section>
 
     <!-- Decorators -->
-    <app-content-section id="decorators" title="11. Decorators" description="Add metadata and modify classes.">
+    <app-content-section id="decorators" title="12. Decorators" description="Add metadata and modify classes.">
       <app-info-box type="success" title="✅ Why Important?">
         <p class="text-secondary text-sm">Decorators enable meta-programming, adding functionality to classes and methods without modifying their code directly.</p>
       </app-info-box>
@@ -144,7 +155,7 @@
     </app-content-section>
 
     <!-- Modules -->
-    <app-content-section id="modules" title="12. Modules" description="Organize code with ES6 modules.">
+    <app-content-section id="modules" title="13. Modules" description="Organize code with ES6 modules.">
       <app-info-box type="success" title="✅ Why Important?">
         <p class="text-secondary text-sm">Modules organize code into reusable units, manage dependencies, and prevent global namespace pollution.</p>
       </app-info-box>
