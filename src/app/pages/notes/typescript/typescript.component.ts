@@ -28,6 +28,8 @@ export class TypeScriptComponent implements OnInit {
     {label: 'No Interfaces', text: 'Cannot define contracts for class structure'}
   ];
 
+  typeGuardsVideoUrl = 'https://www.youtube.com/watch?v=_u23NOHC6WU';
+
   basicsCode = `// TypeScript adds type annotations to JavaScript
 let message: string = "Hello TypeScript";
 let count: number = 42;
