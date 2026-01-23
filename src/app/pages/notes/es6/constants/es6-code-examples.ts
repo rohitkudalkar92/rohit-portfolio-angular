@@ -1,87 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { TitleService } from '../../../title.service';
-import { QuickReferenceComponent } from '../../../common/quick-reference/quick-reference.component';
-import { LayoutComponent } from '../../../common/layout/layout.component';
-import { BackNavComponent } from '../../../common/back-nav/back-nav.component';
-import { TopicHeaderComponent } from '../../../common/topic-header/topic-header.component';
-import { ContentSectionComponent } from '../../../common/content-section/content-section.component';
-import { InfoBoxComponent } from '../../../common/info-box/info-box.component';
-import { ParagraphComponent } from '../../../common/paragraph/paragraph.component';
-import { CodeBlockComponent } from '../../../common/code-block/code-block.component';
-import { ES6_QUICK_REF_TOPICS } from './constants/es6-topics';
-import { ES6_CODE_EXAMPLES } from './constants/es6-code-examples';
-
-@Component({
-  selector: 'app-es6',
-  templateUrl: './es6.component.html',
-  standalone: true,
-  imports: [
-    CommonModule,
-    QuickReferenceComponent,
-    LayoutComponent,
-    BackNavComponent,
-    TopicHeaderComponent,
-    ContentSectionComponent,
-    InfoBoxComponent,
-    ParagraphComponent,
-    CodeBlockComponent
-  ]
-})
-export class ES6Component implements OnInit {
-  readonly quickRefTopics = ES6_QUICK_REF_TOPICS;
-  readonly letConstCode = ES6_CODE_EXAMPLES.letConst.code;
-  readonly letConstOutput = ES6_CODE_EXAMPLES.letConst.output;
-  readonly arrowFunctionsCode = ES6_CODE_EXAMPLES.arrowFunctions.code;
-  readonly arrowFunctionsOutput = ES6_CODE_EXAMPLES.arrowFunctions.output;
-  readonly templateLiteralsCode = ES6_CODE_EXAMPLES.templateLiterals.code;
-  readonly templateLiteralsOutput = ES6_CODE_EXAMPLES.templateLiterals.output;
-  readonly destructuringCode = ES6_CODE_EXAMPLES.destructuring.code;
-  readonly destructuringOutput = ES6_CODE_EXAMPLES.destructuring.output;
-  readonly spreadRestCode = ES6_CODE_EXAMPLES.spreadRest.code;
-  readonly spreadRestOutput = ES6_CODE_EXAMPLES.spreadRest.output;
-  readonly defaultParametersCode = ES6_CODE_EXAMPLES.defaultParameters.code;
-  readonly defaultParametersOutput = ES6_CODE_EXAMPLES.defaultParameters.output;
-  readonly classesCode = ES6_CODE_EXAMPLES.classes.code;
-  readonly classesOutput = ES6_CODE_EXAMPLES.classes.output;
-  readonly modulesCode = ES6_CODE_EXAMPLES.modules.code;
-  readonly modulesOutput = ES6_CODE_EXAMPLES.modules.output;
-  readonly practiceCode = ES6_CODE_EXAMPLES.practice.code;
-  readonly practiceOutput = ES6_CODE_EXAMPLES.practice.output;
-  readonly promisesCode = ES6_CODE_EXAMPLES.promises.code;
-  readonly promisesOutput = ES6_CODE_EXAMPLES.promises.output;
-  readonly forOfLoopsCode = ES6_CODE_EXAMPLES.forOfLoops.code;
-  readonly forOfLoopsOutput = ES6_CODE_EXAMPLES.forOfLoops.output;
-  readonly mapSetCode = ES6_CODE_EXAMPLES.mapSet.code;
-  readonly mapSetOutput = ES6_CODE_EXAMPLES.mapSet.output;
-  readonly stringArrayMethodsCode = ES6_CODE_EXAMPLES.stringArrayMethods.code;
-  readonly stringArrayMethodsOutput = ES6_CODE_EXAMPLES.stringArrayMethods.output;
-  readonly objectEnhancementsCode = ES6_CODE_EXAMPLES.objectEnhancements.code;
-  readonly objectEnhancementsOutput = ES6_CODE_EXAMPLES.objectEnhancements.output;
-  readonly optionalChainingCode = ES6_CODE_EXAMPLES.optionalChaining.code;
-  readonly optionalChainingOutput = ES6_CODE_EXAMPLES.optionalChaining.output;
-  readonly privateFieldsCode = ES6_CODE_EXAMPLES.privateFields.code;
-  readonly privateFieldsOutput = ES6_CODE_EXAMPLES.privateFields.output;
-  readonly arrayMethodsES2023Code = ES6_CODE_EXAMPLES.arrayMethodsES2023.code;
-  readonly arrayMethodsES2023Output = ES6_CODE_EXAMPLES.arrayMethodsES2023.output;
-  readonly es2024FeaturesCode = ES6_CODE_EXAMPLES.es2024Features.code;
-  readonly es2024FeaturesOutput = ES6_CODE_EXAMPLES.es2024Features.output;
-
-  constructor(private titleService: TitleService) {}
-
-  ngOnInit(): void {
-    this.titleService.setTitle('ES6 Modern JavaScript - My Notes');
-  }
-
-  scrollToSection(sectionId: string): void {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-}
-
-  letConstCode = `// var vs let vs const
+export const ES6_CODE_EXAMPLES = {
+  letConst: {
+    code: `// var vs let vs const
 var oldWay = "function scoped";
 let newWay = "block scoped";
 const constant = "cannot be reassigned";
@@ -100,12 +19,13 @@ console.log(varVariable);    // Works - function scoped
 // const with objects (contents can change)
 const user = { name: "John", age: 30 };
 user.age = 31; // This works - modifying contents
-console.log(user);`;
+console.log(user);`,
+    output: `I'm function scoped
+{ name: "John", age: 31 }`
+  },
 
-  letConstOutput = `I'm function scoped
-{ name: "John", age: 31 }`;
-
-  arrowFunctionsCode = `// Traditional function
+  arrowFunctions: {
+    code: `// Traditional function
 function traditionalAdd(a, b) {
   return a + b;
 }
@@ -137,17 +57,18 @@ console.log(square(4));
 console.log(greet());
 console.log(complexFunction("Alice", 25));
 console.log(doubled);
-console.log(evens);`;
-
-  arrowFunctionsOutput = `8
+console.log(evens);`,
+    output: `8
 8
 16
 Hello World!
 Hello Alice. You are 25 years old
 [2, 4, 6, 8, 10]
-[2, 4]`;
+[2, 4]`
+  },
 
-  templateLiteralsCode = `// Template literals with backticks
+  templateLiterals: {
+    code: `// Template literals with backticks
 const name = "John";
 const age = 30;
 const city = "New York";
@@ -173,12 +94,13 @@ const tax = 0.08;
 const total = \`Total: $\${(price * (1 + tax)).toFixed(2)}\`;
 
 console.log(newMessage);
-console.log(total);`;
+console.log(total);`,
+    output: `Hello, my name is John and I'm 30 years old.
+Total: $21.59`
+  },
 
-  templateLiteralsOutput = `Hello, my name is John and I'm 30 years old.
-Total: $21.59`;
-
-  destructuringCode = `// Array destructuring
+  destructuring: {
+    code: `// Array destructuring
 const colors = ["red", "green", "blue", "yellow"];
 const [first, second, ...rest] = colors;
 
@@ -202,16 +124,17 @@ console.log(personName, personAge); // "Alice" 28
 
 // Default values
 const { name: userName, height = "Unknown" } = person;
-console.log(userName, height); // "Alice" "Unknown"`;
-
-  destructuringOutput = `red
+console.log(userName, height); // "Alice" "Unknown"`,
+    output: `red
 green
 ["blue", "yellow"]
 Alice 28 Boston
 Alice 28
-Alice Unknown`;
+Alice Unknown`
+  },
 
-  spreadRestCode = `// Spread operator with arrays
+  spreadRest: {
+    code: `// Spread operator with arrays
 const arr1 = [1, 2, 3];
 const arr2 = [4, 5, 6];
 const combined = [...arr1, ...arr2];
@@ -238,17 +161,18 @@ console.log(sum(10, 20));        // 30
 // Rest in destructuring
 const [head, ...tail] = [1, 2, 3, 4, 5];
 console.log(head); // 1
-console.log(tail); // [2, 3, 4, 5]`;
-
-  spreadRestOutput = `[1, 2, 3, 4, 5, 6]
+console.log(tail); // [2, 3, 4, 5]`,
+    output: `[1, 2, 3, 4, 5, 6]
 [0, 1, 2, 3, 3.5, 4, 5, 6, 7]
 { name: "John", age: 30, city: "NYC", country: "USA", occupation: "Developer" }
 15
 30
 1
-[2, 3, 4, 5]`;
+[2, 3, 4, 5]`
+  },
 
-  defaultParametersCode = `// Default parameters
+  defaultParameters: {
+    code: `// Default parameters
 function greet(name = "World", greeting = "Hello") {
   return \`\${greeting}, \${name}!\`;
 }
@@ -279,15 +203,16 @@ console.log(createUser());
 console.log(createUser("John", 25));
 
 const order1 = processOrder({ quantity: 2, price: 50 });
-console.log(order1);`;
-
-  defaultParametersOutput = `Hello, World!
+console.log(order1);`,
+    output: `Hello, World!
 Hello, Alice!
 { name: "Anonymous", age: 0, active: true }
 { name: "John", age: 25, active: true }
-{ quantity: 2, price: 50, subtotal: 100, total: 108 }`;
+{ quantity: 2, price: 50, subtotal: 100, total: 108 }`
+  },
 
-  classesCode = `// ES6 Classes
+  classes: {
+    code: `// ES6 Classes
 class Person {
   constructor(name, age) {
     this.name = name;
@@ -331,14 +256,15 @@ const anon = Person.createAnonymous();
 console.log(person.introduce());
 console.log(person.info);
 console.log(dev.introduce());
-console.log(dev.code());`;
-
-  classesOutput = `Hi, I'm Alice and I'm 30 years old.
+console.log(dev.code());`,
+    output: `Hi, I'm Alice and I'm 30 years old.
 Alice (30)
 Hi, I'm Bob and I'm 25 years old. I code in JavaScript.
-Bob is coding in JavaScript`;
+Bob is coding in JavaScript`
+  },
 
-  modulesCode = `// ES6 Modules - math.js
+  modules: {
+    code: `// ES6 Modules - math.js
 export const PI = 3.14159;
 export const E = 2.71828;
 
@@ -370,15 +296,16 @@ console.log(PI);                    // 3.14159
 console.log(add(5, 3));            // 8
 console.log(subtract(10, 4));      // 6
 console.log(formatCurrency(19.99)); // $19.99
-console.log(capitalize("hello"));   // Hello`;
-
-  modulesOutput = `3.14159
+console.log(capitalize("hello"));   // Hello`,
+    output: `3.14159
 8
 6
 $19.99
-Hello`;
+Hello`
+  },
 
-  practiceCode = `// ES6 Practice Exercise
+  practice: {
+    code: `// ES6 Practice Exercise
 
 // 1. Convert to arrow functions and template literals
 function createGreeting(name, time) {
@@ -419,13 +346,14 @@ const combineAndFilter = (arr1, arr2, minValue) =>
 // Test the solutions
 console.log(createGreeting("Alice", "morning"));
 console.log(processUser({ name: "Bob", age: 30 }));
-console.log(combineAndFilter([1, 2, 3], [4, 5, 6], 3));`;
-
-  practiceOutput = `Good morning, Alice!
+console.log(combineAndFilter([1, 2, 3], [4, 5, 6], 3));`,
+    output: `Good morning, Alice!
 User: Bob, Age: 30, Email: No email
-[3, 4, 5, 6]`;
+[3, 4, 5, 6]`
+  },
 
-  promisesCode = `// Promises - Handle asynchronous operations
+  promises: {
+    code: `// Promises - Handle asynchronous operations
 const fetchData = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -463,13 +391,14 @@ const loadUserData = async () => {
   }
 };
 
-loadUserData();`;
-
-  promisesOutput = `Success: User data loaded
+loadUserData();`,
+    output: `Success: User data loaded
 Processing ID: 123
-Async result: User data loaded`;
+Async result: User data loaded`
+  },
 
-  forOfLoopsCode = `// for...of loops - Iterate over iterable objects
+  forOfLoops: {
+    code: `// for...of loops - Iterate over iterable objects
 const fruits = ["apple", "banana", "orange"];
 const message = "Hello";
 
@@ -486,9 +415,8 @@ for (const char of message) {
 // With index using entries()
 for (const [index, fruit] of fruits.entries()) {
   console.log(\`\${index}: \${fruit}\`);
-}`;
-
-  forOfLoopsOutput = `apple
+}`,
+    output: `apple
 banana
 orange
 H
@@ -498,9 +426,11 @@ l
 o
 0: apple
 1: banana
-2: orange`;
+2: orange`
+  },
 
-  mapSetCode = `// Map - Key-value pairs with any type of keys
+  mapSet: {
+    code: `// Map - Key-value pairs with any type of keys
 const userMap = new Map();
 const objKey = { id: 1 };
 
@@ -528,17 +458,18 @@ console.log("Has apple:", fruits.has("apple"));
 // Remove duplicates from array
 const numbers = [1, 2, 2, 3, 4, 4, 5];
 const unique = [...new Set(numbers)];
-console.log("Unique array:", unique);`;
-
-  mapSetOutput = `Map size: 3
+console.log("Unique array:", unique);`,
+    output: `Map size: 3
 Get name: Alice
 Has objKey: true
 Unique numbers: [1, 2, 3, 4, 5]
 Fruits size: 2
 Has apple: true
-Unique array: [1, 2, 3, 4, 5]`;
+Unique array: [1, 2, 3, 4, 5]`
+  },
 
-  stringArrayMethodsCode = `// New String methods
+  stringArrayMethods: {
+    code: `// New String methods
 const text = "JavaScript ES6";
 
 // String methods
@@ -570,9 +501,8 @@ console.log("Has 100:", numbers.includes(100));
 
 // Array.from() - Create array from iterable
 const chars = Array.from("hello");
-console.log("Characters:", chars);`;
-
-  stringArrayMethodsOutput = `true
+console.log("Characters:", chars);`,
+    output: `true
 true
 true
 HiHiHi
@@ -580,9 +510,11 @@ First active user: Alice
 Bob's index: 1
 Has 30: true
 Has 100: false
-Characters: ["h", "e", "l", "l", "o"]`;
+Characters: ["h", "e", "l", "l", "o"]`
+  },
 
-  objectEnhancementsCode = `// Object enhancements
+  objectEnhancements: {
+    code: `// Object enhancements
 const name = "Alice";
 const age = 30;
 const skill = "JavaScript";
@@ -618,16 +550,16 @@ const target = { a: 1, b: 2 };
 const source = { b: 3, c: 4 };
 
 const result = Object.assign(target, source);
-console.log("Merged:", result);`;
-
-  objectEnhancementsOutput = `{ name: "Alice", age: 30, skill: "JavaScript" }
+console.log("Merged:", result);`,
+    output: `{ name: "Alice", age: 30, skill: "JavaScript" }
 Add: 8
 Dynamic value
 Computed key
-Merged: { a: 1, b: 3, c: 4 }`;
+Merged: { a: 1, b: 3, c: 4 }`
+  },
 
-  // ES2020 Features
-  optionalChainingCode = `// Optional Chaining (?.) - ES2020
+  optionalChaining: {
+    code: `// Optional Chaining (?.) - ES2020
 const user = {
   name: "Alice",
   address: {
@@ -682,9 +614,8 @@ const debug = config.debug ?? true; // false (correct!)
 
 console.log("Timeout old:", timeout1);
 console.log("Timeout new:", timeout2);
-console.log("Debug:", debug);`;
-
-  optionalChainingOutput = `City 1: NYC
+console.log("Debug:", debug);`,
+    output: `City 1: NYC
 City 2: undefined
 City 3: NYC
 City 4: undefined
@@ -693,10 +624,11 @@ Result 1: API data
 Result 2: undefined
 Timeout old: 5000
 Timeout new: 0
-Debug: false`;
+Debug: false`
+  },
 
-  // ES2022 Features
-  privateFieldsCode = `// Private Fields (#) - ES2022
+  privateFields: {
+    code: `// Private Fields (#) - ES2022
 class BankAccount {
   // Private fields
   #balance = 0;
@@ -765,17 +697,17 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 // await delay(1000);
 // console.log("After 1 second");
 
-console.log("Top-level await available in modules!");`;
-
-  privateFieldsOutput = `DEPOSIT: $500
+console.log("Top-level await available in modules!");`,
+    output: `DEPOSIT: $500
 WITHDRAW: $200
 Balance: 1300
 Owner: Alice
 Bank: MyBank
-Top-level await available in modules!`;
+Top-level await available in modules!`
+  },
 
-  // ES2023 Features
-  arrayMethodsES2023Code = `// Array Methods - ES2023
+  arrayMethodsES2023: {
+    code: `// Array Methods - ES2023
 const numbers = [1, 5, 3, 8, 2, 9, 4];
 const users = [
   { id: 1, name: "Alice", active: true },
@@ -817,9 +749,8 @@ const colors = ["red", "green", "blue"];
 const newColors = colors.toSpliced(1, 1, "yellow", "purple");
 
 console.log("Original colors:", colors);
-console.log("New colors:", newColors);`;
-
-  arrayMethodsES2023Output = `Last active user: Charlie
+console.log("New colors:", newColors);`,
+    output: `Last active user: Charlie
 Last active index: 2
 Original: [3, 1, 4, 1, 5]
 Sorted asc: [1, 1, 3, 4, 5]
@@ -829,10 +760,11 @@ Original still: [3, 1, 4, 1, 5]
 Original fruits: ["apple", "banana", "orange"]
 New fruits: ["apple", "grape", "orange"]
 Original colors: ["red", "green", "blue"]
-New colors: ["red", "yellow", "purple", "blue"]`;
+New colors: ["red", "yellow", "purple", "blue"]`
+  },
 
-  // ES2024 Features
-  es2024FeaturesCode = `// Object.groupBy() - ES2024
+  es2024Features: {
+    code: `// Object.groupBy() - ES2024
 const products = [
   { name: "Laptop", category: "Electronics", price: 1000 },
   { name: "Phone", category: "Electronics", price: 500 },
@@ -916,9 +848,8 @@ setTimeout(() => {
   emitter.emit('data', 'Hello from event!');
 }, 500);
 
-console.log("ES2024 features demonstrated!");`;
-
-  es2024FeaturesOutput = `Grouped by category: {
+console.log("ES2024 features demonstrated!");`,
+    output: `Grouped by category: {
   Electronics: [{name: "Laptop", ...}, {name: "Phone", ...}],
   Clothing: [{name: "Shirt", ...}, {name: "Jeans", ...}],
   Education: [{name: "Book", ...}]
@@ -930,20 +861,6 @@ Grouped by price: {
 }
 ES2024 features demonstrated!
 Received data: Hello from event!
-Promise resolved after 1 second!`;
-
-  quickRefTopics = ES6_QUICK_REF_TOPICS;
-
-  constructor(private titleService: TitleService) {}
-
-  ngOnInit(): void {
-    this.titleService.setTitle('ES6 Modern JavaScript - My Notes');
+Promise resolved after 1 second!`
   }
-
-  scrollToSection(sectionId: string): void {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-}
+} as const;
