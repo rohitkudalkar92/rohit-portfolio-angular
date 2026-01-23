@@ -16,6 +16,6 @@ import { CommonModule } from '@angular/common';
   `
 })
 export class QuickReferenceComponent {
-  @Input() topics: Array<{ id: string; number: number; title: string }> = [];
+  @Input() topics: ReadonlyArray<{ id: string; number: number; title: string }> = [];
   @Output() topicClick = new EventEmitter<string>();
 }
