@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TitleService } from '../../../title.service';
+import { TYPESCRIPT_QUICK_REF_TOPICS } from './constants/typescript-topics';
 
 @Component({
   selector: 'app-typescript',
@@ -30,21 +31,7 @@ export class TypeScriptComponent implements OnInit {
 
   typeGuardsVideoUrl = 'https://www.youtube.com/watch?v=_u23NOHC6WU';
 
-  quickRefTopics = [
-    { id: 'basics', number: 1, title: 'TypeScript Basics' },
-    { id: 'types', number: 2, title: 'Basic Types' },
-    { id: 'interfaces', number: 3, title: 'Interfaces' },
-    { id: 'type-aliases', number: 4, title: 'Type Aliases' },
-    { id: 'classes', number: 5, title: 'Classes' },
-    { id: 'generics', number: 6, title: 'Generics' },
-    { id: 'enums', number: 7, title: 'Enums' },
-    { id: 'union-types', number: 8, title: 'Union Types' },
-    { id: 'intersection-types', number: 9, title: 'Intersection Types' },
-    { id: 'type-guards', number: 10, title: 'Type Guards' },
-    { id: 'utility-types', number: 11, title: 'Utility Types' },
-    { id: 'decorators', number: 12, title: 'Decorators' },
-    { id: 'modules', number: 13, title: 'Modules' }
-  ];
+  quickRefTopics = TYPESCRIPT_QUICK_REF_TOPICS;
 
   basicsCode = `// TypeScript adds type annotations to JavaScript
 let message: string = "Hello TypeScript";
