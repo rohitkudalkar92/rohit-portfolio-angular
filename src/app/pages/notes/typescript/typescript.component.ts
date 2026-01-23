@@ -30,6 +30,22 @@ export class TypeScriptComponent implements OnInit {
 
   typeGuardsVideoUrl = 'https://www.youtube.com/watch?v=_u23NOHC6WU';
 
+  quickRefTopics = [
+    { id: 'basics', number: 1, title: 'TypeScript Basics' },
+    { id: 'types', number: 2, title: 'Basic Types' },
+    { id: 'interfaces', number: 3, title: 'Interfaces' },
+    { id: 'type-aliases', number: 4, title: 'Type Aliases' },
+    { id: 'classes', number: 5, title: 'Classes' },
+    { id: 'generics', number: 6, title: 'Generics' },
+    { id: 'enums', number: 7, title: 'Enums' },
+    { id: 'union-types', number: 8, title: 'Union Types' },
+    { id: 'intersection-types', number: 9, title: 'Intersection Types' },
+    { id: 'type-guards', number: 10, title: 'Type Guards' },
+    { id: 'utility-types', number: 11, title: 'Utility Types' },
+    { id: 'decorators', number: 12, title: 'Decorators' },
+    { id: 'modules', number: 13, title: 'Modules' }
+  ];
+
   basicsCode = `// TypeScript adds type annotations to JavaScript
 let message: string = "Hello TypeScript";
 let count: number = 42;
@@ -699,13 +715,24 @@ type T2 = Extract<"a" | "b" | "c", "a" | "f">;
 type T3 = NonNullable<string | number | null | undefined>;
 // string | number`;
 
-  decoratorsCode = `// Class decorator
+  decoratorsCode = `// WHAT ARE DECORATORS?
+// Decorators are special functions that add extra functionality to classes, methods, or properties
+// Think of them like "stickers" you put on code to modify its behavior
+// Syntax: @decoratorName goes right above what you want to decorate
+
+// ========================================
+// 1. CLASS DECORATOR
+// ========================================
+// Runs when the class is defined (not when you create an instance)
+// Used to modify or lock down the entire class
+
 function sealed(constructor: Function) {
-  Object.seal(constructor);
-  Object.seal(constructor.prototype);
+  // Object.seal prevents adding/removing properties
+  Object.seal(constructor);           // Seal the class itself
+  Object.seal(constructor.prototype); // Seal the class methods
 }
 
-@sealed
+@sealed  // This decorator runs immediately when BugReport is defined
 class BugReport {
   type = "report";
   title: string;
@@ -714,15 +741,26 @@ class BugReport {
     this.title = t;
   }
 }
+// Now you can't add new properties to BugReport class
 
-// Method decorator
+// ========================================
+// 2. METHOD DECORATOR
+// ========================================
+// Wraps a method to add behavior before/after it runs
+// Perfect for logging, validation, error handling
+
 function log(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-  const originalMethod = descriptor.value;
+  // target = the class
+  // propertyKey = method name ("add")
+  // descriptor = object that describes the method
 
+  const originalMethod = descriptor.value; // Save the original method
+
+  // Replace the method with a new version
   descriptor.value = function(...args: any[]) {
-    console.log(\`Calling \${propertyKey} with\`, args);
-    const result = originalMethod.apply(this, args);
-    console.log(\`Result:\`, result);
+    console.log(\`Calling \${propertyKey} with\`, args);  // Log before
+    const result = originalMethod.apply(this, args);      // Call original
+    console.log(\`Result:\`, result);                      // Log after
     return result;
   };
 
@@ -730,34 +768,66 @@ function log(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
 }
 
 class Calculator {
-  @log
+  @log  // Wraps the add method with logging
   add(a: number, b: number): number {
     return a + b;
   }
 }
 
-// Property decorator
+const calc = new Calculator();
+calc.add(5, 3);
+// Output:
+// Calling add with [5, 3]
+// Result: 8
+
+// ========================================
+// 3. PROPERTY DECORATOR
+// ========================================
+// Modifies how a property behaves
+// Can make properties readonly, validate values, etc.
+
 function readonly(target: any, propertyKey: string) {
+  // target = the class prototype
+  // propertyKey = property name ("name")
+
   Object.defineProperty(target, propertyKey, {
-    writable: false
+    writable: false  // Makes the property read-only
   });
 }
 
 class Person {
-  @readonly
+  @readonly  // Makes 'name' property read-only
   name: string = "John";
 }
 
-// Parameter decorator
+const person = new Person();
+// person.name = "Jane"; // ERROR: Cannot assign to read-only property
+
+// ========================================
+// 4. PARAMETER DECORATOR
+// ========================================
+// Adds metadata about method parameters
+// Used for validation, dependency injection
+
 function required(target: any, propertyKey: string, parameterIndex: number) {
+  // target = the class
+  // propertyKey = method name ("greet")
+  // parameterIndex = position of parameter (0 for first param)
+
   console.log(\`Parameter at index \${parameterIndex} is required\`);
+  // In real apps, you'd store this info and validate later
 }
 
 class Greeter {
-  greet(@required name: string) {
+  greet(@required name: string) {  // Marks 'name' parameter as required
     return \`Hello, \${name}\`;
   }
-}`;
+}
+
+// REAL-WORLD EXAMPLE: Angular uses decorators heavily!
+// @Component({ selector: 'app-root' })  <- Class decorator
+// @Input() name: string;                <- Property decorator
+// @Output() clicked = new EventEmitter(); <- Property decorator`;
 
   modulesCode = `// Exporting
 // math.ts

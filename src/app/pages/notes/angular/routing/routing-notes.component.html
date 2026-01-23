@@ -1,0 +1,86 @@
+<app-layout>
+  <app-back-nav backLink="/notes/angular" backText="Back to Angular Notes"></app-back-nav>
+  
+  <app-topic-header 
+    title="Angular Routing & Navigation" 
+    description="Master routing and navigation in Angular applications.">
+  </app-topic-header>
+
+  <div>
+    <!-- Quick Reference -->
+    <app-content-section title="Quick Reference" description="Navigate to any topic quickly.">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <a *ngFor="let topic of quickRefTopics" 
+           (click)="scrollToSection(topic.id)" 
+           class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
+          <span class="text-accent font-semibold">{{ topic.number }}.</span> {{ topic.title }}
+        </a>
+      </div>
+    </app-content-section>
+
+    <!-- Basic Routing -->
+    <app-content-section id="basic-routing" title="1. Basic Routing" description="Set up routes and navigation.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">Routing enables single-page applications with multiple views. Essential for any Angular app with navigation.</p>
+      </app-info-box>
+      <app-code-block [code]="basicRoutingCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+    <!-- Route Parameters -->
+    <app-content-section id="route-parameters" title="2. Route Parameters" description="Pass data through URL parameters.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">Route parameters allow passing dynamic data in URLs like /user/123. Essential for detail pages and dynamic content.</p>
+      </app-info-box>
+      <app-code-block [code]="routeParametersCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+    <!-- Query Parameters -->
+    <app-content-section id="query-params" title="3. Query Parameters" description="Handle query strings in URLs.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">Query params enable filtering, searching, and pagination. Perfect for optional parameters that don't affect route structure.</p>
+      </app-info-box>
+      <app-code-block [code]="queryParamsCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+    <!-- Child Routes -->
+    <app-content-section id="child-routes" title="4. Child Routes" description="Nest routes within parent routes.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">Child routes enable nested navigation and layouts. Perfect for sections with sub-pages like admin panels or product catalogs.</p>
+      </app-info-box>
+      <app-code-block [code]="childRoutesCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+    <!-- Lazy Loading -->
+    <app-content-section id="lazy-loading" title="5. Lazy Loading" description="Load modules on demand.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">Lazy loading reduces initial bundle size and improves app performance by loading modules only when needed.</p>
+      </app-info-box>
+      <app-code-block [code]="lazyLoadingCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+    <!-- Route Guards -->
+    <app-content-section id="route-guards" title="6. Route Guards" description="Protect routes with guards.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">Guards protect routes from unauthorized access. Essential for authentication and authorization in your app.</p>
+      </app-info-box>
+      <app-code-block [code]="routeGuardsCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+    <!-- Programmatic Navigation -->
+    <app-content-section id="programmatic-nav" title="7. Programmatic Navigation" description="Navigate using Router service.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">Programmatic navigation enables navigation after form submissions, API calls, or business logic execution.</p>
+      </app-info-box>
+      <app-code-block [code]="programmaticNavigationCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+    <!-- RouterLinkActive -->
+    <app-content-section id="router-link-active" title="8. RouterLinkActive" description="Highlight active navigation links.">
+      <app-info-box type="success" title="✅ Why Important?">
+        <p class="text-secondary text-sm">RouterLinkActive provides visual feedback showing users their current location in the app navigation.</p>
+      </app-info-box>
+      <app-code-block [code]="routerLinkActiveCode" language="typescript"></app-code-block>
+    </app-content-section>
+
+  </div>
+</app-layout>

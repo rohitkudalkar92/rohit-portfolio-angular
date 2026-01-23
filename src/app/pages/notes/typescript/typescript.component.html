@@ -9,47 +9,21 @@
   <div>
     <!-- Quick Reference -->
     <app-content-section title="Quick Reference" description="Navigate to any topic quickly.">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-        <a (click)="scrollToSection('basics')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
-          <span class="text-accent font-semibold">1.</span> TypeScript Basics
-        </a>
-        <a (click)="scrollToSection('types')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
-          <span class="text-accent font-semibold">2.</span> Basic Types
-        </a>
-        <a (click)="scrollToSection('interfaces')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
-          <span class="text-accent font-semibold">3.</span> Interfaces
-        </a>
-        <a (click)="scrollToSection('type-aliases')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
-          <span class="text-accent font-semibold">4.</span> Type Aliases
-        </a>
-        <a (click)="scrollToSection('classes')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
-          <span class="text-accent font-semibold">5.</span> Classes
-        </a>
-        <a (click)="scrollToSection('generics')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
-          <span class="text-accent font-semibold">6.</span> Generics
-        </a>
-        <a (click)="scrollToSection('enums')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
-          <span class="text-accent font-semibold">7.</span> Enums
-        </a>
-        <a (click)="scrollToSection('union-types')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
-          <span class="text-accent font-semibold">8.</span> Union Types
-        </a>
-        <a (click)="scrollToSection('intersection-types')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
-          <span class="text-accent font-semibold">9.</span> Intersection Types
-        </a>
-        <a (click)="scrollToSection('type-guards')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
-          <span class="text-accent font-semibold">10.</span> Type Guards
-        </a>
-        <a (click)="scrollToSection('utility-types')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
-          <span class="text-accent font-semibold">11.</span> Utility Types
-        </a>
-        <a (click)="scrollToSection('decorators')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
-          <span class="text-accent font-semibold">12.</span> Decorators
-        </a>
-        <a (click)="scrollToSection('modules')" class="glass p-3 rounded-lg hover:opacity-80 transition-opacity cursor-pointer">
-          <span class="text-accent font-semibold">13.</span> Modules
-        </a>
-      </div>
+      <app-quick-reference [topics]="quickRefTopics" (topicClick)="scrollToSection($event)"></app-quick-reference>
+    </app-content-section>
+
+    <!-- Overview -->
+    <app-content-section title="TypeScript Overview" description="Why TypeScript matters for modern development.">
+      <app-info-box type="info" title="🚀 TypeScript Benefits">
+        <ul class="text-secondary text-sm space-y-1 list-disc list-inside">
+          <li><strong>Type Safety:</strong> Catch errors at compile time, not runtime</li>
+          <li><strong>Better IDE Support:</strong> IntelliSense, autocomplete, and refactoring</li>
+          <li><strong>Self-Documenting:</strong> Types serve as inline documentation</li>
+          <li><strong>Scalability:</strong> Easier to maintain large codebases</li>
+          <li><strong>Modern Features:</strong> Latest JavaScript features + type system</li>
+          <li><strong>Framework Support:</strong> Used by Angular, React, Vue, and more</li>
+        </ul>
+      </app-info-box>
     </app-content-section>
 
     <!-- TypeScript Basics -->

@@ -1,9 +1,30 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { TitleService } from '../../../title.service';
+import { QuickReferenceComponent } from '../../../common/quick-reference/quick-reference.component';
+import { LayoutComponent } from '../../../common/layout/layout.component';
+import { BackNavComponent } from '../../../common/back-nav/back-nav.component';
+import { TopicHeaderComponent } from '../../../common/topic-header/topic-header.component';
+import { ContentSectionComponent } from '../../../common/content-section/content-section.component';
+import { InfoBoxComponent } from '../../../common/info-box/info-box.component';
+import { ParagraphComponent } from '../../../common/paragraph/paragraph.component';
+import { CodeBlockComponent } from '../../../common/code-block/code-block.component';
 
 @Component({
   selector: 'app-es6',
-  templateUrl: './es6.component.html'
+  templateUrl: './es6.component.html',
+  standalone: true,
+  imports: [
+    CommonModule,
+    QuickReferenceComponent,
+    LayoutComponent,
+    BackNavComponent,
+    TopicHeaderComponent,
+    ContentSectionComponent,
+    InfoBoxComponent,
+    ParagraphComponent,
+    CodeBlockComponent
+  ]
 })
 export class ES6Component implements OnInit {
 
@@ -858,9 +879,36 @@ ES2024 features demonstrated!
 Received data: Hello from event!
 Promise resolved after 1 second!`;
 
+  quickRefTopics = [
+    { id: 'let-const', number: 1, title: 'let & const' },
+    { id: 'arrow-functions', number: 2, title: 'Arrow Functions' },
+    { id: 'template-literals', number: 3, title: 'Template Literals' },
+    { id: 'destructuring', number: 4, title: 'Destructuring' },
+    { id: 'spread-rest', number: 5, title: 'Spread & Rest' },
+    { id: 'default-params', number: 6, title: 'Default Parameters' },
+    { id: 'classes', number: 7, title: 'Classes' },
+    { id: 'modules', number: 8, title: 'Modules' },
+    { id: 'promises', number: 9, title: 'Promises & Async/Await' },
+    { id: 'for-of', number: 10, title: 'for...of Loops' },
+    { id: 'map-set', number: 11, title: 'Map & Set' },
+    { id: 'string-array', number: 12, title: 'String & Array Methods' },
+    { id: 'object-enhancements', number: 13, title: 'Object Enhancements' },
+    { id: 'optional-chaining', number: 14, title: 'Optional Chaining (ES2020)' },
+    { id: 'private-fields', number: 15, title: 'Private Fields (ES2022)' },
+    { id: 'array-es2023', number: 16, title: 'Array Methods (ES2023)' },
+    { id: 'es2024', number: 17, title: 'ES2024 Features' }
+  ];
+
   constructor(private titleService: TitleService) {}
 
   ngOnInit(): void {
     this.titleService.setTitle('ES6 Modern JavaScript - My Notes');
+  }
+
+  scrollToSection(sectionId: string): void {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }

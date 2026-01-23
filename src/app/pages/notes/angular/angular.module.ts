@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { AngularDetailsComponent } from './angular-details.component';
 import { ServicesNotesComponent } from './services/services-notes.component';
 import { DirectivesNotesComponent } from './directives/directives-notes.component';
+import { RoutingNotesComponent } from './routing/routing-notes.component';
 import { LayoutComponent } from '../../../common/layout/layout.component';
 import { BackNavComponent } from '../../../common/back-nav/back-nav.component';
 import { PageHeaderComponent } from '../../../common/page-header/page-header.component';
@@ -19,14 +20,16 @@ import { PracticeExerciseComponent } from '../../../common/practice-exercise/pra
 const routes = [
   { path: '', component: AngularDetailsComponent },
   { path: 'services', component: ServicesNotesComponent },
-  { path: 'directives', component: DirectivesNotesComponent }
+  { path: 'directives', component: DirectivesNotesComponent },
+  { path: 'routing', component: RoutingNotesComponent }
 ];
 
 @NgModule({
   declarations: [
     AngularDetailsComponent,
     ServicesNotesComponent,
-    DirectivesNotesComponent
+    DirectivesNotesComponent,
+    RoutingNotesComponent
   ],
   imports: [
     CommonModule,

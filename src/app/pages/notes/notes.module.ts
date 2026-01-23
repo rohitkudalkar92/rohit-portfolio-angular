@@ -37,6 +37,8 @@ import { PageHeaderComponent } from '../../common/page-header/page-header.compon
 import { ButtonComponent } from '../../common/button/button.component';
 import { ParagraphComponent } from '../../common/paragraph/paragraph.component';
 
+import { QuickReferenceComponent } from '../../common/quick-reference/quick-reference.component';
+
 const routes = [
   { path: '', component: NotesComponent },
   { path: 'python', component: PythonDetailsComponent },
@@ -76,7 +78,6 @@ const routes = [
     ConditionalStatementsNotesComponent,
     LoopsNotesComponent,
     CleanCodeComponent,
-    ES6Component,
     TypeScriptComponent,
     ReactComponent,
     SystemDesignComponent,
@@ -86,6 +87,7 @@ const routes = [
     CommonModule,
     FormsModule,
     RouterModule.forChild(routes),
+    ES6Component,
     LayoutComponent,
     BackNavComponent,
     CodeBlockComponent,
@@ -100,7 +102,8 @@ const routes = [
     TopicsListComponent,
     PageHeaderComponent,
     ButtonComponent,
-    ParagraphComponent
+    ParagraphComponent,
+    QuickReferenceComponent
   ]
 })
 export class NotesModule { }
